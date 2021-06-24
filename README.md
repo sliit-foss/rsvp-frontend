@@ -1,3 +1,6 @@
+# RSVP Frontend
+[Figma Design URL](https://www.figma.com/file/WrmZtwfW51z9ao3YM9cpHc/RSVP-frontend?node-id=28%3A344)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
