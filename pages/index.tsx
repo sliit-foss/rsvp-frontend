@@ -1,5 +1,4 @@
 import Layout from '../components/Layout'
-import Container from '../components/Layout/Container'
 import Navbar from '../components/Navbar'
 
 // modules
@@ -9,7 +8,6 @@ const Homepage = () => {
   return (
     <Layout title='Home'>
       <Navbar />
-      {/* hero section */}
       <HeroSection />
     </Layout>
   )
