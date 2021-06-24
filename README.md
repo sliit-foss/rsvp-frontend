@@ -1,4 +1,8 @@
-# SLIIT RSVP FRONTEND
+# RSVP Frontend
+
+[Figma Design URL](https://www.figma.com/file/WrmZtwfW51z9ao3YM9cpHc/RSVP-frontend?node-id=28%3A344)
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ![rsvp-frontend](https://socialify.git.ci/sliit-foss/rsvp-frontend/image?description=1&forks=1&language=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Light)
 
