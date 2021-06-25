@@ -3,7 +3,7 @@ interface props {
 }
 
 const Container = ({ children }: props) => {
-  return <div className='max-w-7xl mx-auto px-4'>{children}</div>
+  return <div className='max-w-7xl mx-auto sm:px-4 px-6'>{children}</div>
 }
 
 export default Container
