@@ -26,7 +26,12 @@ const Navbar = () => {
           <div className='sm:h-20 h-14 sm:w-32 w-16 flex items-center'>
             <Link href='/'>
               <a>
-                <Image src={foss_dark} alt='foss logo' layout='intrinsic' />
+                <Image
+                  src={foss_dark}
+                  alt='foss logo'
+                  layout='intrinsic'
+                  quality={90}
+                />
               </a>
             </Link>
           </div>
@@ -75,7 +80,10 @@ const Navbar = () => {
               isOpen ? `min-h-screen` : `h-0`
             } w-full transition-all ease-in bg-blue flex flex-col items-center justify-center`}
           >
-            <div className='absolute top-4 right-4' onClick={toggleNav}>
+            <div
+              className='absolute top-4 right-4 cursor-pointer'
+              onClick={toggleNav}
+            >
               {isOpen ? (
                 <RiCloseFill className='h-6 w-6 hover:text-gray-light text-white transition ease-in' />
               ) : (
@@ -83,7 +91,12 @@ const Navbar = () => {
               )}
             </div>
             <div className='h-32 w-48 flex items-center mb-5'>
-              <Image src={foss_light} alt='foss logo' layout='intrinsic' />
+              <Image
+                src={foss_light}
+                alt='foss logo'
+                layout='intrinsic'
+                quality={90}
+              />
             </div>
             <ul className='flex flex-col items-center justify-center space-y-6'>
               <li
