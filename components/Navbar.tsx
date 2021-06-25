@@ -60,10 +60,10 @@ const Navbar = () => {
                 className='block lg:hidden z-20 cursor-pointer transition ease-in'
                 onClick={toggleNav}
               >
-                {isOpen ? (
-                  <RiCloseFill className='h-6 w-6 hover:text-gray-light text-white transition ease-in' />
-                ) : (
+                {!isOpen ? (
                   <HiMenuAlt2 className='h-6 w-6 hover:text-gray-default transition ease-in' />
+                ) : (
+                  ''
                 )}
               </li>
             </ul>
@@ -71,10 +71,17 @@ const Navbar = () => {
         </div>
         {isOpen ? (
           <div
-            className={`absolute top-0 left-0 z-10 ${
+            className={`fixed top-0 left-0 z-10 ${
               isOpen ? `min-h-screen` : `h-0`
             } w-full transition-all ease-in bg-blue flex flex-col items-center justify-center`}
           >
+            <div className='absolute top-4 right-4' onClick={toggleNav}>
+              {isOpen ? (
+                <RiCloseFill className='h-6 w-6 hover:text-gray-light text-white transition ease-in' />
+              ) : (
+                ''
+              )}
+            </div>
             <div className='h-32 w-48 flex items-center mb-5'>
               <Image src={foss_light} alt='foss logo' layout='intrinsic' />
             </div>
