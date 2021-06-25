@@ -13,7 +13,8 @@ module.exports = {
       gray: {
         default: '#6C7075',
         light: '#DFDFDF',
-      }
+      },
+      colorIcon: '#BABABA',
     },
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
@@ -23,7 +24,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-}
+  plugins: [require('@tailwindcss/forms')],
+};
