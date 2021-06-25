@@ -25,10 +25,10 @@ const HeroSection = () => {
             </h1>
             <div className='inline-flex items-center space-x-2'>
               <p className='font-medium'>Programming</p>
-              <div className='text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl'>
+              <div className='text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md'>
                 #JavaScript
               </div>
-              <div className='text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl'>
+              <div className='text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md'>
                 #SLIITFOSS
               </div>
             </div>
