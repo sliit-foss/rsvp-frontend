@@ -4,9 +4,8 @@ import Navbar from '../components/Navbar'
 // modules
 import HeroSection from '../modules/HomePage/hero'
 import MakeGoodThings from '../modules/HomePage/makeGoodThings'
-
+import OurPartners from '../modules/HomePage/ourPartners'
 import WhatWeDo from '../modules/HomePage/WhatWeDo'
-
 
 const Homepage = () => {
   return (
@@ -14,9 +13,8 @@ const Homepage = () => {
       <Navbar />
       <HeroSection />
       <MakeGoodThings />
-
       <WhatWeDo />
-
+      <OurPartners />
     </Layout>
   )
 }

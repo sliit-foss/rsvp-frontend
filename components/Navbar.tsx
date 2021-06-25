@@ -80,7 +80,10 @@ const Navbar = () => {
               isOpen ? `min-h-screen` : `h-0`
             } w-full transition-all ease-in bg-blue flex flex-col items-center justify-center`}
           >
-            <div className='absolute top-4 right-4' onClick={toggleNav}>
+            <div
+              className='absolute top-4 right-4 cursor-pointer'
+              onClick={toggleNav}
+            >
               {isOpen ? (
                 <RiCloseFill className='h-6 w-6 hover:text-gray-light text-white transition ease-in' />
               ) : (

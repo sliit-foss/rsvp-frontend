@@ -7,17 +7,13 @@ import makeGoodThings from '../../public/make-good-things.svg'
 const MakeGoodThings = () => {
   return (
     <Container>
-
-      <section className='grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 py-16'>
-
+      <section className='grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 md:py-24 py-16'>
         <div className='md:col-span-1 flex items-center justify-center max-w-lg lg:w-auto sm:w-80 w-64 mx-auto my-8'>
           <Image
             src={makeGoodThings}
             alt='make good things'
             layout='intrinsic'
-
             quality={90}
-
           />
         </div>
         <div className='md:col-span-1 flex flex-col justify-center'>
@@ -31,7 +27,6 @@ const MakeGoodThings = () => {
             consequatur animi ipsa sed veniam.
           </p>
           <div className='inline-flex justify-center md:justify-start space-x-2'>
-
             <div className='text-gray-default text-xs bg-gray-light py-1 px-3 rounded-2xl shadow-md'>
               #SLIITFOSS
             </div>
@@ -39,7 +34,6 @@ const MakeGoodThings = () => {
               #MSCLUBOFSLIIT
             </div>
             <div className='text-gray-default text-xs bg-gray-light py-1 px-3 rounded-2xl shadow-md'>
-
               #SLIITFCSC
             </div>
           </div>
