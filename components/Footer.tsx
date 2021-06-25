@@ -65,7 +65,7 @@ return (
 
     <div className="relative sm:w-full lg:w-1/3">
          <div className='w-full h-1/4 md:mb-4 lg:mb-3'>
-            <div className='lg:pt-14'>
+            <div className='lg:pt-14 pb-5'>
                 <h4 className='relative left-10 w-1/2 sm:w-1/2 md:w-1/2 text-xl font-bold mb-1 text-white'>Subcribe</h4>
                 <span className='absolute left-10 bg-white w-16 h-1 rounded-xl'/>
             </div>
