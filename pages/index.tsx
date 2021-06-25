@@ -4,8 +4,9 @@ import Navbar from '../components/Navbar'
 // modules
 import HeroSection from '../modules/HomePage/hero'
 import MakeGoodThings from '../modules/HomePage/makeGoodThings'
-import OurPartners from '../modules/HomePage/ourPartners'
 import WhatWeDo from '../modules/HomePage/WhatWeDo'
+import OurPartners from '../modules/HomePage/ourPartners'
+import Footer from '../components/Footer'
 
 const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage = () => {
       <MakeGoodThings />
       <WhatWeDo />
       <OurPartners />
+      <Footer/>
     </Layout>
   )
 }
