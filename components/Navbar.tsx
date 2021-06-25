@@ -26,7 +26,12 @@ const Navbar = () => {
           <div className='sm:h-20 h-14 sm:w-32 w-16 flex items-center'>
             <Link href='/'>
               <a>
-                <Image src={foss_dark} alt='foss logo' layout='intrinsic' />
+                <Image
+                  src={foss_dark}
+                  alt='foss logo'
+                  layout='intrinsic'
+                  quality={90}
+                />
               </a>
             </Link>
           </div>
@@ -83,7 +88,12 @@ const Navbar = () => {
               )}
             </div>
             <div className='h-32 w-48 flex items-center mb-5'>
-              <Image src={foss_light} alt='foss logo' layout='intrinsic' />
+              <Image
+                src={foss_light}
+                alt='foss logo'
+                layout='intrinsic'
+                quality={90}
+              />
             </div>
             <ul className='flex flex-col items-center justify-center space-y-6'>
               <li
