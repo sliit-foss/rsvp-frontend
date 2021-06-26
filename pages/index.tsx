@@ -19,6 +19,6 @@ const Homepage = () => {
       <Footer />
     </Layout>
   )
-}
+};
 
 export default Homepage
