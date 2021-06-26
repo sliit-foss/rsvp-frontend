@@ -1,74 +1,74 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
-import Container from './Layout/Container'
+import Container from "./Layout/Container";
 
-import foss_dark from '../public/logos/foss_dark.svg'
-import foss_light from '../public/logos/foss_light.svg'
+import foss_dark from "../public/logos/foss_dark.svg";
+import foss_light from "../public/logos/foss_light.svg";
 
 // icons
-import { HiMenuAlt2 } from 'react-icons/hi'
-import { RiCloseFill } from 'react-icons/ri'
+import { HiMenuAlt2 } from "react-icons/hi";
+import { RiCloseFill } from "react-icons/ri";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+const Navbar = (): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
-    <header className='relative'>
+    <header className="relative">
       <Container>
-        <div className='relative flex justify-between items-center'>
-          <div className='sm:h-20 h-14 sm:w-32 w-16 flex items-center'>
-            <Link href='/'>
+        <div className="relative flex justify-between items-center">
+          <div className="sm:h-20 h-14 sm:w-32 w-16 flex items-center">
+            <Link href="/">
               <a>
                 <Image
                   src={foss_dark}
-                  alt='foss logo'
-                  layout='intrinsic'
+                  alt="foss logo"
+                  layout="intrinsic"
                   quality={90}
                 />
               </a>
             </Link>
           </div>
 
-          <h3 className='absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold'>
+          <h3 className="absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold">
             SLIIT RSVP PORTAL
           </h3>
           <nav>
-            <ul className='inline-flex space-x-6'>
-              <li className='hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in'>
-                <Link href='/'>
+            <ul className="inline-flex space-x-6">
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
-              <li className='hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in'>
-                <Link href='/event'>
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/event">
                   <a>Events</a>
                 </Link>
               </li>
-              <li className='hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in'>
-                <Link href='/clubs'>
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/clubs">
                   <a>Clubs</a>
                 </Link>
               </li>
-              <li className='hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in'>
-                <Link href='/contact'>
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/contact">
                   <a>Contact</a>
                 </Link>
               </li>
               <li
-                className='block lg:hidden z-20 cursor-pointer transition ease-in'
+                className="block lg:hidden z-20 cursor-pointer transition ease-in"
                 onClick={toggleNav}
               >
                 {!isOpen ? (
-                  <HiMenuAlt2 className='h-6 w-6 hover:text-gray-default transition ease-in' />
+                  <HiMenuAlt2 className="h-6 w-6 hover:text-gray-default transition ease-in" />
                 ) : (
-                  ''
+                  ""
                 )}
               </li>
             </ul>
@@ -81,64 +81,64 @@ const Navbar = () => {
             } w-full transition-all ease-in bg-blue flex flex-col items-center justify-center`}
           >
             <div
-              className='absolute top-4 right-4 cursor-pointer'
+              className="absolute top-4 right-4 cursor-pointer"
               onClick={toggleNav}
             >
               {isOpen ? (
-                <RiCloseFill className='h-6 w-6 hover:text-gray-light text-white transition ease-in' />
+                <RiCloseFill className="h-6 w-6 hover:text-gray-light text-white transition ease-in" />
               ) : (
-                ''
+                ""
               )}
             </div>
-            <div className='h-32 w-48 flex items-center mb-5'>
+            <div className="h-32 w-48 flex items-center mb-5">
               <Image
                 src={foss_light}
-                alt='foss logo'
-                layout='intrinsic'
+                alt="foss logo"
+                layout="intrinsic"
                 quality={90}
               />
             </div>
-            <ul className='flex flex-col items-center justify-center space-y-6'>
+            <ul className="flex flex-col items-center justify-center space-y-6">
               <li
-                className='font-medium text-2xl hover:text-gray-light text-white transition ease-in'
+                className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                 onClick={() => setIsOpen(false)}
               >
-                <Link href='/'>
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
               <li
-                className='font-medium text-2xl hover:text-gray-light text-white transition ease-in'
+                className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                 onClick={() => setIsOpen(false)}
               >
-                <Link href='/event'>
+                <Link href="/event">
                   <a>Events</a>
                 </Link>
               </li>
               <li
-                className='font-medium text-2xl hover:text-gray-light text-white transition ease-in'
+                className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                 onClick={() => setIsOpen(false)}
               >
-                <Link href='/clubs'>
+                <Link href="/clubs">
                   <a>Clubs</a>
                 </Link>
               </li>
               <li
-                className='font-medium text-2xl hover:text-gray-light text-white transition ease-in'
+                className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                 onClick={() => setIsOpen(false)}
               >
-                <Link href='/contact'>
+                <Link href="/contact">
                   <a>Contact</a>
                 </Link>
               </li>
             </ul>
           </div>
         ) : (
-          ''
+          ""
         )}
       </Container>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

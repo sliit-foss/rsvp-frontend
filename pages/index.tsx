@@ -1,24 +1,24 @@
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 
 // modules
-import HeroSection from '../modules/HomePage/hero'
-import MakeGoodThings from '../modules/HomePage/makeGoodThings'
-import WhatWeDo from '../modules/HomePage/WhatWeDo'
-import OurPartners from '../modules/HomePage/ourPartners'
-import Footer from '../components/Footer'
+import HeroSection from "../modules/HomePage/hero";
+import MakeGoodThings from "../modules/HomePage/makeGoodThings";
+import WhatWeDo from "../modules/HomePage/WhatWeDo";
+import OurPartners from "../modules/HomePage/ourPartners";
+import Footer from "../components/Footer";
 
-const Homepage = () => {
+const Homepage = (): JSX.Element => {
   return (
-    <Layout title='Home'>
+    <Layout title="Home">
       <Navbar />
       <HeroSection />
       <MakeGoodThings />
       <WhatWeDo />
       <OurPartners />
-      <Footer/>
+      <Footer />
     </Layout>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;
