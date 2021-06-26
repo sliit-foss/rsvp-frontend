@@ -39,6 +39,7 @@ const OurPartners = () => {
               alt='Faculty of computing Student Community'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
 
@@ -48,6 +49,7 @@ const OurPartners = () => {
               alt='SLIIT MS CLUB'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
 
@@ -57,6 +59,7 @@ const OurPartners = () => {
               alt='SLIIT Media'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
 
@@ -66,6 +69,7 @@ const OurPartners = () => {
               alt='SLIIT Mozilla club'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
 
@@ -75,6 +79,7 @@ const OurPartners = () => {
               alt='Cyber security community of SLIIT'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
 
@@ -84,6 +89,7 @@ const OurPartners = () => {
               alt='Software engineering Student community'
               layout='intrinsic'
               quality={90}
+              placeholder='blur'
             />
           </div>
         </div>
