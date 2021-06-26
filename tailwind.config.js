@@ -22,7 +22,11 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      rotate: ['group-hover'],
+      height: ['group-hover'],
+      padding: ['group-hover'],
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };
