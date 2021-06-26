@@ -2,7 +2,7 @@ import Image from "next/image";
 
 //props of Club Components
 interface ClubProps {
-    logo:string,
+    logo:any,
     title:string
 }
 
