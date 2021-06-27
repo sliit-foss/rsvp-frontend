@@ -71,7 +71,7 @@ const Footer = (): JSX.Element => {
             <span className="absolute left-10 bg-white w-16 h-1 rounded-xl" />
           </div>
         </div>
-        <div className="w-full h-4/6 sm:mt-5 sm:mt-5 md:mt-5">
+        <div className="w-full h-4/6 sm:mt-5 md:mt-5">
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque incidunt
