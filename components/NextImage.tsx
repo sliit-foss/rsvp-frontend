@@ -4,10 +4,10 @@ interface ImageProps {
     src: StaticImageData
     alt: string
     quality?: number
-    layout?: 'fixed' | 'responsive' | 'intrinsic' | 'fill' | undefined
-    width?: number | undefined
-    height?: number | undefined
-    placeholder?: 'blur' | 'empty' | undefined
+    layout?: 'fixed' | 'responsive' | 'intrinsic' | 'fill'
+    width?: number
+    height?: number
+    placeholder?: 'blur' | 'empty'
     classnames?: string
 }
 
