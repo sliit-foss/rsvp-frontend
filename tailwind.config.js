@@ -5,6 +5,7 @@ module.exports = {
     colors: {
       black: '#121212',
       textBlack: '#202020',
+      textBlackSecondary: '#3D3D3D',
       white: '#ffffff',
       blue: '#005BDC',
       bgWhite: '#F4F3F5',
@@ -19,7 +20,13 @@ module.exports = {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
     },
-    extend: {},
+    boxShadow:{
+      'ds1': '10px 4px 20px rgba(0, 0, 0, 0.25)',
+      'ds2': '0px 0px 20px rgba(155, 155, 155, 0.4)'
+    },
+    extend: {
+
+    },
   },
   variants: {
     extend: {
