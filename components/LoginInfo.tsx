@@ -9,10 +9,10 @@ interface LoginInfoProps {
 const LoginInfo = (props:LoginInfoProps): JSX.Element => {
  if(props.login){
     return(
-        <div>
+        <div className="flex flex-col items-center justify-center">
             <p className="text-center mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam vitae non elementum tincidunt. </p>
             <NextImage
-                classnames="w-full mb-6"
+                classnames="mb-6"
                 src={loginImage}
                 alt="sign up"
                 layout="intrinsic"
@@ -22,10 +22,10 @@ const LoginInfo = (props:LoginInfoProps): JSX.Element => {
     )
  } else {
     return(
-         <div>
+         <div className="flex flex-col items-center justify-center lg:w-6/12">
             <p className="text-center mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam vitae non elementum tincidunt. </p>
             <NextImage
-                classnames="w-full mb-6"
+                classnames="mb-6"
                 src={signupImage}
                 alt="sign up"
                 layout="intrinsic"
