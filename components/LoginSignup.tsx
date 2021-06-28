@@ -6,17 +6,26 @@ import NextImage from './NextImage';
 
 const LoginSignup = (): JSX.Element => {
  return(
-        <div className="container bg-white w-5/6 h-5/6 shadow-ds1 rounded-3xl">
-            <h1 className="text-black font-extrabold text-6xl">
+        <div className="w-full h-full mx-2 my-2 bg-white p-5 rounded-3xl shadow-ds2 grid row-span-1">
+            <h1 className="text-black text-3xl font-extrabold justify-self-center mb-4">
                 SLIIT RSVP PORTAL
             </h1>
-            <div className="flex">
-                <div className="w-2/4 flex flex-col items-center">
-                    <h2 className="text-5xl font-extrabold text-blue font-inter">Sign Up</h2>
-                    <p className="text-textBlackSecondary font-medium text-lg">Sign up to access the best things!</p>
-                    <button className="shadow-ds2 flex flex-row">
+            <div className="">
+                <p className="font-inter font-medium text-center pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam vitae non elementum tincidunt.</p>
+                <NextImage
+                    classnames="pb-8"
+                    src={loginImage}
+                    alt="sign up"
+                    layout="intrinsic"
+                    quality={90}
+                />
+            </div>
+            <div className="flex flex-col items-center">
+                    <h2 className="font-inter font-extrabold text-blue font-inter text-2xl">Sign Up</h2>
+                    <p className="font-inter text-textBlackSecondary font-medium mb-6">Sign up to access the best things!</p>
+                    <button className="shadow-ds2 flex flex-row w-full h-10 rounded-lg flex items-center justify-center leading-4 font-semibold font-inter text-sm mb-4">
                         <NextImage
-                            classnames=""
+                            classnames="w-4 h-4 mr-4 line"
                             src={googleLogo}
                             alt="sign up"
                             layout="intrinsic"
@@ -24,36 +33,18 @@ const LoginSignup = (): JSX.Element => {
                         />
                         Sign up with Google
                     </button>
-                    <div className="flex justify-between">
-                        <span className="border-t-2 text-black"></span>
-                        <p>or Sign up with Email</p>
-                        <span></span>
-                    </div>
-                    <form className="flex flex-col">
-                        <input type="text" className="shadow-ds2 mt-4 w-full"></input>
-                        <input type="text" className="shadow-ds2 mt-4 w-full"></input>
-                        <input type="text" className="shadow-ds2 mt-4 w-full"></input>
-                        <input type="text" className="shadow-ds2 mt-4 w-full"></input>
-                        <button>Sign Up</button>
+                    <p className="text-gray-login text-sm">or Signup with Email</p>
+                    <form className="flex flex-col w-full">
+                        <input type="text" placeholder="User Name" className="shadow-ds2 mt-4 border-none text-xs font-semibold"></input>
+                        <input type="text" placeholder="Email" className="shadow-ds2 mt-4 border-none text-xs font-semibold"></input>
+                        <input type="text" placeholder="Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold"></input>
+                        <input type="text" placeholder="Confirm Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold"></input>
+                        <button className="w-full bg-lightBlue rounded-lg font-inter text-lg leading-6 text-white font-semibold h-12 mt-4 mb-2">Sign Up</button>
                     </form>
-                    <p>Already have an account? <span>login</span></p>
+                    <div className="w-full">
+                        <p className="text-xs text-left font-semibold">Already have an account? <span className="text-blue">login</span></p>
+                    </div>
                 </div>
-                <div
-                    style={{backgroundImage: "url(/patterns/line-break.svg)"}}
-                    className="bg-no-repeat"
-                >
-                </div>
-                <div className="w-2/4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam vitae non elementum tincidunt.</p>
-                    <NextImage
-                        classnames="md:col-span-1 flex items-center justify-center max-w-lg lg:w-auto sm:w-80 w-64 mx-auto my-8"
-                        src={loginImage}
-                        alt="sign up"
-                        layout="intrinsic"
-                        quality={90}
-                    />
-                </div>
-            </div>
         </div>
  );   
 }
