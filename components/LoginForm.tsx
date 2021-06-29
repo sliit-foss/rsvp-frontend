@@ -7,7 +7,7 @@ interface LoginFormProps {
 }
 
 const signupFormFields = <form className="flex flex-col w-full lg:w-4/5">
-     <input type="text" placeholder="User Name" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
+    <input type="text" placeholder="User Name" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
     <input type="text" placeholder="Email" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
     <input type="text" placeholder="Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
     <input type="text" placeholder="Confirm Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
