@@ -1,16 +1,16 @@
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 // modules
-import HeroSection from '../modules/HomePage/hero'
-import MakeGoodThings from '../modules/HomePage/makeGoodThings'
+import HeroSection from '../modules/HomePage/HeroSection'
+import MakeGoodThings from '../modules/HomePage/MakeGoodThings'
 import WhatWeDo from '../modules/HomePage/WhatWeDo'
-import OurPartners from '../modules/HomePage/ourPartners'
+import OurPartners from '../modules/HomePage/OurPartners'
+import Footer from '../components/Footer'
 
-const Homepage = () => {
+const Homepage = (): JSX.Element => {
   return (
-    <Layout title='SLIIT RSVP'>
+    <Layout title="Home">
       <Navbar />
       <HeroSection />
       <MakeGoodThings />
