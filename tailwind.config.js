@@ -6,6 +6,7 @@ module.exports = {
       black: '#121212',
       textBlack: '#202020',
       textBlackSecondary: '#3D3D3D',
+      textBlackTertiary: '#4F4F4F',
       white: '#ffffff',
       blue: '#005BDC',
       lightBlue: '#21B3D0',

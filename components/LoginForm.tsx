@@ -27,8 +27,8 @@ const loginFormFields = <form className="flex flex-col w-full lg:w-4/5">
 
 const LoginForm = ({login,loginToggleHandler}:LoginFormProps): JSX.Element => {
     return(
-        <div className="flex flex-col items-center lg:w-6/12">
-            <h2 className="font-inter font-extrabold text-blue font-inter text-3xl mb-2">{login ? 'LOGIN' : 'Sign Up'}</h2>
+        <div className="flex flex-col order-1 lg:order-none items-center lg:w-6/12 lg:justify-center lg:transform lg:scale-90">
+            <h2 className="font-inter font-extrabold text-blue font-inter text-3xl lg:text-2xl mb-2">{login ? 'LOGIN' : 'Sign Up'}</h2>
              <p className="font-inter text-textBlackSecondary font-medium mb-6 text-sm">{login ? 'Login' : 'Sign up'} to access the best things!</p>
                 <button className="shadow-ds2 flex flex-row w-full lg:w-4/5 h-10 rounded-lg flex items-center justify-center leading-4 font-semibold font-inter text-sm mb-6">
                     <NextImage
