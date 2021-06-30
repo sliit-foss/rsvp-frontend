@@ -2,7 +2,7 @@ import Container from '../../components/Layout/Container'
 import NextImage from '../../components/NextImage'
 
 // partners logos
-import { logoData } from '../../lib/logoData'
+import { logoData } from '../../lib/LogoData'
 
 const OurPartners = (): JSX.Element => {
   return (
