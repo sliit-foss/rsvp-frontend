@@ -1,6 +1,6 @@
-import NextImage from './NextImage';
-import signupImage from '../public/signup.svg';
-import loginImage from '../public/login.svg';
+import NextImage from '../NextImage';
+import signupImage from '../../public/signup.svg';
+import loginImage from '../../public/login.svg';
 
 interface LoginInfoProps {
     login: boolean

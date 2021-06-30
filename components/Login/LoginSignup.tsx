@@ -1,7 +1,7 @@
 import LoginForm from './LoginForm';
 import LoginInfo from './LoginInfo';
-import NextImage from './NextImage';
-import lineBreak from '../public/patterns/linebreak.svg'
+import NextImage from '../NextImage';
+import lineBreak from '../../public/patterns/linebreak.svg'
 import {useState} from 'react';
 
 const LoginSignup = (): JSX.Element => {

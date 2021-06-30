@@ -1,5 +1,5 @@
-import NextImage from './NextImage';
-import googleLogo from '../public/logos/google_colour.svg';
+import NextImage from '../NextImage';
+import googleLogo from '../../public/logos/google_colour.svg';
 
 interface LoginFormProps {
     login: boolean

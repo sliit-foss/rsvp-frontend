@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
-import Container from "../components/Layout/Container";
-import LoginSignup from '../components/LoginSignup';
+import LoginSignup from '../components/Login/LoginSignup';
 
 const Loginpage = (): JSX.Element => {
     return(
