@@ -10,6 +10,7 @@ import foss from "../public/clubs/foss.png";
 import mozilla from "../public/clubs/mozilla.png";
 import ms from "../public/clubs/ms.png";
 import sliit from "../public/clubs/sliit.png";
+import wif from "../public/clubs/wif.png";
 
 const ClubsPage = (): JSX.Element => {
   return (
@@ -33,6 +34,10 @@ const ClubsPage = (): JSX.Element => {
             <Club
               logo={ms}
               title="MS Club of SLIIT"
+            />
+            <Club
+              logo={wif}
+              title="SLIIT Women in FOSS Community"
             />
             <Club
               logo={sliit}
