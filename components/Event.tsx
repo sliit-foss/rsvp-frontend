@@ -1,6 +1,6 @@
 import {useEffect } from 'react'
-import Aos from '../node_modules/aos/dist/aos.js'
-import '../node_modules/aos/dist/aos.css'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 import Image from 'next/image'
 

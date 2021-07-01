@@ -1,5 +1,3 @@
-
-
 // components
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
@@ -8,26 +6,27 @@ import Container from '../components/Layout/Container'
 import Event from '../components/Event'
 import NextImage from '../components/NextImage'
 import NavSearch from '../components/NavSearch'
+import FloatingActionButton from '../components/FloatingActionButton'
 
 // images
 import foss from '../public/clubs/foss.png'
 import bg from '../public/events/eventBG.jpg'
+
+//Icons
+import { SiGooglecalendar } from 'react-icons/si'
 
 
 const EventsPage = (): JSX.Element => {
   return (
     <Layout title="SLIIT RSVP | Clubs">
       <Navbar />
-      <NextImage
-      src={bg}
-      alt="SLIIT EVENTS"
-      />
+      <NextImage src={bg} alt="SLIIT EVENTS" />
       <section
         style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}
-        className="bg-no-repeat bg-right-top bg-cover py-10"
+        className="bg-no-repeat bg-right-top bg-cover py-10 "
       >
         <Container>
-          <NavSearch/>
+          <NavSearch />
           <div className="flex flex-wrap px-6">
             <Event
               logo={foss}
@@ -38,7 +37,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="JUNE 1,2021"
             />
-              <Event
+            <Event
               logo={foss}
               title="AWS Bootcamp"
               category="Cloud Comupting"
@@ -48,7 +47,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="JUNE 12,2021"
             />
-              <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -56,7 +55,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
             />
-                <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -64,7 +63,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
             />
-                <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -72,7 +71,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
             />
-                <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -80,7 +79,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
             />
-                <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -88,7 +87,7 @@ const EventsPage = (): JSX.Element => {
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
             />
-                <Event
+            <Event
               logo={foss}
               title="Flutter Bootcamp"
               category="Mobile Dev"
@@ -98,6 +97,13 @@ const EventsPage = (): JSX.Element => {
             />
           </div>
         </Container>
+        <FloatingActionButton
+          icon={
+          <SiGooglecalendar
+            color="white"
+            className="p-5 w-20 h-20"/>
+          }
+        />
       </section>
       <Footer />
     </Layout>
