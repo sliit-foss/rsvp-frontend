@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 interface ImageProps {
   src: StaticImageData
@@ -39,4 +39,4 @@ const NextImage = ({
   )
 }
 
-export default NextImage
+export default NextImage;
