@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-interface props {
+interface LayoutProps {
   children: React.ReactNode
   title: string
 }
 
-const Layout = ({ children, title }: props): JSX.Element => {
+const Layout = ({ children, title }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
