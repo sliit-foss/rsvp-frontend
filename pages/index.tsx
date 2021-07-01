@@ -9,16 +9,16 @@ import OurPartners from '../modules/HomePage/OurPartners'
 import Footer from '../components/Footer'
 
 const Homepage = (): JSX.Element => {
-	return (
-		<Layout title="Home">
-			<Navbar />
-			<HeroSection />
-			<MakeGoodThings />
-			<WhatWeDo />
-			<OurPartners />
-			<Footer />
-		</Layout>
-	)
+  return (
+    <Layout title="Home">
+      <Navbar />
+      <HeroSection />
+      <MakeGoodThings />
+      <WhatWeDo />
+      <OurPartners />
+      <Footer />
+    </Layout>
+  )
 }
 
 export default Homepage

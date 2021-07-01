@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 .colorIcon {
-	color: #bababa;
+  color: #bababa;
 }
 
 ::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
-	background: white;
-	padding-right: 10px;
-	border-radius: 5px;
+  width: 5px;
+  height: 5px;
+  background: white;
+  padding-right: 10px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-	background-color: #053769;
+  border-radius: 5px;
+  background-color: #053769;
 }
