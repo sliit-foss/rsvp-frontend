@@ -1,14 +1,9 @@
 import { GetServerSideProps } from 'next'
-
-// components
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Container from '../components/Layout/Container'
-
 import picture from '../public/dummypost.png'
-
-// modules
 import HappeningNow from '../modules/EventPage/HappeningNow'
 import UpcomingSection from '../modules/EventPage/UpcomingSection'
 
