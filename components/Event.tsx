@@ -28,11 +28,11 @@ const Event = ({
     <div data-aos="fade-up" className="w-full lg:w-2/6  md:px-4 lg:px-6 py-5 ">
       <div className="bg-white hover:shadow-xl h-full rounded-xl">
         <Image
-          className="h-56 w-full border-white border-8 hover:opacity-25 rounded-xl rounded-b-none transition-all ease-out duration-500"
+          className="border-white border-8 hover:opacity-25 rounded-xl rounded-b-none transition-all ease-out duration-500"
           src={logo}
           alt="SLIIT FOSS"
           quality={90}
-          layout="intrinsic"
+          layout="responsive"
           placeholder="blur"
         />
 
@@ -53,15 +53,15 @@ const Event = ({
               {date}
             </div>
             <div className="2/3 mb-3">
-              <div className="text-sm font-medium">
+              <div className="text-sm font-medium  flex flex-wrap">
                 SHARE:
-                <a href="" className="text-blue px-1 ">
-                  FACEBOOK
+                <a href="" className="text-blue  px-0 ">
+                &nbsp;FACEBOOK&nbsp;
                 </a>
-                <a href="" className="text-lightBlue px-1 ">
-                  TWITTER
+                <a href="" className="text-lightBlue px-0 ">
+                  TWITTER&nbsp;&nbsp;
                 </a>
-                <a href="" className="text-redAccent px-1 ">
+                <a href="" className="text-redAccent px-0 ">
                   GOOGLE+
                 </a>
               </div>
