@@ -1,5 +1,9 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}v', './components/**/*.{js,ts,jsx,tsx}', './modules/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './pages/**/*.{js,ts,jsx,tsx}v',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './modules/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
@@ -23,13 +27,11 @@ module.exports = {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
     },
-    boxShadow:{
-      'ds1': '10px 4px 20px rgba(0, 0, 0, 0.25)',
-      'ds2': '0px 0px 20px rgba(155, 155, 155, 0.4)'
+    boxShadow: {
+      ds1: '10px 4px 20px rgba(0, 0, 0, 0.25)',
+      ds2: '0px 0px 20px rgba(155, 155, 155, 0.4)',
     },
-    extend: {
-
-    },
+    extend: {},
   },
   variants: {
     extend: {
@@ -39,4 +41,4 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/forms')],
-};
+}

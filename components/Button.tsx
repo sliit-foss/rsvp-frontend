@@ -10,7 +10,7 @@ const Button = ({ value }: props): JSX.Element => {
     >
       {value}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
