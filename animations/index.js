@@ -1,4 +1,3 @@
-
 export const mobileNavVariants = {
     initial: {
         width: 0
