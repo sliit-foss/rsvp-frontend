@@ -10,6 +10,7 @@ import picture from '../public/dummypost.png'
 
 // modules
 import HappeningNow from '../modules/EventPage/HappeningNow'
+import UpcomingSection from '../modules/EventPage/UpcomingSection'
 
 export interface PostProps {
   userId: number
@@ -37,6 +38,7 @@ const event = ({ posts }: PostsProps): JSX.Element => {
       >
         <Container>
           <HappeningNow posts={posts} picture={picture} />
+          <UpcomingSection posts={posts} picture={picture} />
         </Container>
       </section>
       <Footer />
