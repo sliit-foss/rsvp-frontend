@@ -11,7 +11,7 @@ const signupFormFields = <form className="flex flex-col w-full lg:w-4/5">
     <input type="text" placeholder="Email" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
     <input type="text" placeholder="Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
     <input type="text" placeholder="Confirm Password" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
-</form>
+</form>;
 
 const loginFormFields = <form className="flex flex-col w-full lg:w-4/5">
     <input type="text" placeholder="Email" className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"></input>
@@ -23,7 +23,7 @@ const loginFormFields = <form className="flex flex-col w-full lg:w-4/5">
         </div>
         <a className="text-xs text-blue">Forgot Password</a>
     </div>
-</form>
+</form>;
 
 const LoginForm = ({login,loginToggleHandler}:LoginFormProps): JSX.Element => {
     return(
@@ -48,7 +48,7 @@ const LoginForm = ({login,loginToggleHandler}:LoginFormProps): JSX.Element => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginForm;
 

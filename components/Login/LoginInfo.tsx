@@ -25,7 +25,7 @@ const LoginInfo = (props:LoginInfoProps): JSX.Element => {
                     quality={90}
                 />
             </div>
-        )
+        );
     } else {
         return(
             <div className={outerContainerClass}>
@@ -39,8 +39,8 @@ const LoginInfo = (props:LoginInfoProps): JSX.Element => {
                     quality={90}
                 />
             </div>
-        )
+        );
     }
-}
+};
 
 export default LoginInfo;

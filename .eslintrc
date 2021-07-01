@@ -4,7 +4,12 @@
     "es6": true,
     "node": true
   },
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -15,7 +20,12 @@
   },
   "rules": {
     "no-eval": "error",
-    "no-unused-vars": "error",
-    "no-unused-expressions": "error"
+    "no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    ],
+    "no-unused-expressions": "error",
+    "semi": ["error", "always"],
+    "semi-style": ["error", "last"]
   }
 }
