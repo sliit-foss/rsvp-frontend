@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
 import LoginSignup from '../components/Login/LoginSignup';
 
 const Loginpage = (): JSX.Element => {
@@ -9,6 +9,6 @@ const Loginpage = (): JSX.Element => {
             </div>  
         </Layout>
     );
-}
+};
 
 export default Loginpage;
