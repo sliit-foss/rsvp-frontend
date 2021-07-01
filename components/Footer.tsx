@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import fossLogo from '../public/logos/foss_light.svg';
+import Image from 'next/image'
+import fossLogo from '../public/logos/foss_light.svg'
 import {
 	FaFacebook,
 	FaInstagram,
 	FaLinkedin,
 	FaRegEnvelope,
 	FaTwitter,
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 
 const Footer = (): JSX.Element => {
 	return (
@@ -106,7 +106,7 @@ const Footer = (): JSX.Element => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Footer;
+export default Footer

@@ -1,15 +1,15 @@
 // partners logos
-import foss_dark from '../public/logos/foss_dark.svg';
-import Cs2 from '../public/logos/CS2.png';
-import fcsc from '../public/logos/fcsc.png';
-import se from '../public/logos/se.png';
-import media from '../public/logos/media.png';
-import mozilla from '../public/logos/mozilla.png';
-import MSClubLogo from '../public/logos/MSClubLogo.png';
+import foss_dark from '../public/logos/foss_dark.svg'
+import Cs2 from '../public/logos/CS2.png'
+import fcsc from '../public/logos/fcsc.png'
+import se from '../public/logos/se.png'
+import media from '../public/logos/media.png'
+import mozilla from '../public/logos/mozilla.png'
+import MSClubLogo from '../public/logos/MSClubLogo.png'
 
 interface LogoProps {
-	image: StaticImageData;
-	alt: string;
+	image: StaticImageData
+	alt: string
 }
 
 export const logoData: LogoProps[] = [
@@ -41,4 +41,4 @@ export const logoData: LogoProps[] = [
 		image: se,
 		alt: 'Software engineering Student community',
 	},
-];
+]

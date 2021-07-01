@@ -1,29 +1,9 @@
 {
-    "extends": [
-            "tslint:latest",
-                "tslint-config-prettier",
-                    "tslint:recommended"
-                      
-    ],
-    "rules": {
-        "no-implicit-dependencies": [
-                  true,
-                        "dev"
-                            
-        ],
-        "no-console": [
-                  true,
-                        "dev"
-                            
-        ],
-        "object-literal-sort-keys": [
-                  false,
-                        "ignore-case"
-                            
-        ],
-            "ordered-imports": true
-              
-    }
-    
+	"extends": ["tslint:latest", "tslint-config-prettier", "tslint:recommended"],
+	"rules": {
+		"no-implicit-dependencies": [true, "dev"],
+		"no-console": [true, "dev"],
+		"object-literal-sort-keys": [false, "ignore-case"],
+		"ordered-imports": true
+	}
 }
-
