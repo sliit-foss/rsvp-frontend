@@ -7,7 +7,7 @@ module.exports = {
       textBlack: '#202020',
       white: '#ffffff',
       blue: '#005BDC',
-      lightBlue:'#66a1ff',
+      lightBlueAccent:'#66a1ff',
       redAccent:'#ff5454',
       bgWhite: '#F4F3F5',
       gradientBlue: '#21B3D0',

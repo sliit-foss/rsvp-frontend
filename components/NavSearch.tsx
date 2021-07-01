@@ -1,31 +1,36 @@
-import { useState } from 'react'
+interface SearchProps {
+  handleFilterChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  handleSearchParam: (e: React.ChangeEvent<HTMLInputElement>) => void
+  formSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
 
-const NavSearch = (): JSX.Element => {
-    const [searchValue, setsearchValue] = useState("");
-
-  const handleParam = () => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    console.log(value);
-    setsearchValue(value);
-  }
-
-  
-  const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(e);
-    alert(searchValue)
-  }
-
+const NavSearch = ({
+  handleFilterChange,
+  handleSearchParam,
+  formSubmit,
+}: SearchProps): JSX.Element => {
   return (
     <div className="flex flex-col  px-6 mb-6  bg-white relative z-40 shadow ">
       <div className="w-full justify-center items-center block sm:flex ">
-        <form className="relative w-full md:flex relative px-0 md:px-20 " onSubmit={formSubmit}>
+        <form
+          className="relative w-full md:flex relative px-0 md:px-20 "
+          onSubmit={formSubmit}
+        >
+          <select
+            className="m-3 mt-5  mb-1 pl-10 md:pl-4  md:my-4 mx-0 md:mx-5 w-full md:w-4/12 h-12 md:h-auto rounded-sm"
+            onChange={handleFilterChange}
+          >
+            <option value="All">All</option>
+            <option value="Happening Now">Happening Now</option>
+            <option value="Upcoming">Upcoming</option>
+          </select>
           <input
             type="search"
             name="search"
             required
             className="form-control w-full  my-4 border border-gray-300 rounded-sm pr-4 pl-10 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
             placeholder="Search for event..."
-            onChange={handleParam()}
+            onChange={handleSearchParam}
           />
           <button
             type="submit"
@@ -34,7 +39,6 @@ const NavSearch = (): JSX.Element => {
             Search
           </button>
         </form>
-       
       </div>
     </div>
   )

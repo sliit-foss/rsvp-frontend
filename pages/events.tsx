@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 // components
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
@@ -15,10 +17,30 @@ import bg from '../public/events/eventBG.jpg'
 //Icons
 import { SiGooglecalendar } from 'react-icons/si'
 
-
 const EventsPage = (): JSX.Element => {
+  const [filterValue, setFilterValue] = useState('All')
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleEventFilterParam =
+    () => (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const value = e.target.value
+      setFilterValue(value)
+      console.log(filterValue)
+    }
+
+  const handleSearchParam = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setSearchValue(value)
+    console.log(searchValue)
+  }
+
+  const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e)
+    alert(searchValue)
+  }
+
   return (
-    <Layout title="SLIIT RSVP | Clubs">
+    <Layout title="SLIIT RSVP | Events">
       <Navbar />
       <NextImage src={bg} alt="SLIIT EVENTS" />
       <section
@@ -26,7 +48,11 @@ const EventsPage = (): JSX.Element => {
         className="bg-no-repeat bg-right-top bg-cover py-10 "
       >
         <Container>
-          <NavSearch />
+          <NavSearch
+            handleFilterChange={handleEventFilterParam()}
+            handleSearchParam={handleSearchParam()}
+            formSubmit={formSubmit}
+          />
           <div className="flex flex-wrap px-6">
             <Event
               logo={foss}
@@ -36,6 +62,7 @@ const EventsPage = (): JSX.Element => {
               quas sapiente voluptate earum consequatur rem, vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="JUNE 1,2021"
+              happeningNowStatus={true}
             />
             <Event
               logo={foss}
@@ -46,6 +73,7 @@ const EventsPage = (): JSX.Element => {
               tempora obcaecati consequatur rem, vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="JUNE 12,2021"
+              happeningNowStatus={true}
             />
             <Event
               logo={foss}
@@ -54,6 +82,7 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
             <Event
               logo={foss}
@@ -62,6 +91,7 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
             <Event
               logo={foss}
@@ -70,6 +100,7 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
             <Event
               logo={foss}
@@ -78,6 +109,7 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
             <Event
               logo={foss}
@@ -86,6 +118,7 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
             <Event
               logo={foss}
@@ -94,15 +127,12 @@ const EventsPage = (): JSX.Element => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
               tempore nemo sequi eos accusantium."
               date="AUGUST 3,2021"
+              happeningNowStatus={false}
             />
           </div>
         </Container>
         <FloatingActionButton
-          icon={
-          <SiGooglecalendar
-            color="white"
-            className="p-5 w-20 h-20"/>
-          }
+          icon={<SiGooglecalendar color="white" className="p-5 w-20 h-20" />}
         />
       </section>
       <Footer />
