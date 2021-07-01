@@ -1,7 +1,5 @@
 import Button from './Button'
 import NextImage from './NextImage'
-
-// types
 import { PostProps } from '../pages/event'
 
 interface PostCardProps {
