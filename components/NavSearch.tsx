@@ -11,6 +11,7 @@ const NavSearch = (): JSX.Element => {
 
   // on Submit
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e);
     alert(searchValue)
   }
 

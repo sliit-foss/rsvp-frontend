@@ -6,8 +6,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Container from '../components/Layout/Container'
 import Event from '../components/Event'
-import NextImage from '../Components/NextImage'
-import NavSearch from '../Components/NavSearch'
+import NextImage from '../components/NextImage'
+import NavSearch from '../components/NavSearch'
 
 // images
 import foss from '../public/clubs/foss.png'
