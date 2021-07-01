@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 interface ImageProps {
     src: StaticImageData
@@ -16,7 +16,7 @@ const NextImage = ({src, alt, quality, layout, width, height, placeholder, class
         <div className={classnames}>
             <Image src={src} alt={alt} layout={layout} width={width} height={height} quality={quality} placeholder={placeholder} />
         </div>
-    )
-}
+    );
+};
 
-export default NextImage
+export default NextImage;
