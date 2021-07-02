@@ -1,7 +1,7 @@
 interface SearchProps {
-    handleFilterChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
-    handleSearchParam: (e: React.ChangeEvent<HTMLInputElement>) => void
-    formSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+    handleFilterChange: any
+    handleSearchParam: any
+    formSubmit: any
   }
   
   const NavSearch = ({
