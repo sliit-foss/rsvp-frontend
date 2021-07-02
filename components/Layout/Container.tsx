@@ -7,7 +7,7 @@ const Container = ({ children }: props): JSX.Element => {
     <div className="max-w-6xl lg:max-w-7xl mx-auto sm:px-4 px-6">
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container
