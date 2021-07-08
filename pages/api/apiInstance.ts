@@ -6,7 +6,7 @@ const apiInstance = axios.create({
 
 apiInstance.interceptors.request.use(
   async function (config) {
-    config.baseURL = 'http://localhost:4000/api/v1'
+    config.baseURL = 'http://rsvp-backend.herokuapp.com'
     return config
   },
   function (error) {
