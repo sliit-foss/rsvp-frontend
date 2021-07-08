@@ -15,6 +15,7 @@
     "@fontsource/inter": "^4.4.5",
     "@tailwindcss/forms": "^0.3.3",
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "next": "11.0.1",
     "next-compose-plugins": "^2.2.1",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
+    "@types/aos": "^3.0.3",
     "@types/react": "17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.0",
@@ -36,8 +38,7 @@
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
     "tailwindcss": "^2.2.4",
-    "typescript": "4.3.4",
-    "@types/aos": "^3.0.3"
+    "typescript": "4.3.4"
   },
   "husky": {
     "hooks": {
