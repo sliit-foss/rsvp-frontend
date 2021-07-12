@@ -6,6 +6,6 @@ const ContactUs = (): JSX.Element => {
       <InfoCards/>
     </div>
   );
-};
+}
 
 export default ContactUs;
