@@ -51,7 +51,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/events">
+                <Link href="/event">
                   <a>Events</a>
                 </Link>
               </li>
@@ -61,7 +61,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/contact">
+                <Link href="/contactUs">
                   <a>Contact</a>
                 </Link>
               </li>
@@ -148,7 +148,7 @@ const Navbar = (): JSX.Element => {
                   className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="/contact">
+                  <Link href="/contactUs">
                     <a>Contact</a>
                   </Link>
                 </li>
