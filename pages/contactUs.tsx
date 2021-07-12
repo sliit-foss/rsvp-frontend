@@ -1,11 +1,11 @@
-import InfoCards from "../components/InfoCards";
+import InfoCards from '../components/InfoCards'
 
 const ContactUs = (): JSX.Element => {
   return (
     <div className="">
-      <InfoCards/>
+      <InfoCards />
     </div>
   )
 }
 
-export default ContactUs;
+export default ContactUs
