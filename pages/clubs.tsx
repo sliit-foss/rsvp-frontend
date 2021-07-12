@@ -1,17 +1,17 @@
 // components
-import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Container from "../components/Layout/Container";
-import Club from "../components/Club";
+import Layout from "../components/Layout"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
+import Container from "../components/Layout/Container"
+import Club from "../components/Club"
 
 // images
-import foss from "../public/clubs/foss.png";
-import mozilla from "../public/clubs/mozilla.png";
-import ms from "../public/clubs/ms.png";
-import sliit from "../public/clubs/sliit.png";
-import wif from "../public/clubs/wif.png";
-import { HiArrowRight } from "react-icons/hi";
+import foss from "../public/clubs/foss.png"
+import mozilla from "../public/clubs/mozilla.png"
+import ms from "../public/clubs/ms.png"
+import sliit from "../public/clubs/sliit.png"
+import wif from "../public/clubs/wif.png"
+import { HiArrowRight } from "react-icons/hi"
 
 const ClubsPage = (): JSX.Element => {
   return (
