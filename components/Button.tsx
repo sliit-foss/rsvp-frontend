@@ -10,7 +10,7 @@ const Button = ({ value }: ButtonProps): JSX.Element => {
     >
       {value}
     </button>
-  );
-};
+  )
+}
 
 export default Button

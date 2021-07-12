@@ -1,4 +1,4 @@
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 
 const InfoCards = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const InfoCards = (): JSX.Element => {
         >
           <div>
             <div className="flex justify-center mb-3 mt-3">
-              <FaMapMarkerAlt size="25"/>
+              <FaMapMarkerAlt size="25" />
             </div>
             <p className="font-bold mt-3">Our Address</p>
             <p className="font-normal mt-3">SLIIT Malabe</p>
@@ -25,7 +25,7 @@ const InfoCards = (): JSX.Element => {
         >
           <div>
             <div className="flex justify-center mb-3 mt-3">
-              <FaEnvelope size="25"/>
+              <FaEnvelope size="25" />
             </div>
             <p className="font-bold mt-3">Email Us</p>
             <p className="font-normal mt-3">infosliitfoss@gmail.com</p>
@@ -39,7 +39,7 @@ const InfoCards = (): JSX.Element => {
         >
           <div>
             <div className="flex justify-center mb-3 mt-3">
-              <FaPhoneAlt size="25"/>
+              <FaPhoneAlt size="25" />
             </div>
             <p className="font-bold mt-3">Call Us</p>
             <p className="font-normal mt-3">+94775633985</p>
@@ -47,7 +47,7 @@ const InfoCards = (): JSX.Element => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InfoCards;
+export default InfoCards
