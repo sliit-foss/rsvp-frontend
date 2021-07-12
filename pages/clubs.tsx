@@ -1,23 +1,23 @@
 // components
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import Container from '../components/Layout/Container'
-import Club from '../components/Club'
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Container from "../components/Layout/Container";
+import Club from "../components/Club";
 
 // images
-import foss from '../public/clubs/foss.png'
-import mozilla from '../public/clubs/mozilla.png'
-import ms from '../public/clubs/ms.png'
-import sliit from '../public/clubs/sliit.png'
-import wif from '../public/clubs/wif.png'
+import foss from "../public/clubs/foss.png";
+import mozilla from "../public/clubs/mozilla.png";
+import ms from "../public/clubs/ms.png";
+import sliit from "../public/clubs/sliit.png";
+import wif from "../public/clubs/wif.png";
 
 const ClubsPage = (): JSX.Element => {
   return (
     <Layout title="SLIIT RSVP | Clubs">
-      <Navbar />
+      <Navbar/>
       <section
-        style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}
+        style={{ backgroundImage: "url(/patterns/clubs.svg)" }}
         className="bg-no-repeat bg-right-top bg-cover py-10"
       >
         <Container>

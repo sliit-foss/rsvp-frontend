@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
-import Container from './Layout/Container'
+import Container from "./Layout/Container";
 
-import foss_dark from '../public/logos/foss_dark.svg'
-import foss_light from '../public/logos/foss_light.svg'
+import foss_dark from "../public/logos/foss_dark.svg";
+import foss_light from "../public/logos/foss_light.svg";
 
 // animations
-import { mobileNavVariants, navElementsVariants } from '../animations'
+import { mobileNavVariants, navElementsVariants } from "../animations";
 
 // icons
-import { HiMenuAlt2 } from 'react-icons/hi'
-import { RiCloseFill } from 'react-icons/ri'
+import { HiMenuAlt2 } from "react-icons/hi";
+import { RiCloseFill } from "react-icons/ri";
 
 const Navbar = (): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <header className="relative">
@@ -51,7 +51,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/events">
+                <Link href="/event">
                   <a>Events</a>
                 </Link>
               </li>
@@ -61,7 +61,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/contact">
+                <Link href="/contactUs">
                   <a>Contact</a>
                 </Link>
               </li>
@@ -72,7 +72,7 @@ const Navbar = (): JSX.Element => {
                 {!isOpen ? (
                   <HiMenuAlt2 className="h-6 w-6 hover:text-gray-default transition ease-in" />
                 ) : (
-                  ''
+                  ""
                 )}
               </li>
             </ul>
@@ -148,7 +148,7 @@ const Navbar = (): JSX.Element => {
                   className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="/contact">
+                  <Link href="/contactUs">
                     <a>Contact</a>
                   </Link>
                 </li>
