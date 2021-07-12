@@ -18,10 +18,11 @@ const Footer = (): JSX.Element => {
         <div className="relative -top-8">
           <div>
             <p className="pl-10 pr-10 text-white mb-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eaque
-              voluptatum iure veniam praesentium enim iusto est, omnis tenetur
-              reiciendis harum, perferendis porro alias dicta, impedit
-              temporibus! Dolores, totam exercitationem?
+            A group of volunteers who believe in the 
+            usage of Free/Open Source Software (FOSS). 
+            The primary objective of the community is 
+            to promote, develop and diversify the usage 
+            of Free and Open Source Software at SLIIT.
             </p>
           </div>
           <div className="pl-10 pr-10 text-white mb-3 ">

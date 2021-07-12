@@ -19,10 +19,13 @@ const MakeGoodThings = (): JSX.Element => {
             Make Good Things Together
           </h2>
           <p className="md:text-left text-center text-gray-default max-w-lg md:mx-0 mx-auto mb-5">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto
-            reprehenderit voluptates nihil id harum molestias, perferendis minus
-            voluptatem ex autem enim facilis voluptatibus excepturi inventore
-            consequatur animi ipsa sed veniam.
+          Here, at SLIIT, our intention is to improve people's life, and as we see 
+          education is the greatest opportunity that can be given to a person. We 
+          want to create a better society, where we can all develop our maximum 
+          potential through what we are passionate about. We talk to opinion leaders, 
+          philosophers, industrial experts and teachers who help us to be better people. 
+          We want to give society tools, experiences and knowledge so that all people 
+          can develop and have the best opportunities.
           </p>
           <div className="inline-flex justify-center md:justify-start space-x-2">
             <div className="text-gray-default text-xs bg-gray-light py-1 px-3 rounded-2xl shadow-md">
