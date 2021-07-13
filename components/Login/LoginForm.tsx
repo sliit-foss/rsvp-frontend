@@ -12,22 +12,22 @@ const signupFormFields = (
       type="text"
       placeholder="User Name"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
     <input
       type="text"
       placeholder="Email"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
     <input
       type="text"
       placeholder="Password"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
     <input
       type="text"
       placeholder="Confirm Password"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
   </form>
 )
 
@@ -37,12 +37,12 @@ const loginFormFields = (
       type="text"
       placeholder="Email"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
     <input
       type="text"
       placeholder="Password"
       className="shadow-ds2 mt-4 border-none text-xs font-semibold h-10"
-    ></input>
+    />
     <div className="flex justify-between mt-4">
       <div className="flex items-center">
         <input className="w-3 h-3 mr-2" type="checkbox" />

@@ -65,6 +65,11 @@ const Navbar = (): JSX.Element => {
                   <a>Contact</a>
                 </Link>
               </li>
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
+              </li>
               <li
                 className="block lg:hidden z-20 cursor-pointer transition ease-in"
                 onClick={toggleNav}
