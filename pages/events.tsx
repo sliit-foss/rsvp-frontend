@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useGetEvents } from '../queries/useGetEvent'
 
 // components
 import Layout from '../components/Layout'
@@ -18,6 +19,8 @@ import bg from '../public/events/eventBG.jpg'
 import { SiGooglecalendar } from 'react-icons/si'
 
 const EventsPage = (): JSX.Element => {
+  const { data: eventList = [], isSuccess } = useGetEvents()
+  console.log(eventList)
   const [filterValue, setFilterValue] = useState('All')
   const [searchValue, setSearchValue] = useState('')
 
@@ -53,83 +56,28 @@ const EventsPage = (): JSX.Element => {
             handleSearchParam={handleSearchParam()}
             formSubmit={formSubmit}
           />
-          <div className="flex flex-wrap px-6">
-            <Event
-              logo={foss}
-              title="Networking Fundamentals"
-              category="Networking"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quas sapiente voluptate earum consequatur rem, vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="JUNE 1,2021"
-              happeningNowStatus={true}
-            />
-            <Event
-              logo={foss}
-              title="AWS Bootcamp"
-              category="Cloud Comupting"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quas sapiente voluptate earum natus facilis dolor deserunt dolorum
-              tempora obcaecati consequatur rem, vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="JUNE 12,2021"
-              happeningNowStatus={true}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-            <Event
-              logo={foss}
-              title="Flutter Bootcamp"
-              category="Mobile Dev"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel distinctio perferendis
-              tempore nemo sequi eos accusantium."
-              date="AUGUST 3,2021"
-              happeningNowStatus={false}
-            />
-          </div>
+          {isSuccess ? (
+            <div className="flex flex-wrap px-6">
+              {eventList.map((event) => (
+                <Event
+                  key={event?._id}
+                  logo={foss}
+                  title={event?.name}
+                  category="Networking"
+                  description={event?.description || ''}
+                  date="JUNE 1,2021"
+                  status={event?.status}
+                />
+              ))}
+            </div>
+          ) : (
+            <div
+              className=" flex justify-center items-center"
+              style={{ height: '50vh' }}
+            >
+              <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gradientBlue"></div>
+            </div>
+          )}
         </Container>
         <FloatingActionButton
           icon={<SiGooglecalendar color="white" className="p-5 w-20 h-20" />}

@@ -1,9 +1,11 @@
 import Layout from '../components/Layout'
 import LoginSignup from '../components/Login/LoginSignup'
+import Navbar from '../components/Navbar'
 
 const Loginpage = (): JSX.Element => {
   return (
     <Layout title="Login">
+      <Navbar />
       <div
         className="min-h-screen flex p-3 lg:p-0"
         style={{
