@@ -51,7 +51,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/event">
+                <Link href="/events">
                   <a>Events</a>
                 </Link>
               </li>
@@ -63,6 +63,11 @@ const Navbar = (): JSX.Element => {
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
                 <Link href="/contactUs">
                   <a>Contact</a>
+                </Link>
+              </li>
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+                <Link href="/login">
+                  <a>Login</a>
                 </Link>
               </li>
               <li
