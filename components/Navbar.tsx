@@ -26,7 +26,7 @@ const Navbar = (): JSX.Element => {
   return (
     <header className="relative">
       <Container>
-        <div className="relative flex justify-between items-center">
+        <div className="sticky top-0 flex justify-between items-center">
           <div className="sm:h-20 h-14 sm:w-32 w-16 flex items-center">
             <Link href="/">
               <a>
@@ -61,7 +61,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-                <Link href="/contactUs">
+                <Link href="/contact">
                   <a>Contact</a>
                 </Link>
               </li>
@@ -148,7 +148,7 @@ const Navbar = (): JSX.Element => {
                   className="font-medium text-2xl hover:text-gray-light text-white transition ease-in"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="/contactUs">
+                  <Link href="/contact">
                     <a>Contact</a>
                   </Link>
                 </li>

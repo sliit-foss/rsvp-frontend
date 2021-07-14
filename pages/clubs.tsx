@@ -1,11 +1,9 @@
-// components
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Container from '../components/Layout/Container'
 import Club from '../components/Club'
 
-// images
 import foss from '../public/clubs/foss.png'
 import mozilla from '../public/clubs/mozilla.png'
 import ms from '../public/clubs/ms.png'
