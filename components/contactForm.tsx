@@ -5,7 +5,7 @@ const ContactForm = (): JSX.Element => {
     <div>
       <Container>
         <div className="bg-redAccent w-full">
-          <h1>Madhusha</h1>
+
         </div>
       </Container>
     </div>
