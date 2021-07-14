@@ -10,7 +10,7 @@ interface EventProps {
   category: string
   description: string
   date: string
-  happeningNowStatus: boolean
+  status: string
 }
 
 const Event = ({
@@ -19,7 +19,7 @@ const Event = ({
   category,
   description,
   date,
-  happeningNowStatus,
+  status,
 }: EventProps): JSX.Element => {
   useEffect(() => {
     Aos.init({ duration: 1000 })
@@ -51,9 +51,15 @@ const Event = ({
                 {category}
               </div>
               <div className="w-2"></div>
-              {happeningNowStatus ? (
-                <div className="bg-redAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm">
-                  Happening Now
+              {status == 'Happenning Now' || status == 'Closed' ? (
+                <div
+                  className={
+                    status == 'Closed'
+                      ? 'bg-redAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
+                      : 'bg-green-400 py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
+                  }
+                >
+                  {status}
                 </div>
               ) : (
                 <div></div>

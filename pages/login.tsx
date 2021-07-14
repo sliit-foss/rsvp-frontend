@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import LoginSignup from '../components/Login/LoginSignup'
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar'
 
 const Loginpage = (): JSX.Element => {
   return (

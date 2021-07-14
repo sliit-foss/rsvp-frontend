@@ -6,9 +6,12 @@ export interface CreateEventData {
 }
 
 export interface EventData {
-  id: number
+  _id: string
   name: string
+  host: string
   description?: string
   headerImage: string
+  status: string
+  venue: string
   photos: string[]
 }
