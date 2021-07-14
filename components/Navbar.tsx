@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Container from './Layout/Container'
-
 import foss_dark from '../public/logos/foss_dark.svg'
 import foss_light from '../public/logos/foss_light.svg'
 
