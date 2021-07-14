@@ -26,7 +26,7 @@ const Navbar = (): JSX.Element => {
   return (
     <header className="relative">
       <Container>
-        <div className="relative flex justify-between items-center">
+        <div className="sticky top-0 flex justify-between items-center">
           <div className="sm:h-20 h-14 sm:w-32 w-16 flex items-center">
             <Link href="/">
               <a>
