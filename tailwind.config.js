@@ -20,12 +20,12 @@ module.exports = {
       gradientBlue: '#21B3D0',
       gradientPurple: '#7B50A2',
       gray: {
-        default: '#6C7075',
-        light: '#DFDFDF',
-        dark: '#363636',
-        login: '#9E9E9E',
+        default: "#6C7075",
+        light: "#DFDFDF",
+        dark: "#363636",
+        login: "#9E9E9E"
       },
-      colorIcon: '#BABABA',
+      colorIcon: "#BABABA"
     },
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
