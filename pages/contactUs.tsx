@@ -1,7 +1,7 @@
 import InfoCards from '../components/InfoCards'
-import ContactForm from '../components/contactForm'
+import ContactForm from '../components/ContactForm'
 
-const ContactUs = (): JSX.Element => {
+const Contact = (): JSX.Element => {
   return (
     <div className="">
       <ContactForm />
@@ -10,4 +10,4 @@ const ContactUs = (): JSX.Element => {
   )
 }
 
-export default ContactUs
+export default Contact
