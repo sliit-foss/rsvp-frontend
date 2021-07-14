@@ -1,5 +1,5 @@
 import InfoCards from '../components/InfoCards'
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../components/contactForm'
 
 const Contact = (): JSX.Element => {
   return (
