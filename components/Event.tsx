@@ -3,6 +3,8 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Image from 'next/image'
 
+
+
 //props of Event Components
 interface EventProps {
   logo: StaticImageData
@@ -69,18 +71,7 @@ const Event = ({
               {date}
             </div>
             <div className="2/3 mb-3">
-              <div className="text-sm font-medium  flex flex-wrap">
-                SHARE:
-                <a href="" className="text-blue  px-0 ">
-                  &nbsp;FACEBOOK&nbsp;
-                </a>
-                <a href="" className="text-lightBlueAccent px-0 ">
-                  TWITTER&nbsp;&nbsp;
-                </a>
-                <a href="" className="text-redAccent px-0 ">
-                  GOOGLE+
-                </a>
-              </div>
+            
             </div>
           </div>
         </div>
