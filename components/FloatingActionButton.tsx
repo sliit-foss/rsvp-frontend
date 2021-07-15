@@ -14,7 +14,7 @@ interface FloatingActionButtonProps {
     return (
       <tbody>
         <tr>
-          <td className="sticky bottom-0 z-50 left-full">
+          <td className="sticky bottom-0 z-20 left-full">
             <button
               className="w-20 h-20 m-8 bg-gradientBlue rounded-full hover:bg-gradientPurple shadow hover:shadow-lg transition ease-in duration-200"
               onClick={handleClick()}

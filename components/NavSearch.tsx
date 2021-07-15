@@ -10,7 +10,7 @@ const NavSearch = ({
   formSubmit,
 }: SearchProps): JSX.Element => {
   return (
-    <div className="flex flex-col  px-6 mb-6  bg-white relative z-40 shadow ">
+    <div className="flex flex-col  px-6 mb-6  bg-white relative z-20 shadow ">
       <div className="w-full justify-center items-center block sm:flex ">
         <form
           className="relative w-full md:flex relative px-0 md:px-20 "
