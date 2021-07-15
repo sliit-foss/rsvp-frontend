@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 interface props {
   children: React.ReactNode
@@ -15,7 +15,7 @@ const Layout = ({ children, title }: props): JSX.Element => {
         {children}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -36,9 +36,10 @@ const HeroSection = (): JSX.Element => {
               November 8th
             </h2>
             <p className="mb-6 max-w-lg">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Architecto reprehenderit voluptates nihil id harum molestias,
-              perferendis
+            Callbacks and closures are used frequently in JavaScript. Callbacks are 
+            functions that are passed into another function as an argument. Closures 
+            are functions that are nested in other functions, and it's often used to 
+            avoid scope clash with other parts of a JavaScript program.
             </p>
             {/* pass the callback function to the button */}
             <Button value={'RSVP'} />
