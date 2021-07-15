@@ -3,6 +3,13 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Image from 'next/image'
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  WhatsappShareButton,
+} from 'react-share'
+import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
 
 
 //props of Event Components
