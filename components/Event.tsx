@@ -3,6 +3,14 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Image from 'next/image'
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  WhatsappShareButton,
+} from 'react-share'
+import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
+
 //props of Event Components
 interface EventProps {
   logo: StaticImageData
@@ -69,17 +77,41 @@ const Event = ({
               {date}
             </div>
             <div className="2/3 mb-3">
-              <div className="text-sm font-medium  flex flex-wrap">
-                SHARE:
-                <a href="" className="text-blue  px-0 ">
-                  &nbsp;FACEBOOK&nbsp;
-                </a>
-                <a href="" className="text-lightBlueAccent px-0 ">
-                  TWITTER&nbsp;&nbsp;
-                </a>
-                <a href="" className="text-redAccent px-0 ">
-                  GOOGLE+
-                </a>
+              <div className="text-sm font-medium  flex flex-row flex-wrap justify-center items-center">
+                <p>SHARE: &nbsp;</p>
+                <FacebookShareButton
+                  title={title}
+                  url={'https://sliit-foss-rsvp.web.app/'}
+                  hashtag="#sliit #sliitfoss #fosslk"
+                >
+                  <FacebookIcon lightingColor="white" round={true} size={25}>
+                    {' '}
+                  </FacebookIcon>
+                </FacebookShareButton>{' '}
+                &nbsp;
+                <TwitterShareButton
+                  url={'https://sliit-foss-rsvp.web.app/'}
+                  title={title}
+                >
+                  <TwitterIcon lightingColor="white" round={true} size={25}>
+                    {' '}
+                  </TwitterIcon>
+                </TwitterShareButton>{' '}
+                &nbsp;
+                <EmailShareButton url={'https://sliit-foss-rsvp.web.app/'}>
+                  <EmailIcon lightingColor="white" round={true} size={25}>
+                    {' '}
+                  </EmailIcon>
+                </EmailShareButton>{' '}
+                &nbsp;
+                <WhatsappShareButton
+                  title={title}
+                  url={'https://sliit-foss-rsvp.web.app/' + '\n'}
+                >
+                  <WhatsappIcon lightingColor="white" round={true} size={25}>
+                    {' '}
+                  </WhatsappIcon>
+                </WhatsappShareButton>
               </div>
             </div>
           </div>
