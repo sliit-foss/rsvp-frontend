@@ -39,8 +39,9 @@ const WhatWeDo = (): JSX.Element => {
                   Talks
                 </h4>
                 <p className="text-gray-default text-center md:text-left">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Architecto
+                We interview the leading figures in the industry and share 
+                their stories and insight intended to be inclusive of an 
+                array of IT topics.
                 </p>
               </div>
               <div className="max-w-xs mb-4">
@@ -48,8 +49,7 @@ const WhatWeDo = (): JSX.Element => {
                   Study Jam
                 </h4>
                 <p className="text-gray-default text-center md:text-left">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Architecto
+                Study Jams tailored to students’ requirements are organized.
                 </p>
               </div>
               <div className="max-w-xs mb-4">

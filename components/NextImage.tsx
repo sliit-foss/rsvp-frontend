@@ -9,7 +9,10 @@ interface ImageProps {
   height?: number
   placeholder?: 'blur' | 'empty'
   classnames?: string
+<<<<<<< HEAD
   imgStyles?: string
+=======
+>>>>>>> 746312e927b8929bd7d9fc65926c65a79dad881a
 }
 
 const NextImage = ({
@@ -21,12 +24,18 @@ const NextImage = ({
   height,
   placeholder,
   classnames,
+<<<<<<< HEAD
   imgStyles,
+=======
+>>>>>>> 746312e927b8929bd7d9fc65926c65a79dad881a
 }: ImageProps): JSX.Element => {
   return (
     <div className={classnames}>
       <Image
+<<<<<<< HEAD
         className={imgStyles}
+=======
+>>>>>>> 746312e927b8929bd7d9fc65926c65a79dad881a
         src={src}
         alt={alt}
         layout={layout}
