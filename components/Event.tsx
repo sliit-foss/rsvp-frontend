@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Image from 'next/image'
-
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -11,7 +10,6 @@ import {
 } from 'react-share'
 import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
 
-//props of Event Components
 interface EventProps {
   logo: StaticImageData
   title: string
@@ -58,7 +56,7 @@ const Event = ({
               <div className="bg-lightBlueAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm">
                 {category}
               </div>
-              <div className="w-2"></div>
+              <div className="w-2" />
               {status == 'Happenning Now' || status == 'Closed' ? (
                 <div
                   className={
@@ -70,7 +68,7 @@ const Event = ({
                   {status}
                 </div>
               ) : (
-                <div></div>
+                <div />
               )}
             </div>
             <div className="w-full mb-1 md:w-full text-sm font-bold">
