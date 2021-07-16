@@ -10,8 +10,7 @@ const Contact = (): JSX.Element => {
       <Navbar />
       <section
         style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}
-        className='bg-no-repeat bg-right-top bg-cover py-10'
-      >
+        className='bg-no-repeat bg-right-top bg-cover py-10'>
         <ContactForm />
         <Container>
           <InfoCards />
