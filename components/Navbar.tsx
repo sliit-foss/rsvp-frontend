@@ -27,9 +27,10 @@ const Navbar = (): JSX.Element => {
             <a>
               <Image
                 src={foss_dark}
-                alt="foss logo"
+                alt="SLIIT FOSS logo"
                 layout="intrinsic"
                 quality={90}
+                width={75}
               />
             </a>
           </Link>
