@@ -1,6 +1,7 @@
 interface overlayProps {
   show: boolean
 }
+
 const LoadingOverlay = ({ show }: overlayProps): JSX.Element => {
   return (
     <div

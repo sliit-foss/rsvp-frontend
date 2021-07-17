@@ -7,10 +7,8 @@ import Link from 'next/link'
 import foss_dark from '../public/logos/foss_dark.svg'
 import foss_light from '../public/logos/foss_light.svg'
 
-// animations
 import { mobileNavVariants, navElementsVariants } from '../animations'
 
-// icons
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { RiCloseFill } from 'react-icons/ri'
 
@@ -48,7 +46,7 @@ const Navbar = (): JSX.Element => {
               </Link>
             </li>
             <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
-              <Link href="/event">
+              <Link href="/events">
                 <a>Events</a>
               </Link>
             </li>

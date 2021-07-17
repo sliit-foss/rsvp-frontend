@@ -3,7 +3,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 const InfoCards = (): JSX.Element => {
   return (
     <div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 bg-white w-full mt-10 mb-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-3 w-full mt-10 mb-10">
         <div
           className="grid grid-cols-1 justify-center items-center rounded-lg
       text-center shadow-infoCard lg:m-auto md:m-auto mb-5 sm:w-full lg:w-48 md:w-48 h-44
