@@ -143,10 +143,8 @@ const Footer = (): JSX.Element => {
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-                incidunt ea quisquam impedit deleniti illum quis libero
-                blanditiis non architecto quidem praesentium amet voluptas ab
-                cupiditate, suscipit neque ut pariatur?
+                As an active student run community we are always up to something :), the best way in which you can keep track
+                of what we are up to is if you subscribe to our newsletter so you will be the first to hear about something!
               </p>
               <div className="flex flex-row item-center mb-5">
                 <input
