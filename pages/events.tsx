@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { useGetEvents } from '../queries/useGetEvent'
-
-// components
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -10,19 +8,15 @@ import Event from '../components/Event'
 import NextImage from '../components/NextImage'
 import NavSearch from '../components/NavSearch'
 import FloatingActionButton from '../components/FloatingActionButton'
-
-// images
 import foss from '../public/clubs/foss.png'
 import bg from '../public/events/eventBG.jpg'
-
-//Icons
 import { SiGooglecalendar } from 'react-icons/si'
 
 const EventsPage = (): JSX.Element => {
   const { data: eventList = [], isSuccess } = useGetEvents()
-  console.log(eventList)
+  console.log('event list : ', eventList)
   const [filterValue, setFilterValue] = useState('All')
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState<string>('')
 
   const handleEventFilterParam =
     () => (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -75,7 +69,7 @@ const EventsPage = (): JSX.Element => {
               className=" flex justify-center items-center"
               style={{ height: '50vh' }}
             >
-              <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gradientBlue"></div>
+              <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gradientBlue" />
             </div>
           )}
         </Container>
