@@ -11,7 +11,7 @@ import {
 
 const Footer = (): JSX.Element => {
   return (
-    <div className="lg:flex lg:flex-row bg-gradient-to-r from-gradientBlue to-gradientPurple">
+    <div className="lg:flex lg:flex-row bg-gradient-to-r from-gradientBlue to-gradientPurple pb-10 lg:pb-0">
       <div className="sm:w-full lg:w-1/3">
         <div>
           <Image src={fossLogo} width="168" height="168" alt="Foss Logo" />
@@ -30,25 +30,25 @@ const Footer = (): JSX.Element => {
             <div className="sm:mb-3 md:mb-3 flex flex-row">
               <a href="">
                 <FaFacebook
-                  className="colorIcon mb-3 mr-3 fill-current-color hover:text-white"
+                  className="colorIcon mb-3 mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
               <a href="">
                 <FaInstagram
-                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
+                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
               <a href="">
                 <FaLinkedin
-                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
+                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
               <a href="">
                 <FaTwitter
-                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
+                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
@@ -57,7 +57,7 @@ const Footer = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="relative sm:w-full lg:w-1/3">
+      <div className="relative sm:w-full lg:w-1/3 mb-10">
         <div className="w-full h-1/4">
           <div className="lg:pt-14">
             <h4 className="relative left-10 w-1/2 sm:w-1/2 md:w-1/2 text-xl font-bold mb-1 text-white">
