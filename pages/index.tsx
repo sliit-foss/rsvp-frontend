@@ -1,7 +1,5 @@
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
-
-// modules
 import HeroSection from '../modules/HomePage/HeroSection'
 import MakeGoodThings from '../modules/HomePage/MakeGoodThings'
 import WhatWeDo from '../modules/HomePage/WhatWeDo'

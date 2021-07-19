@@ -1,10 +1,5 @@
-// components
 import Post from '../../components/Post'
-
-// icons
 import { HiArrowRight } from 'react-icons/hi'
-
-// types
 import { SectionProps } from '../../pages/event'
 
 const UpcomingSection = ({ posts, picture }: SectionProps): JSX.Element => {
