@@ -77,52 +77,6 @@ const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
         }
       />
 
-      {/* <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        name="password"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: handlePasswordChange }}
-      />
-
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Confirm Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        id="confirmPassword"
-        name="confirmPassword"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: passwordCheck }}
-      /> */}
     </form>
   )
 }
