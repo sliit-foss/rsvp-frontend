@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaRegEnvelope,
   FaTwitter,
+  FaYoutube,
 } from 'react-icons/fa'
 
 const Footer = (): JSX.Element => {
@@ -28,25 +29,31 @@ const Footer = (): JSX.Element => {
           <div className="pl-10 pr-10 text-white mb-3 ">
             <h4 className="text-xl font-bold mb-3">Follow Us</h4>
             <div className="sm:mb-3 md:mb-3 flex flex-row">
-              <a href="">
+              <a href="https://www.facebook.com/sliitfoss">
                 <FaFacebook
                   className="colorIcon mb-3 mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="">
+              <a href="https://www.instagram.com/sliitfoss/">
                 <FaInstagram
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="">
+              <a href="https://www.youtube.com/channel/UCPPO-QR0Dv13ewjhPsc_I3w">
+                <FaYoutube
+                  className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
+                  size="22"
+                />
+              </a>
+              <a href="https://www.linkedin.com/company/sliit-foss-community/mycompany/">
                 <FaLinkedin
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="">
+              <a href="https://twitter.com/fosssliit">
                 <FaTwitter
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
@@ -143,10 +150,8 @@ const Footer = (): JSX.Element => {
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-                incidunt ea quisquam impedit deleniti illum quis libero
-                blanditiis non architecto quidem praesentium amet voluptas ab
-                cupiditate, suscipit neque ut pariatur?
+                As a student run community we&#39;re always up to something!, one of the best ways to keep up with us is to follow us on 
+                social media or even subscribe to alerts using your email below!
               </p>
               <div className="flex flex-row item-center mb-5">
                 <input
