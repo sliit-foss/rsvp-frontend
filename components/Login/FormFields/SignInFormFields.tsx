@@ -1,12 +1,5 @@
-import { useForm, SubmitHandler } from 'react-hook-form'
-
-interface IFormInput {
-  username: string
-  password: string
-}
-
 interface props {
-  onSubmit: SubmitHandler<IFormInput>
+  onSubmit: any
   handleCheck: () => void
 }
 
@@ -14,26 +7,26 @@ const SignInFormFields = ({ onSubmit, handleCheck }: props): JSX.Element => {
   const inputfieldClasses =
     'shadow-ds2 mt-4 border-none text-xs font-semibold h-10 rounded-lg'
 
-  const { handleSubmit, register } = useForm<IFormInput>()
-
   return (
     <form
       id="loginForm"
       className="flex flex-col w-full lg:w-4/5"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={onSubmit}
     >
       <input
-        {...(register('username'), { required: true })}
         type="text"
+        id="username"
         placeholder="Username"
         className={inputfieldClasses}
+        required
       />
 
       <input
-        {...(register('password'), { required: true })}
+        id="password"
         type="password"
         placeholder="Password"
         className={inputfieldClasses}
+        required
       />
 
       <div className="flex justify-between mt-4">
