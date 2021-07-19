@@ -28,7 +28,7 @@ const NavSearch = ({
             type="search"
             name="search"
             required
-            className="form-control w-full  my-4 border border-gray-300 rounded-sm pr-4 pl-10 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
+            className="form-control w-full  my-4 border border-gray-500 rounded-sm pr-4 pl-10 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
             placeholder="Search for event..."
             onChange={handleSearchParam}
           />

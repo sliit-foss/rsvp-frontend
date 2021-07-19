@@ -150,7 +150,8 @@ const Footer = (): JSX.Element => {
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>
-                As a student run community we&#39;re always up to something!, one of the best ways to keep up with us is to follow us on 
+                As a student run community we&#39;re always up to something!,
+                one of the best ways to keep up with us is to follow us on
                 social media or even subscribe to alerts using your email below!
               </p>
               <div className="flex flex-row item-center mb-5">

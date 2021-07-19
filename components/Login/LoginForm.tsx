@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Snackbar } from '@material-ui/core'
-import { Alert } from '@material-ui/lab'
 import NextImage from '../NextImage'
 import SignInFormFields from './FormFields/SignInFormFields'
 import SignUpFormFields from './FormFields/SignUpFormFields'
@@ -12,6 +10,8 @@ import {
   UserSignUpData,
 } from '../../pages/api/user/user.interface'
 import LoadingOverlay from '../LoadingOverlay'
+import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
+import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
 
 interface LoginFormProps {
   login: boolean
@@ -44,11 +44,17 @@ const LoginForm = ({
         setOpenSuccessSnackbar(true)
         setShowLoading(false)
         window.localStorage.setItem('RememberMe', rememberMeValue.toString())
+        setTimeout(function () {
+          setOpenSuccessSnackbar(false)
+        }, 1500)
       })
       .catch((e) => {
         console.error(e)
         setOpenFailedSnackbar(true)
         setShowLoading(false)
+        setTimeout(function () {
+          setOpenFailedSnackbar(false)
+        }, 1500)
       })
   }
 
@@ -60,11 +66,17 @@ const LoginForm = ({
       .then(() => {
         setOpenSuccessSnackbar(true)
         setShowLoading(false)
+        setTimeout(function () {
+          setOpenSuccessSnackbar(false)
+        }, 1500)
       })
       .catch((error) => {
         console.error(error)
         setOpenFailedSnackbar(true)
         setShowLoading(false)
+        setTimeout(function () {
+          setOpenFailedSnackbar(false)
+        }, 1500)
       })
   }
 
@@ -126,25 +138,24 @@ const LoginForm = ({
         </div>
       </div>
 
-      <Snackbar
-        open={openSuccessSnackbar}
-        autoHideDuration={2000}
-        onClose={() => setOpenSuccessSnackbar(false)}
+      <div
+        className={
+          openFailedSnackbar
+            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
+            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
+        }
       >
-        <Alert onClose={() => setOpenSuccessSnackbar(false)} severity="success">
-          {login ? 'Successfully signed in' : 'Successfully signed up'}
-        </Alert>
-      </Snackbar>
-
-      <Snackbar
-        open={openFailedSnackbar}
-        autoHideDuration={2000}
-        onClose={() => setOpenFailedSnackbar(false)}
+        <FailedSnackbar />
+      </div>
+      <div
+        className={
+          openSuccessSnackbar
+            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
+            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
+        }
       >
-        <Alert onClose={() => setOpenFailedSnackbar(false)} severity="error">
-          {login ? 'Failed to sign in' : 'Failed to sign up'}
-        </Alert>
-      </Snackbar>
+        <SuccessSnackbar />
+      </div>
     </>
   )
 }
