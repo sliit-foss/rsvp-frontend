@@ -1,8 +1,5 @@
-// components
 import Container from '../../components/Layout/Container'
 import Button from '../../components/Button'
-
-// icons
 import { HiArrowRight } from 'react-icons/hi'
 
 const HeroSection = (): JSX.Element => {
@@ -36,12 +33,11 @@ const HeroSection = (): JSX.Element => {
               November 8th
             </h2>
             <p className="mb-6 max-w-lg">
-            Callbacks and closures are used frequently in JavaScript. Callbacks are 
-            functions that are passed into another function as an argument. Closures 
-            are functions that are nested in other functions, and it's often used to 
-            avoid scope clash with other parts of a JavaScript program.
+              {`Callbacks and closures are used frequently in JavaScript. Callbacks are
+                functions that are passed into another function as an argument. Closures
+                are functions that are nested in other functions, and it's often used to 
+                avoid scope clash with other parts of a JavaScript program.`}
             </p>
-            {/* pass the callback function to the button */}
             <Button value={'RSVP'} />
           </div>
         </section>
