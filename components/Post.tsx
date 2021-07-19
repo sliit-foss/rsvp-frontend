@@ -17,7 +17,6 @@ const Post = ({ post, picture }: PostCardProps): JSX.Element => {
         <a>
           <NextImage
             classnames="max-w-xs overflow-hidden rounded-lg mb-5"
-            imgStyles="rounded-lg transform hover:scale-105 transition easa-in"
             src={picture}
             alt="dummy pic"
             width={300}
@@ -42,7 +41,7 @@ const Post = ({ post, picture }: PostCardProps): JSX.Element => {
         <div className="flex-grow flex items-end">
           <Link href={`/event/${id}`}>
             <a>
-              <Button value="RSVP" buttonStyles="text-white" />
+              <Button value="RSVP" />
             </a>
           </Link>
         </div>
