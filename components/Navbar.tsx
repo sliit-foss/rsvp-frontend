@@ -36,7 +36,7 @@ const Navbar = (): JSX.Element => {
           SLIIT RSVP PORTAL
         </h3>
         <nav className="absolute right-5">
-          <ul className="inline-flex space-x-6">
+          <ul className="inline-flex items-center space-x-6">
             <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
               <Link href="/">
                 <a>Home</a>
@@ -55,6 +55,11 @@ const Navbar = (): JSX.Element => {
             <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
               <Link href="/contact">
                 <a>Contact</a>
+              </Link>
+            </li>
+            <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-2 px-6 transition ease-in rounded-lg cursor-pointer">
+              <Link href="/login">
+                <a>Sign In</a>
               </Link>
             </li>
             <li
