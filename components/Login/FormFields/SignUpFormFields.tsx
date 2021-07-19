@@ -1,17 +1,24 @@
 import { useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+interface IFormInput {
+  username: string
+  email: string
+  password: string
+  confirmPassword: string
+}
 
 interface props {
-  onSubmit: any
+  onSubmit: SubmitHandler<IFormInput>
 }
 
 const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
   const inputfieldClasses =
-    'shadow-ds2 mt-4 border-none text-xs font-semibold h-10'
+    'shadow-ds2 mt-4 border-none text-xs font-semibold h-10 rounded-lg'
 
   const [password, setPassword] = useState('')
   const [passwordMatch, setPasswordMatch] = useState(true)
-  const { handleSubmit, control } = useForm()
+  const { handleSubmit, register } = useForm<IFormInput>()
 
   const passwordCheck = (confirmPassword: string) => {
     const valid = password === confirmPassword
@@ -30,84 +37,46 @@ const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
       className="flex flex-col w-full lg:w-4/5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="User Name"
-            className={inputfieldClasses}
-          />
-        }
-        control={control}
-        required
-        name="username"
-        autoComplete="name"
-        autoFocus
-        size={'small'}
-        defaultValue=""
-      />
-      <Controller
-        as={
-          <input
-            type="email"
-            placeholder="Email"
-            className={inputfieldClasses}
-          />
-        }
-        control={control}
-        required
-        name="email"
-        autoComplete="email"
-        autoFocus
-        size={'small'}
-        defaultValue=""
-      />
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        name="password"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: handlePasswordChange }}
+      <input
+        {...(register('username'), { required: true })}
+        type="text"
+        placeholder="Username"
+        className={inputfieldClasses}
       />
 
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Confirm Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        id="confirmPassword"
-        name="confirmPassword"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: passwordCheck }}
+      <input
+        {...(register('email'), { required: true })}
+        type="email"
+        placeholder="Email"
+        className={inputfieldClasses}
       />
+
+      <input
+        {...(register('password'),
+        { required: true, validate: handlePasswordChange })}
+        type="password"
+        placeholder="Password"
+        className={inputfieldClasses}
+        style={
+          passwordMatch
+            ? { border: '1px solid #ffffff00' }
+            : { border: '1px solid #ff0022' }
+        }
+      />
+
+      <input
+        {...(register('confirmPassword'),
+        { required: true, validate: passwordCheck })}
+        type="password"
+        placeholder="Confirm Password"
+        className={inputfieldClasses}
+        style={
+          passwordMatch
+            ? { border: '1px solid #ffffff00' }
+            : { border: '1px solid #ff0022' }
+        }
+      />
+
     </form>
   )
 }

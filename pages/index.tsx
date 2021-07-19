@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 
 const Homepage = (): JSX.Element => {
   return (
-    <Layout title="Home">
+    <Layout title="SLIIT RSVP">
       <Navbar />
       <HeroSection />
       <MakeGoodThings />

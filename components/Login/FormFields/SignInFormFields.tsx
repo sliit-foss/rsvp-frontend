@@ -1,15 +1,20 @@
-import { Controller, useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+interface IFormInput {
+  username: string
+  password: string
+}
 
 interface props {
-  onSubmit: any
-  handleCheck: any
+  onSubmit: SubmitHandler<IFormInput>
+  handleCheck: () => void
 }
 
 const SignInFormFields = ({ onSubmit, handleCheck }: props): JSX.Element => {
   const inputfieldClasses =
-    'shadow-ds2 mt-4 border-none text-xs font-semibold h-10'
+    'shadow-ds2 mt-4 border-none text-xs font-semibold h-10 rounded-lg'
 
-  const { handleSubmit, control } = useForm()
+  const { handleSubmit, register } = useForm<IFormInput>()
 
   return (
     <form
@@ -17,37 +22,18 @@ const SignInFormFields = ({ onSubmit, handleCheck }: props): JSX.Element => {
       className="flex flex-col w-full lg:w-4/5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Username"
-            className={inputfieldClasses}
-          />
-        }
-        control={control}
-        required
-        name="username"
-        autoComplete="email"
-        autoFocus
-        size={'small'}
-        defaultValue=""
+      <input
+        {...(register('username'), { required: true })}
+        type="text"
+        placeholder="Username"
+        className={inputfieldClasses}
       />
-      <Controller
-        as={
-          <input
-            type="password"
-            placeholder="Password"
-            className={inputfieldClasses}
-          />
-        }
-        control={control}
-        required
-        name="password"
+
+      <input
+        {...(register('password'), { required: true })}
         type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
+        placeholder="Password"
+        className={inputfieldClasses}
       />
 
       <div className="flex justify-between mt-4">
