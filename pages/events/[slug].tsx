@@ -2,12 +2,12 @@ import Image from 'next/image'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { FaLinkedin } from 'react-icons/fa'
 
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import Container from '../components/Layout/Container'
-import Button from '../components/Button'
-import speakerPhoto from '../public/singleEvent/speaker.png'
+import Layout from '../../components/Layout'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import Container from '../../components/Layout/Container'
+import Button from '../../components/Button'
+import speakerPhoto from '../../public/singleEvent/speaker.png'
 
 const SingleEvent = (): JSX.Element => {
   return (
