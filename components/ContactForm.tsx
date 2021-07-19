@@ -71,7 +71,7 @@ const ContactForm = (): JSX.Element => {
                           type="button"
                           className="lg:w-1/4 md:w-1/4 sm:w-1/3 rounded-lg p-2 text-white
                               font-semibold bg-lightBlue m-auto hover:bg-gradientPurple duration-150 transition ease-in
-                              font-medium"
+                              "
                         >
                           Send Message
                         </button>
