@@ -98,7 +98,7 @@ const Footer = (): JSX.Element => {
                   </Link>
                 </li>
                 <li className="pt-3 pb-3">
-                  <Link href="/events/allEvents">
+                  <Link href="/events">
                     <a>Events</a>
                   </Link>
                 </li>
@@ -127,7 +127,7 @@ const Footer = (): JSX.Element => {
                   </Link>
                 </li>
                 <li className="pt-3 pb-3">
-                  <Link href="/events/allEvents">
+                  <Link href="/events">
                     <a>Events</a>
                   </Link>
                 </li>
