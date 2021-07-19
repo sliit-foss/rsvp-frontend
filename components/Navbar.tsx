@@ -149,6 +149,14 @@ const Navbar = (): JSX.Element => {
                   <a>Contact</a>
                 </Link>
               </li>
+              <li
+                className="font-medium text-2xl bg-gradientPurple py-2 px-6 text-white transition ease-in rounded-lg cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/login">
+                  <a>Sign In</a>
+                </Link>
+              </li>
             </motion.ul>
           </motion.div>
         ) : (
