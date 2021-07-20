@@ -34,7 +34,7 @@ const ContactForm = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col justify-center sm:w-full md:w-full lg:w-1/2 h-auto">
-              <div className="bg-white rounded-2xl shadow-ds2 pt-12 pb-12">
+              <div className="bg-white rounded-2xl shadow-ds2 hover:shadow-ds3 pt-12 pb-12 transition duration-500">
                 <Container>
                   <div className="px-5 lg:px-8">
                     <div className="h-14 text-center text-blue text-2xl font-bold">
