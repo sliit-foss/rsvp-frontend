@@ -19,10 +19,10 @@ const HeroSection = (): JSX.Element => {
             </h1>
             <div className="inline-flex items-center space-x-2">
               <p className="font-medium">Programming</p>
-              <div className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md">
+              <div className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md cursor-default filter hover:brightness-105 transition ease-in duration-200">
                 #JavaScript
               </div>
-              <div className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md">
+              <div className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md cursor-default filter hover:brightness-105 transition ease-in duration-200">
                 #SLIITFOSS
               </div>
             </div>
