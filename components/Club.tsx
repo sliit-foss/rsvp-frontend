@@ -8,7 +8,7 @@ interface ClubProps {
 
 const Club = ({ logo, title }: ClubProps): JSX.Element => {
   return (
-    <div className="relative group flex items-center justify-end max-w-md mx-auto overflow-hidden shadow-md rounded-xl">
+    <div className="relative group flex items-center justify-end max-w-md mx-auto overflow-hidden shadow-md hover:shadow-lg rounded-xl transition duration-500">
       <Image
         className="rounded-xl"
         src={logo}
