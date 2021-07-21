@@ -4,7 +4,7 @@ import { HiArrowRight } from 'react-icons/hi'
 
 const HeroSection = (): JSX.Element => {
   return (
-    <section className="bg-gradient-to-r from-gradientBlue to-gradientPurple">
+    <section className="bg-gradient-to-r from-gradientBlue to-gradientPurple shadow-lg">
       <Container>
         <section className="text-white grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 md:py-44 py-20">
           <div className="md:col-span-1 flex flex-col justify-center">

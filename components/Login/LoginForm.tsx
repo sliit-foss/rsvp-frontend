@@ -129,7 +129,7 @@ const LoginForm = ({
         <div className="w-full lg:w-4/5">
           <p className="text-xs text-left font-semibold">
             {login ? 'Not Registered Yet?' : 'Already have an account?'}{' '}
-            <span onClick={loginToggleHandler} className="text-blue">
+            <span onClick={loginToggleHandler} className="text-blue cursor-pointer">
               {login ? 'Create An Account' : 'login'}
             </span>
           </p>
