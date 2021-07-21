@@ -17,7 +17,7 @@ const ContactForm = (): JSX.Element => {
           <div className="w-full mb-16 mt-20">
             <h1
               className="flex flex-row items-center text-3xl
-            font-semibold" data-aos="fade-right" data-aos-offset={0}
+            font-semibold" data-aos="fade-right"
             >
               Contact Us{''}
               <span className="inline-block">
