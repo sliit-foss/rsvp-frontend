@@ -59,7 +59,7 @@ const ClubsPage = (): JSX.Element => {
               </span>
             </h1>
           </div>
-          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-3xl mx-auto">
             {clubs.map((club, index) => (
               <div
                 key={index}
