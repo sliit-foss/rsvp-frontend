@@ -9,7 +9,7 @@ module.exports = {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
     },
-  
+
     extend: {
       colors: {
         black: '#121212',
@@ -35,7 +35,9 @@ module.exports = {
       boxShadow: {
         ds1: '10px 4px 20px rgba(0, 0, 0, 0.25)',
         ds2: '0px 0px 20px rgba(155, 155, 155, 0.4)',
-        infoCard: ' 0px 0px 20px rgba(0, 0, 0, 0.4)',
+        ds3: '0px 0px 40px rgba(120, 120, 100, 0.4)',
+        infoCard: ' 0px 0px 20px rgba(110, 110, 110, 0.4)',
+        infoCardHover: ' 0px 0px 35px rgba(0, 0, 0, 0.3)',
       },
     },
   },
@@ -44,6 +46,7 @@ module.exports = {
       rotate: ['group-hover'],
       height: ['group-hover'],
       padding: ['group-hover'],
+      brightness: ['hover'],
     },
   },
   plugins: [require('@tailwindcss/forms')],

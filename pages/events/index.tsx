@@ -1,18 +1,18 @@
 import { useState } from 'react'
-import { useGetEvents } from '../queries/useGetEvent'
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import Container from '../components/Layout/Container'
-import Event from '../components/Event'
-import NextImage from '../components/NextImage'
-import NavSearch from '../components/NavSearch'
-import FloatingActionButton from '../components/FloatingActionButton'
-import foss from '../public/clubs/foss.png'
-import bg from '../public/events/eventBG.jpg'
+import { useGetEvents } from '../../queries/useGetEvent'
+import Layout from '../../components/Layout'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import Container from '../../components/Layout/Container'
+import Event from '../../components/Event'
+import NextImage from '../../components/NextImage'
+import NavSearch from '../../components/NavSearch'
+import FloatingActionButton from '../../components/FloatingActionButton'
+import foss from '../../public/clubs/foss.png'
+import bg from '../../public/events/eventBG.jpg'
 import { SiGooglecalendar } from 'react-icons/si'
 
-const EventsPage = (): JSX.Element => {
+const AllEvents = (): JSX.Element => {
   const { data: eventList = [], isSuccess } = useGetEvents()
   console.log('event list : ', eventList)
   const [filterValue, setFilterValue] = useState('All')
@@ -55,6 +55,7 @@ const EventsPage = (): JSX.Element => {
               {eventList.map((event) => (
                 <Event
                   key={event?._id}
+                  id={event?._id}
                   logo={foss}
                   title={event?.name}
                   category="Networking"
@@ -82,4 +83,4 @@ const EventsPage = (): JSX.Element => {
   )
 }
 
-export default EventsPage
+export default AllEvents

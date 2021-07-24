@@ -12,6 +12,7 @@ import {
 import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
 
 interface EventProps {
+  id: string
   logo: StaticImageData
   title: string
   category: string
@@ -21,6 +22,7 @@ interface EventProps {
 }
 
 const Event = ({
+  id,
   logo,
   title,
   category,
@@ -46,7 +48,7 @@ const Event = ({
         <div className="px-4 py-4 md:px-10">
           <h1 className="font-bold text-lg">{title}</h1>
           <p className="py-4">{description}</p>
-          <Link href="/singleEvent">
+          <Link href={'/events/' + id}>
             <a className="w-full mb-1 md:w-full text-base font-bold text-gray-dark hover:text-lightBlueAccent">
               Read More
             </a>
