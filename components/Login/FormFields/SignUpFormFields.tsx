@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 interface props {
-  onSubmit: SubmitHandler<IFormInput>
+  onSubmit: () => void
 }
 
 const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
