@@ -22,8 +22,9 @@
     "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.11.1",
     "react-icons": "^4.2.0",
+    "react-particles-js": "^3.5.3",
+    "react-tsparticles": "^1.32.0",
     "react-query": "^3.18.1",
     "react-share": "^4.4.0"
   },

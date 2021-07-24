@@ -32,7 +32,7 @@ const Navbar = (): JSX.Element => {
           </Link>
         </div>
 
-        <h3 className="absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold">
+        <h3 className="absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold cursor-default">
           SLIIT RSVP PORTAL
         </h3>
         <nav className="absolute right-5">
@@ -57,7 +57,7 @@ const Navbar = (): JSX.Element => {
                 <a>Contact</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-2 px-6 transition ease-in rounded-lg cursor-pointer">
+            <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
               <Link href="/login">
                 <a>Sign In</a>
               </Link>
@@ -150,7 +150,7 @@ const Navbar = (): JSX.Element => {
                 </Link>
               </li>
               <li
-                className="font-medium text-2xl bg-gradientPurple py-2 px-6 text-white transition ease-in rounded-lg cursor-pointer"
+                className="font-medium text-2xl bg-gradientPurple py-1.5 px-6 text-white shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 <Link href="/login">

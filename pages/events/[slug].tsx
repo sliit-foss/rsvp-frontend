@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import Image from 'next/image'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { FaLinkedin } from 'react-icons/fa'
@@ -10,6 +13,9 @@ import Button from '../../components/Button'
 import speakerPhoto from '../../public/singleEvent/speaker.png'
 
 const SingleEvent = (): JSX.Element => {
+  useEffect(() => {
+    Aos.init({ offset: 0, duration: 1000 })
+  }, [])
   return (
     <Layout title="SLIIT RSVP | Events">
       <Navbar />
@@ -20,13 +26,13 @@ const SingleEvent = (): JSX.Element => {
       >
         <Container>
           <div className="flex flex-col lg:flex-row justify-between items-start mt-32 px-5 lg:px-0">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-right">
               <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                 Event
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-left">
               <div className="text-base lg:text-lg font-normal text-center lg:text-left">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis
                 dui non neque gravida mollis. Pellentesque laoreet placerat elit
@@ -68,13 +74,13 @@ const SingleEvent = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start mt-36 px-5 lg:px-0">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-right">
               <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                 Speakers
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-left">
               <div className="flex flex-col lg:flex-row items-center lg:items-end">
                 <div className="w-full lg:w-1/2 flex justify-center items-center rounded-xl mt-5">
                   <div className="w-3/4 lg:w-full rounded-xl shadow-md hover:shadow-xl transition-all ease-out duration-500">
@@ -138,13 +144,13 @@ const SingleEvent = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start mt-36 mb-32 px-5 lg:px-0 ">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-right">
               <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                 Sponsors
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2" data-aos="fade-left">
               <div className="flex flex-col justify-center items-start mt-5">
                 <div className="text-base lg:text-lg font-normal text-center lg:text-left">
                   A big thanks to our sponsors for pitching in and helping keep

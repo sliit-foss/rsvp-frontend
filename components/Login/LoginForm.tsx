@@ -1,14 +1,9 @@
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
 import NextImage from '../NextImage'
 import SignInFormFields from './FormFields/SignInFormFields'
 import SignUpFormFields from './FormFields/SignUpFormFields'
 import googleLogo from '../../public/logos/google_colour.svg'
 import { UserEndpoints } from '../../pages/api/user'
-import {
-  UserSignInData,
-  UserSignUpData,
-} from '../../pages/api/user/user.interface'
 import LoadingOverlay from '../LoadingOverlay'
 import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
 import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
@@ -27,17 +22,14 @@ const LoginForm = ({
   const [showLoading, setShowLoading] = useState(false)
   const [rememberMeValue, setRememberMeValue] = useState(false)
 
-  const {
-    formState: { errors },
-  } = useForm()
-
-  if (Object.keys(errors).length > 0) {
-    console.log('Err : ', errors)
-  }
-
-  const onSignInSubmitAction = (formData: UserSignInData, e: any) => {
+  const onSignInSubmitAction = (event: any) => {
+    event.preventDefault()
     setShowLoading(true)
-    e.preventDefault()
+
+    const formData = {
+      username: event.target.username.value,
+      password: event.target.password.value,
+    }
 
     UserEndpoints.signInUser(formData)
       .then(() => {
@@ -58,9 +50,15 @@ const LoginForm = ({
       })
   }
 
-  const onSignUpSubmitAction = (formData: UserSignUpData, e: any) => {
+  const onSignUpSubmitAction = (event: any) => {
+    event.preventDefault()
     setShowLoading(true)
-    e.preventDefault()
+
+    const formData = {
+      username: event.target.username.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+    }
     console.log(formData)
     UserEndpoints.signUpUser(formData)
       .then(() => {
@@ -131,7 +129,7 @@ const LoginForm = ({
         <div className="w-full lg:w-4/5">
           <p className="text-xs text-left font-semibold">
             {login ? 'Not Registered Yet?' : 'Already have an account?'}{' '}
-            <span onClick={loginToggleHandler} className="text-blue">
+            <span onClick={loginToggleHandler} className="text-blue cursor-pointer">
               {login ? 'Create An Account' : 'login'}
             </span>
           </p>
@@ -154,7 +152,7 @@ const LoginForm = ({
             : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
         }
       >
-        <SuccessSnackbar />
+        <SuccessSnackbar action={login ? 'signIn' : 'signUp'} />
       </div>
     </>
   )

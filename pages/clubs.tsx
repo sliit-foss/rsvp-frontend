@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -10,7 +13,33 @@ import sliit from '../public/clubs/sliit.png'
 import wif from '../public/clubs/wif.png'
 import { HiArrowRight } from 'react-icons/hi'
 
+const clubs = [
+  {
+    title: 'SLIIT FOSS Community',
+    logo: foss,
+  },
+  {
+    title: 'Mozilla Campus Club',
+    logo: mozilla,
+  },
+  {
+    title: 'MS Club of SLIIT',
+    logo: ms,
+  },
+  {
+    title: 'SLIIT Women in FOSS Community',
+    logo: wif,
+  },
+  {
+    title: 'Other Societies',
+    logo: sliit,
+  },
+]
+
 const ClubsPage = (): JSX.Element => {
+  useEffect(() => {
+    Aos.init({ offset:0,duration: 1000 })
+  }, [])
   return (
     <Layout title="SLIIT RSVP | Clubs">
       <Navbar />
@@ -30,12 +59,16 @@ const ClubsPage = (): JSX.Element => {
               </span>
             </h1>
           </div>
-          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-4xl mx-auto">
-            <Club logo={foss} title="SLIIT FOSS Community" />
-            <Club logo={mozilla} title="Mozilla Campus Club" />
-            <Club logo={ms} title="MS Club of SLIIT" />
-            <Club logo={wif} title="SLIIT Women in FOSS Community" />
-            <Club logo={sliit} title="Other Societies" />
+          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-3xl mx-auto">
+            {clubs.map((club, index) => (
+              <div
+                key={index}
+                data-aos={index % 2 == 0 ? 'fade-right' : 'fade-left'}
+                
+              >
+                <Club logo={club.logo} title={club.title} />
+              </div>
+            ))}
           </div>
         </Container>
       </section>

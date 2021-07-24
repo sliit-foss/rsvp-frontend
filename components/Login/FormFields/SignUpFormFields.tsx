@@ -1,12 +1,4 @@
 import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-
-interface IFormInput {
-  username: string
-  email: string
-  password: string
-  confirmPassword: string
-}
 
 interface props {
   onSubmit: SubmitHandler<IFormInput>
@@ -18,45 +10,56 @@ const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
 
   const [password, setPassword] = useState('')
   const [passwordMatch, setPasswordMatch] = useState(true)
-  const { handleSubmit, register } = useForm<IFormInput>()
 
-  const passwordCheck = (confirmPassword: string) => {
+  const passwordCheck = () => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const confirmPassword = e.target.value
     const valid = password === confirmPassword
     setPasswordMatch(valid)
     return valid
   }
 
-  const handlePasswordChange = (password: string) => {
-    setPassword(password)
-    return true
-  }
+  const handlePasswordChange =
+    () => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const password = e.target.value
+      setPassword(password)
+      return true
+    }
 
   return (
     <form
       id="signUpForm"
       className="flex flex-col w-full lg:w-4/5"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={
+        passwordMatch
+          ? onSubmit
+          : (event: any) => {
+              event.preventDefault()
+            }
+      }
     >
       <input
-        {...(register('username'), { required: true })}
+        id="username"
         type="text"
         placeholder="Username"
         className={inputfieldClasses}
+        required
       />
 
       <input
-        {...(register('email'), { required: true })}
+        id="email"
         type="email"
         placeholder="Email"
         className={inputfieldClasses}
+        required
       />
 
       <input
-        {...(register('password'),
-        { required: true, validate: handlePasswordChange })}
+        id="password"
         type="password"
         placeholder="Password"
         className={inputfieldClasses}
+        onChange={handlePasswordChange()}
+        required
         style={
           passwordMatch
             ? { border: '1px solid #ffffff00' }
@@ -65,64 +68,17 @@ const SignUpFormFields = ({ onSubmit }: props): JSX.Element => {
       />
 
       <input
-        {...(register('confirmPassword'),
-        { required: true, validate: passwordCheck })}
         type="password"
         placeholder="Confirm Password"
         className={inputfieldClasses}
+        onChange={passwordCheck()}
+        required
         style={
           passwordMatch
             ? { border: '1px solid #ffffff00' }
             : { border: '1px solid #ff0022' }
         }
       />
-
-      {/* <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        name="password"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: handlePasswordChange }}
-      />
-
-      <Controller
-        as={
-          <input
-            type="text"
-            placeholder="Confirm Password"
-            className={inputfieldClasses}
-            style={
-              passwordMatch
-                ? { border: '1px solid #ffffff00' }
-                : { border: '1px solid #ff0022' }
-            }
-          />
-        }
-        control={control}
-        required
-        id="confirmPassword"
-        name="confirmPassword"
-        type="password"
-        autoComplete="current-password"
-        size={'small'}
-        defaultValue=""
-        rules={{ required: true, validate: passwordCheck }}
-      /> */}
     </form>
   )
 }
