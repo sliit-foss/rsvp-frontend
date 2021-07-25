@@ -38,10 +38,10 @@ const clubs = [
 
 const ClubsPage = (): JSX.Element => {
   useEffect(() => {
-    Aos.init({ offset:0,duration: 1000 })
+    Aos.init({ offset: 0, duration: 1000 })
   }, [])
   return (
-    <Layout title="SLIIT RSVP | Clubs">
+    <Layout title="Clubs | RSVP SLIIT">
       <Navbar />
       <section
         style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}
@@ -64,7 +64,6 @@ const ClubsPage = (): JSX.Element => {
               <div
                 key={index}
                 data-aos={index % 2 == 0 ? 'fade-right' : 'fade-left'}
-                
               >
                 <Club logo={club.logo} title={club.title} />
               </div>

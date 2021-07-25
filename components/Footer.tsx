@@ -12,7 +12,7 @@ import {
 
 const Footer = (): JSX.Element => {
   return (
-    <div className="lg:flex lg:flex-row bg-gradient-to-r from-gradientBlue to-gradientPurple pb-10 lg:pb-0">
+    <div className="font-inter lg:flex lg:flex-row bg-gradient-to-r from-gradientBlue to-gradientPurple pb-10 lg:pb-0">
       <div className="sm:w-full lg:w-1/3">
         <div>
           <Image src={fossLogo} width="168" height="168" alt="Foss Logo" />

@@ -17,7 +17,11 @@ const SingleEvent = (): JSX.Element => {
     Aos.init({ offset: 0, duration: 1000 })
   }, [])
   return (
-    <Layout title="SLIIT RSVP | Events">
+    <Layout
+      title={'<put the event title> | RSVP SLIIT'}
+      description={'put the event description'}
+      image={'put the guest image here'}
+    >
       <Navbar />
 
       <section

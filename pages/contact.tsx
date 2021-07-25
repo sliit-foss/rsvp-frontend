@@ -7,7 +7,7 @@ import Container from '../components/Layout/Container'
 
 const Contact = (): JSX.Element => {
   return (
-    <Layout title="SLIIT RSVP | Contact">
+    <Layout title="Contact | RSVP SLIIT">
       <Navbar />
       <section
         style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}

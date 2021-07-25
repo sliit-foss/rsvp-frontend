@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 
 const Loginpage = (): JSX.Element => {
   return (
-    <Layout title="SLIIT RSVP | Login">
+    <Layout title="Login | RSVP SLIIT">
       <Navbar />
       <div
         className="min-h-screen flex p-3 lg:p-0"
