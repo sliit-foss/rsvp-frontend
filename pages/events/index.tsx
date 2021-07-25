@@ -37,7 +37,7 @@ const AllEvents = (): JSX.Element => {
   }
 
   return (
-    <Layout title="SLIIT RSVP | Events">
+    <Layout title="Events | RSVP SLIIT">
       <Navbar />
       <NextImage src={bg} alt="SLIIT EVENTS" />
       <section

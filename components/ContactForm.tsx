@@ -8,7 +8,7 @@ import ContactVector from '../public/contact/ContactVector.svg'
 
 const ContactForm = (): JSX.Element => {
   useEffect(() => {
-    Aos.init({offset:0, duration: 1000 })
+    Aos.init({ offset: 0, duration: 1000 })
   }, [])
   return (
     <div>
@@ -17,7 +17,8 @@ const ContactForm = (): JSX.Element => {
           <div className="w-full mb-16 mt-20">
             <h1
               className="flex flex-row items-center text-3xl
-            font-semibold" data-aos="fade-right"
+            font-semibold"
+              data-aos="fade-right"
             >
               Contact Us{''}
               <span className="inline-block">
@@ -26,8 +27,8 @@ const ContactForm = (): JSX.Element => {
             </h1>
           </div>
 
-          <div className="sm:grid sm:grid-cols-1 sm:w-full lg:flex lg:flex-row w-full h-auto mb-12"  >
-            <div className="lg:w-1/2 sm:w-full h-auto " data-aos="fade-right" >
+          <div className="sm:grid sm:grid-cols-1 sm:w-full lg:flex lg:flex-row w-full h-auto mb-12">
+            <div className="lg:w-1/2 sm:w-full h-auto " data-aos="fade-right">
               <div className="sm:w-full md:w-1/2 lg:w-1/2 text-gray-default font-semibold mb-8">
                 <h5>
                   Fill up the form and our Team will get back to you within 24
@@ -39,7 +40,10 @@ const ContactForm = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center sm:w-full md:w-full lg:w-1/2 h-auto" data-aos="fade-left" >
+            <div
+              className="flex flex-col justify-center sm:w-full md:w-full lg:w-1/2 h-auto"
+              data-aos="fade-left"
+            >
               <div className="bg-white rounded-2xl shadow-ds2 hover:shadow-ds3 pt-12 pb-12 transition duration-500">
                 <Container>
                   <div className="px-5 lg:px-8">
