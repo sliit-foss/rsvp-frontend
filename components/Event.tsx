@@ -50,10 +50,10 @@ const Event = ({
           <button
             onClick={() => {
               router.push({
-                pathname:'/events/' + id,
+                pathname: '/events/' + id,
                 query: {
-                   name: title,
-                  },
+                  name: title,
+                },
               })
             }}
           >
@@ -83,7 +83,7 @@ const Event = ({
               )}
             </div>
             <div className="w-full mb-1 md:w-full text-sm font-bold">
-              {date}
+              {new Date(date).toString().substring(4, 15)}
             </div>
             <div className="2/3 mb-3">
               <div className="text-sm font-medium  flex flex-row flex-wrap justify-center items-center">
