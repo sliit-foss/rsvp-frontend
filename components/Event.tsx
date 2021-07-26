@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import Image from 'next/image'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,7 +12,7 @@ import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
 
 interface EventProps {
   id: string
-  logo: StaticImageData
+  imageURL: string
   title: string
   category: string
   description: string
@@ -23,7 +22,7 @@ interface EventProps {
 
 const Event = ({
   id,
-  logo,
+  imageURL,
   title,
   category,
   description,
@@ -34,25 +33,34 @@ const Event = ({
     Aos.init({ duration: 1000 })
   }, [])
 
+  const router = useRouter()
+
   return (
     <div data-aos="fade-up" className="w-full lg:w-2/6  md:px-4 lg:px-6 py-5 ">
       <div className="bg-white hover:shadow-xl h-full rounded-xl transition-all ease-out duration-500">
-        <Image
-          className="border-white border-8 hover:opacity-25 rounded-xl rounded-b-none transition-all ease-out duration-500"
-          src={logo}
-          alt="SLIIT FOSS"
-          quality={90}
-          layout="responsive"
-          placeholder="blur"
-        />
+        <img
+          src={imageURL}
+          alt="Logo"
+          className="w-full mb-3 border-white hover:opacity-75 rounded-xl rounded-b-lg transition-all ease-out duration-500"
+        ></img>
+
         <div className="px-4 py-4 md:px-10">
           <h1 className="font-bold text-lg">{title}</h1>
           <p className="py-4">{description}</p>
-          <Link href={'/events/' + id}>
+          <button
+            onClick={() => {
+              router.push({
+                pathname:'/events/' + id,
+                query: {
+                   name: title,
+                  },
+              })
+            }}
+          >
             <a className="w-full mb-1 md:w-full text-base font-bold text-gray-dark hover:text-lightBlueAccent">
               Read More
             </a>
-          </Link>
+          </button>
 
           <div className="flex flex-wrap pt-8">
             <div className="text-sm font-medium  flex flex-wrap">
@@ -60,7 +68,7 @@ const Event = ({
                 {category}
               </div>
               <div className="w-2" />
-              {status == 'Happenning Now' || status == 'Closed' ? (
+              {status == 'Happening Now' || status == 'Closed' ? (
                 <div
                   className={
                     status == 'Closed'

@@ -8,9 +8,10 @@ import Event from '../../components/Event'
 import NextImage from '../../components/NextImage'
 import NavSearch from '../../components/NavSearch'
 import FloatingActionButton from '../../components/FloatingActionButton'
-import foss from '../../public/clubs/foss.png'
+import StayTuned from '../../components/Common/StayTuned'
 import bg from '../../public/events/eventBG.jpg'
 import { SiGooglecalendar } from 'react-icons/si'
+import { EventData } from '../api/event/event.interface'
 
 const AllEvents = (): JSX.Element => {
   const { data: eventList = [], isSuccess } = useGetEvents()
@@ -22,18 +23,27 @@ const AllEvents = (): JSX.Element => {
     () => (e: React.ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value
       setFilterValue(value)
-      console.log(filterValue)
     }
 
   const handleSearchParam = () => (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setSearchValue(value)
-    console.log(searchValue)
   }
 
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     console.log(e)
     alert(searchValue)
+  }
+
+  let diplayEventList: Array<EventData> = []
+  if (filterValue === 'Happening Now' || filterValue === 'Upcoming') {
+    eventList.map((event) => {
+      if (event.status === filterValue) {
+        diplayEventList.push(event)
+      }
+    })
+  } else {
+    diplayEventList = eventList
   }
 
   return (
@@ -51,20 +61,24 @@ const AllEvents = (): JSX.Element => {
             formSubmit={formSubmit}
           />
           {isSuccess ? (
-            <div className="flex flex-wrap px-6">
-              {eventList.map((event) => (
-                <Event
-                  key={event?._id}
-                  id={event?._id}
-                  logo={foss}
-                  title={event?.name}
-                  category="Networking"
-                  description={event?.description || ''}
-                  date="JUNE 1,2021"
-                  status={event?.status}
-                />
-              ))}
-            </div>
+            diplayEventList.length != 0 ? (
+              <div className="flex flex-wrap px-6">
+                {diplayEventList.map((event) => (
+                  <Event
+                    key={event?._id}
+                    id={event?._id}
+                    imageURL={event?.headerImage}
+                    title={event?.name}
+                    category={event?.category}
+                    description={event?.description || ''}
+                    date={event?.date}
+                    status={event?.status}
+                  />
+                ))}
+              </div>
+            ) : (
+              <StayTuned filterValue={filterValue} />
+            )
           ) : (
             <div
               className=" flex justify-center items-center"
