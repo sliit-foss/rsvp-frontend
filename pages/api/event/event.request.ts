@@ -23,11 +23,14 @@ export async function getEvents(): Promise<EventData[] | boolean> {
   }
 }
 
-export async function getEvent(eventId: string): Promise<EventData | boolean> {
+export async function getEvent({
+  queryKey,
+}: any): Promise<EventData | boolean> {
+  const [_key, { eventId }] = queryKey
+  console.log(_key)
   try {
-    const response = await apiInstance.get(`/event/${eventId}`)
-
-    return response.data
+    const response = await apiInstance.get(`/events/${eventId}`)
+    return response.data as EventData
   } catch (e) {
     console.error(e.message)
     return false

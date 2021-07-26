@@ -9,8 +9,9 @@ export function useGetEvents(): UseQueryResult<EventData[], boolean> {
 }
 
 const EVENT_BY_ID = 'EVENT_BY_ID'
+
 export function useGetEvent(
   eventId: string
 ): UseQueryResult<EventData, boolean> {
-  return useQuery([EVENT_BY_ID, eventId, EventEndpoint.getEvent])
+  return useQuery([EVENT_BY_ID,{eventId}], EventEndpoint.getEvent)
 }
