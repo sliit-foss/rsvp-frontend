@@ -47,6 +47,7 @@ module.exports = {
       height: ['group-hover'],
       padding: ['group-hover'],
       brightness: ['hover'],
+      borderWidth: ['focus'],
     },
   },
   plugins: [require('@tailwindcss/forms')],

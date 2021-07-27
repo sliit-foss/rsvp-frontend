@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useGetEvents } from '../../queries/useGetEvent'
 import Layout from '../../components/Layout'
 import Navbar from '../../components/Navbar'
@@ -15,36 +15,48 @@ import { EventData } from '../api/event/event.interface'
 
 const AllEvents = (): JSX.Element => {
   const { data: eventList = [], isSuccess } = useGetEvents()
-  console.log('event list : ', eventList)
   const [filterValue, setFilterValue] = useState('All')
-  const [searchValue, setSearchValue] = useState<string>('')
+  const [searchValue, setSearchValue] = useState('')
+  const [events, setEvents] = useState<Array<EventData>>([])
+
+  useEffect(() => {
+    if (filterValue === 'Happening Now' || filterValue === 'Upcoming') {
+      const list: Array<EventData> = eventList.filter((event) => {
+        return event.status === filterValue
+      })
+      setEvents(list)
+    } else {
+      setEvents(eventList)
+    }
+  }, [filterValue, eventList])
 
   const handleEventFilterParam =
     () => (e: React.ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value
       setFilterValue(value)
+      setSearchValue('')
     }
 
-  const handleSearchParam = () => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
+  const handleSearchParam = () => (value: string) => {
+    if (value === '') {
+      setEvents(eventList)
+    }
     setSearchValue(value)
   }
 
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(e)
-    alert(searchValue)
+    e.preventDefault()
+    if (searchValue != '') {
+      const list: Array<EventData> = eventList.filter((event) => {
+        return event.name === searchValue
+      })
+      setEvents(list)
+    }
   }
 
-  let diplayEventList: Array<EventData> = []
-  if (filterValue === 'Happening Now' || filterValue === 'Upcoming') {
-    eventList.map((event) => {
-      if (event.status === filterValue) {
-        diplayEventList.push(event)
-      }
-    })
-  } else {
-    diplayEventList = eventList
-  }
+  const searchSuggestions: Array<string> = eventList.map((event) => {
+    return event.name
+  })
 
   return (
     <Layout title="Events | RSVP SLIIT">
@@ -59,11 +71,13 @@ const AllEvents = (): JSX.Element => {
             handleFilterChange={handleEventFilterParam()}
             handleSearchParam={handleSearchParam()}
             formSubmit={formSubmit}
+            searchValue={searchValue}
+            searchSuggestions={searchSuggestions}
           />
           {isSuccess ? (
-            diplayEventList.length != 0 ? (
+            events.length != 0 ? (
               <div className="flex flex-wrap px-6">
-                {diplayEventList.map((event) => (
+                {events.map((event) => (
                   <Event
                     key={event?._id}
                     id={event?._id}
