@@ -16,7 +16,7 @@ const OurPartners = (): JSX.Element => {
 
   return (
     <div className="relative">
-      <ParticleBG />
+      <ParticleBG backgroundMode={false} />
       <Container>
         <section className="flex flex-col items-center md:py-20 py-10 z-10">
           <h2
