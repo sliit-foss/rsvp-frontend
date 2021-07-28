@@ -44,9 +44,9 @@ const SingleEvent = (): JSX.Element => {
       >
         {isSuccess ? (
           <Container>
-            <div className="flex flex-col lg:flex-row justify-between items-start mt-32 px-5 lg:px-0">
+            <div className="flex flex-col lg:flex-row justify-between items-start mt-16 lg:mt-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Event
                 </div>
               </div>
@@ -82,9 +82,9 @@ const SingleEvent = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between items-start mt-36 px-5 lg:px-0">
+            <div className="flex flex-col lg:flex-row justify-between items-start mt-20 lg:mt-36 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Speakers
                 </div>
               </div>
@@ -106,9 +106,9 @@ const SingleEvent = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between items-start mt-36 mb-32 px-5 lg:px-0 ">
+            <div className="flex flex-col lg:flex-row justify-between items-start mt-16 lg:mt-36 mb-20 lg:mb-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Sponsors
                 </div>
               </div>
