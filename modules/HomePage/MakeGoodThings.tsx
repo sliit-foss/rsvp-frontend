@@ -15,7 +15,7 @@ const MakeGoodThings = (): JSX.Element => {
 
   return (
     <div className="relative">
-      <ParticleBG />
+      <ParticleBG backgroundMode={false}/>
       <Container>
         <section className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 md:py-24 py-16 z-10">
           <div data-aos="fade-right">

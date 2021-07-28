@@ -1,5 +1,10 @@
 import Particles from 'react-particles-js'
-const ParticleBG = (): JSX.Element => {
+
+interface props {
+  backgroundMode: boolean
+}
+
+const ParticleBG = ({ backgroundMode }: props): JSX.Element => {
   return (
     <Particles
       className="absolute top-0 w-full h-full "
@@ -80,6 +85,10 @@ const ParticleBG = (): JSX.Element => {
           },
         },
         detectRetina: true,
+        backgroundMode: {
+          enable: backgroundMode,
+          zIndex: 0,
+        },
       }}
     />
   )
