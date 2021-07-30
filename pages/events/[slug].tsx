@@ -23,9 +23,7 @@ const SingleEvent = (): JSX.Element => {
     eventID = window.location.href.split('/').splice(-1)[0].split('?')[0]
   }
   const { data: event, isSuccess } = useGetEvent(eventID)
-
-  console.log(event)
-
+  
   return (
     <Layout
       title={

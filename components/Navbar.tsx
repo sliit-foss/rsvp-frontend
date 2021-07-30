@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import foss_dark from '../public/logos/foss_dark.svg'
 import foss_light from '../public/logos/foss_light.svg'
 import { mobileNavVariants, navElementsVariants } from '../animations'
@@ -10,10 +11,22 @@ import { RiCloseFill } from 'react-icons/ri'
 import ParticleBG from './Common/ParticleBG'
 
 const Navbar = (): JSX.Element => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
+  let loginStatus = false
+  if (process.browser) {
+    loginStatus = window.localStorage.getItem('LoggedIn') === 'true'
+  }
 
   const toggleNav = () => {
     setIsOpen((prev) => !prev)
+  }
+
+  const logOut = () => {
+    window.localStorage.setItem('RememberMe', 'false')
+    window.localStorage.setItem('LoggedIn', 'false')
+    window.localStorage.setItem('Token', '')
+    window.location.reload()
   }
 
   return (
@@ -58,11 +71,23 @@ const Navbar = (): JSX.Element => {
                 <a>Contact</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
-              <Link href="/login">
-                <a>Sign In</a>
-              </Link>
-            </li>
+            <button
+              onClick={
+                loginStatus
+                  ? logOut
+                  : () => {
+                      router.push({
+                        pathname: '/login',
+                      })
+                    }
+              }
+            >
+              <a>
+                <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
+                  {loginStatus ? 'Sign Out' : 'Sign In'}
+                </li>
+              </a>
+            </button>
             <li
               className="block lg:hidden z-20 cursor-pointer transition ease-in"
               onClick={toggleNav}
@@ -150,14 +175,16 @@ const Navbar = (): JSX.Element => {
                   </li>
                 </a>
               </Link>
-              <li
-                className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4"
-                onClick={() => setIsOpen(false)}
-              >
-                <Link href="/login">
-                  <a>Sign In</a>
-                </Link>
-              </li>
+              <Link href="/login">
+                <a>
+                  <li
+                    className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Sign In
+                  </li>
+                </a>
+              </Link>
             </motion.ul>
           </motion.div>
         ) : (
