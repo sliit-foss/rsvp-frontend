@@ -20,7 +20,7 @@ const AllEvents = (): JSX.Element => {
   const [events, setEvents] = useState<Array<EventData>>([])
 
   useEffect(() => {
-    if (filterValue === 'Happening Now' || filterValue === 'Upcoming') {
+    if (filterValue!=='All') {
       const list: Array<EventData> = eventList.filter((event) => {
         return event.status === filterValue
       })
@@ -85,7 +85,7 @@ const AllEvents = (): JSX.Element => {
                     title={event?.name}
                     category={event?.category}
                     description={event?.description || ''}
-                    date={event?.date}
+                    startTime={event?.startTime}
                     status={event?.status}
                   />
                 ))}

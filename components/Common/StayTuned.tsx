@@ -10,8 +10,10 @@ const StayTuned = ({ filterValue }: props): JSX.Element => {
       </div>
       <div className="font-inter font-semibold text-xl lg:text-2xl text-center mb-20 px-8 text-gray-800">
         {filterValue === 'Upcoming'
-          ? 'Sorry, there are no upcoming events at the moment.'
-          : 'Sorry, no events are taking place at the moment.'}{' '}
+          ? 'Sorry, there are no upcoming events at the moment. '
+          : filterValue === 'Happening Now'
+          ? 'Sorry, no events are taking place at the moment. '
+          : `There are no ${filterValue.toLowerCase()} events at the moment. `}
         We&apos;ll be sure to update the page once any do
       </div>
     </div>
