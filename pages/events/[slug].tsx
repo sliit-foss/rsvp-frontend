@@ -23,7 +23,7 @@ const SingleEvent = (): JSX.Element => {
     eventID = window.location.href.split('/').splice(-1)[0].split('?')[0]
   }
   const { data: event, isSuccess } = useGetEvent(eventID)
-  
+
   return (
     <Layout
       title={
@@ -61,7 +61,21 @@ const SingleEvent = (): JSX.Element => {
                   </div>
                   <div className="w-full">
                     <div className="text-base lg:text-lg font-normal text-center lg:text-left">
-                      {event?.date}
+                      <div className='mb-3'>
+                        {`${new Date(event ? event.startTime : 0)
+                          .toString()
+                          .substring(4, 15)}`}
+                      </div>
+
+                      <div>
+                        {`${new Date(event ? event.startTime : 0)
+                          .toString()
+                          .substring(15, 21)} - ${new Date(
+                          event ? event.endTime : 0
+                        )
+                          .toString()
+                          .substring(15, 21)}`}
+                      </div>
                     </div>
                   </div>
                 </div>

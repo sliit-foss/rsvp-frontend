@@ -16,7 +16,7 @@ interface EventProps {
   title: string
   category: string
   description: string
-  date: string
+  startTime: number
   status: string
 }
 
@@ -26,7 +26,7 @@ const Event = ({
   title,
   category,
   description,
-  date,
+  startTime,
   status,
 }: EventProps): JSX.Element => {
   useEffect(() => {
@@ -44,7 +44,7 @@ const Event = ({
           className="w-full mb-3 border-white hover:opacity-75 rounded-xl rounded-b-lg transition-all ease-out duration-500"
         ></img>
 
-        <div className="px-4 py-4 md:px-10">
+        <div className="px-6 py-4 md:px-10">
           <h1 className="font-bold text-lg">{title}</h1>
           <p className="py-4">{description}</p>
           <button
@@ -64,26 +64,27 @@ const Event = ({
 
           <div className="flex flex-wrap pt-8">
             <div className="text-sm font-medium  flex flex-wrap">
-              <div className="bg-lightBlueAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm">
+              <div className="bg-lightBlueAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm transform hover:scale-103 filter hover:brightness-110 transition ease-in duration-150 cursor-default">
                 {category}
               </div>
               <div className="w-2" />
-              {status == 'Happening Now' || status == 'Closed' ? (
-                <div
-                  className={
-                    status == 'Closed'
-                      ? 'bg-redAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
-                      : 'bg-green-400 py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
-                  }
-                >
-                  {status}
-                </div>
-              ) : (
-                <div />
-              )}
+
+              <div
+                className={`py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm transform hover:scale-103 filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
+                  status === 'Closed' || status === 'Cancelled'
+                    ? 'bg-redAccent'
+                    : status === 'Postponed'
+                    ? 'bg-yellow-400'
+                    : status === 'Upcoming'
+                    ? 'bg-gray-400'
+                    : 'bg-green-400'
+                }`}
+              >
+                {status}
+              </div>
             </div>
             <div className="w-full mb-1 md:w-full text-sm font-bold">
-              {new Date(date).toString().substring(4, 15)}
+              {new Date(startTime).toString().substring(4, 15)}
             </div>
             <div className="2/3 mb-3">
               <div className="text-sm font-medium  flex flex-row flex-wrap justify-center items-center">

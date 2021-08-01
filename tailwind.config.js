@@ -39,6 +39,9 @@ module.exports = {
         infoCard: ' 0px 0px 20px rgba(110, 110, 110, 0.4)',
         infoCardHover: ' 0px 0px 35px rgba(0, 0, 0, 0.3)',
       },
+      scale: {
+        103: '1.03',
+      },
     },
   },
   variants: {

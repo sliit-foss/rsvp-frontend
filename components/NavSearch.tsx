@@ -29,6 +29,9 @@ const NavSearch = ({
             <option value="All">All</option>
             <option value="Happening Now">Happening Now</option>
             <option value="Upcoming">Upcoming</option>
+            <option value="Closed">Closed</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Postponed">Postponed</option>
           </select>
           <AutoCompleteForm
             value={searchValue}

@@ -13,10 +13,10 @@ export interface EventData {
   headerImage: string
   status: string
   venue: string
-  date: string
-  fromTime: string
-  toTime: string
+  startTime: number
+  endTime: number
   photos: string[]
+  tags: string[]
   category: string
   speakers: SpeakerData[]
 }
