@@ -21,9 +21,9 @@ const AllEvents = (): JSX.Element => {
 
   useEffect(() => {
     if (filterValue!=='All') {
-      const list: Array<EventData> = eventList.filter((event) => {
+      const list: Array<EventData> = eventList?eventList.filter((event) => {
         return event.status === filterValue
-      })
+      }):[]
       setEvents(list)
     } else {
       setEvents(eventList)
@@ -47,16 +47,16 @@ const AllEvents = (): JSX.Element => {
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (searchValue != '') {
-      const list: Array<EventData> = eventList.filter((event) => {
+      const list: Array<EventData> = eventList?eventList.filter((event) => {
         return event.name === searchValue
-      })
+      }):[]
       setEvents(list)
     }
   }
 
-  const searchSuggestions: Array<string> = eventList.map((event) => {
+  const searchSuggestions: Array<string> = eventList?eventList.map((event) => {
     return event.name
-  })
+  }):[]
 
   return (
     <Layout title="Events | RSVP SLIIT">
@@ -74,7 +74,7 @@ const AllEvents = (): JSX.Element => {
             searchValue={searchValue}
             searchSuggestions={searchSuggestions}
           />
-          {isSuccess ? (
+          {isSuccess && eventList? (
             events.length != 0 ? (
               <div className="flex flex-wrap px-6">
                 {events.map((event) => (
