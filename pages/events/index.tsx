@@ -74,7 +74,7 @@ const AllEvents = (): JSX.Element => {
             searchValue={searchValue}
             searchSuggestions={searchSuggestions}
           />
-          {isSuccess ? (
+          {isSuccess && eventList? (
             events.length != 0 ? (
               <div className="flex flex-wrap px-6">
                 {events.map((event) => (
