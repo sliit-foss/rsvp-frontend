@@ -4,13 +4,13 @@ import { useRouter } from 'next/router'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
-import { useGetEvent } from '../../queries/useGetEvent'
-import Layout from '../../components/Layout'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
-import Container from '../../components/Layout/Container'
-import Button from '../../components/Button'
-import Speaker from '../../components/Speaker'
+import { useGetEvent } from '../../../queries/useGetEvent'
+import Layout from '../../../components/Layout'
+import Navbar from '../../../components/Navbar'
+import Footer from '../../../components/Footer'
+import Container from '../../../components/Layout/Container'
+import Button from '../../../components/Button'
+import Speaker from '../../../components/Speaker'
 
 const SingleEvent = (): JSX.Element => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const SingleEvent = (): JSX.Element => {
   const router = useRouter()
   let eventID = ''
   if (process.browser) {
-    eventID = window.location.href.split('/').splice(-1)[0].split('?')[0]
+    eventID = window.location.href.split('/').reverse()[0].split('?')[0]
   }
   const { data: event, isSuccess } = useGetEvent(eventID)
 
@@ -31,8 +31,8 @@ const SingleEvent = (): JSX.Element => {
           ? 'RSVP SLIIT'
           : `${router.query.name} | RSVP SLIIT`
       }
-      description={'put the event description'}
-      image={'put the guest image here'}
+      description={event?.description}
+      image={event?.headerImage}
     >
       <Navbar />
 
@@ -60,21 +60,31 @@ const SingleEvent = (): JSX.Element => {
                     </div>
                   </div>
                   <div className="w-full">
-                    <div className="text-base lg:text-lg font-normal text-center lg:text-left">
-                      <div className='mb-3'>
-                        {`${new Date(event ? event.startTime : 0)
-                          .toString()
-                          .substring(4, 15)}`}
+                    <div className="text-base lg:text-lg font-normal text-center lg:text-left w-auto ">
+                      <div className="mb-3">
+                        {new Date(event ? event.startTime : 0)
+                          .toLocaleString('en-US', {
+                            month: 'short',
+                            day: '2-digit',
+                            year: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true,
+                          })
+                          .replaceAll(',', ' ')}
                       </div>
-
+                      <p className="mb-3 ml-18 text-bold">to</p>
                       <div>
-                        {`${new Date(event ? event.startTime : 0)
-                          .toString()
-                          .substring(15, 21)} - ${new Date(
-                          event ? event.endTime : 0
-                        )
-                          .toString()
-                          .substring(15, 21)}`}
+                        {new Date(event ? event.endTime : 0)
+                          .toLocaleString('en-US', {
+                            month: 'short',
+                            day: '2-digit',
+                            year: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true,
+                          })
+                          .replaceAll(',', ' ')}
                       </div>
                     </div>
                   </div>
@@ -135,7 +145,19 @@ const SingleEvent = (): JSX.Element => {
                     Register and join us on this day for an amazing experience
                   </div>
                   <div className="mt-10 w-full flex justify-center items-center md:justify-start">
-                    <Button value={'Register Here'} />
+                    <button
+                      onClick={() => {
+                        router.push({
+                          pathname: `/events/${eventID}/register`,
+                          query: {
+                            eventName: event?.name,
+                            headerImage: event?.headerImage,
+                          },
+                        })
+                      }}
+                    >
+                      <Button value={'Register Here'} />
+                    </button>
                   </div>
                 </div>
               </div>

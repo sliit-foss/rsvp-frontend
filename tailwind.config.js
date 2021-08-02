@@ -42,6 +42,11 @@ module.exports = {
       scale: {
         103: '1.03',
       },
+      margin: {
+        "20vw": '20vw',
+        "20vh": '20vh',
+        "25vh": '25vh'
+       }
     },
   },
   variants: {
