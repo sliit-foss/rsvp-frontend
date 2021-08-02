@@ -29,11 +29,8 @@ export default function EventBanner(): JSX.Element {
         <div className="md:col-span-1 flex flex-col justify-center items-start ">
           <p className="text-2xl sm:text-3xl font-medium mb-6">Join us on</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-5">November 8th</h2>
-          <p className="mb-6 max-w-lg">
-            {`Callbacks and closures are used frequently in JavaScript. Callbacks are
-                functions that are passed into another function as an argument. Closures
-                are functions that are nested in other functions, and it's often used to 
-                avoid scope clash with other parts of a JavaScript program.`}
+          <p className="mb-6 max-w-lg text-left">
+            {`Callbacks and closures are used frequently in JavaScript. Callbacks are functions that are passed into another function as an argument. Closures are functions that are nested in other functions, and it's often used to avoid scope clash with other parts of a JavaScript program.`}
           </p>
           <Button value={'RSVP'} />
         </div>
