@@ -67,7 +67,7 @@ const Speaker = ({
         <div className="w-full text-2xl font-extrabold text-center lg:text-left">
           {company}
         </div>
-        <div className="text-base lg:text-lg font-normal text-center lg:text-left mt-8">
+        <div className="w-full text-base lg:text-lg font-normal text-center lg:text-left mt-8">
           {description}
         </div>
       </div>

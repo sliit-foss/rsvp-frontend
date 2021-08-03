@@ -9,7 +9,6 @@ import Layout from '../../../components/Layout'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import Container from '../../../components/Layout/Container'
-import Button from '../../../components/Button'
 import Speaker from '../../../components/Speaker'
 
 const SingleEvent = (): JSX.Element => {
@@ -137,27 +136,41 @@ const SingleEvent = (): JSX.Element => {
 
               <div className="w-full lg:w-1/2" data-aos="fade-left">
                 <div className="flex flex-col justify-center items-start mt-5">
-                  <div className="text-base lg:text-lg font-normal text-center lg:text-left">
+                  <div className="w-full text-base lg:text-lg font-normal text-center lg:text-left">
                     A big thanks to our sponsors for pitching in and helping
                     keep these sessions free for attendees
                   </div>
-                  <div className="text-base lg:text-lg font-semibold text-center lg:text-left mt-10">
+                  <div className="w-full text-base lg:text-lg font-semibold text-center lg:text-left mt-10">
                     Register and join us on this day for an amazing experience
                   </div>
-                  <div className="mt-10 w-full flex justify-center items-center md:justify-start">
+                  <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start">
                     <button
                       onClick={() => {
-                        router.push({
-                          pathname: `/events/${eventID}/register`,
-                          query: {
-                            eventName: event?.name,
-                            headerImage: event?.headerImage,
-                          },
-                        })
+                        if (event?.attendees.length !== event?.capacity && event?.status==="Upcoming") {
+                          router.push({
+                            pathname: `/events/${eventID}/register`,
+                            query: {
+                              eventName: event?.name,
+                              headerImage: event?.headerImage,
+                            },
+                          })
+                        }
                       }}
+                      className={`py-2 px-8 text-white rounded-lg shadow-md duration-150 transition ease-in font-medium ${
+                        event?.attendees.length !== event?.capacity && event?.status==="Upcoming"
+                          ? 'bg-gradientBlue hover:bg-gradientPurple'
+                          : 'bg-gray-500 cursor-default'
+                      }`}
                     >
-                      <Button value={'Register Here'} />
+                      Register Here
                     </button>
+                    {event?.attendees.length === event?.capacity ? (
+                      <p className="px-10 mt-8 lg:mt-0 text-red-500 text-center lg:text-left">
+                        {`Event Capacity Reached (${event?.capacity}/${event?.capacity})`}
+                      </p>
+                    ) : (
+                      <div></div>
+                    )}
                   </div>
                 </div>
               </div>
