@@ -17,8 +17,10 @@ export interface EventData {
   endTime: number
   photos: string[]
   tags: string[]
+  capacity:number
   category: string
   speakers: SpeakerData[]
+  attendees:AttendeeData[]
 }
 
 interface SpeakerData {
@@ -32,3 +34,10 @@ interface SpeakerData {
   twitterURL: string
   linkedInURL: string
 }
+
+export interface AttendeeData {
+  name: string
+  email: string
+  organization: string
+}
+

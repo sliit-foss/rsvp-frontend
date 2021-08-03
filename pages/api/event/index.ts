@@ -1,3 +1,3 @@
-import * as EventEndpoint from './event.request'
+import * as EventEndpoints from './event.request'
 
-export { EventEndpoint }
+export { EventEndpoints }

@@ -1,5 +1,5 @@
 import { apiInstance } from '../apiInstance'
-import { CreateEventData, EventData } from './event.interface'
+import { CreateEventData, EventData, AttendeeData } from './event.interface'
 
 export async function addEvent(requestData: CreateEventData): Promise<boolean> {
   try {
@@ -48,5 +48,18 @@ export async function updateEvent(
   } catch (e) {
     console.error(e.message)
     return false
+  }
+}
+
+export async function registerEvent(
+  eventID: string,
+  data: AttendeeData
+): Promise<boolean> {
+  try {
+    const PATH = `/events/register/${eventID}`
+    const res = await apiInstance.post(PATH, data)
+    return res.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
   }
 }

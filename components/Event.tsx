@@ -76,7 +76,7 @@ const Event = ({
                     : status === 'Postponed'
                     ? 'bg-yellow-400'
                     : status === 'Upcoming'
-                    ? 'bg-gray-400'
+                    ? 'bg-gradientBlue'
                     : 'bg-green-400'
                 }`}
               >

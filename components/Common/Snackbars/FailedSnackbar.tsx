@@ -1,6 +1,10 @@
-const FailedSnackbar = (): JSX.Element => {
+interface props {
+  message: string
+}
+
+const FailedSnackbar = ({message}: props): JSX.Element => {
   return (
-    <div className="flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 h-20 w-56 shadow-md hover:shadow-lg transition ease-in duration-200">
+    <div className="flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 h-20  shadow-md hover:shadow-lg transition ease-in duration-200">
       <div className="flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
         <span className="text-red-500">
           <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">
@@ -14,7 +18,7 @@ const FailedSnackbar = (): JSX.Element => {
       </div>
       <div className="ml-4">
         <div className="font-semibold text-lg text-red-800">Error</div>
-        <div className="text-sm text-red-600">Failed to sign in!</div>
+        <div className="text-sm text-red-600">{message}</div>
       </div>
     </div>
   )

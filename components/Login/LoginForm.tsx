@@ -158,7 +158,7 @@ const LoginForm = ({
             : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
         }
       >
-        <FailedSnackbar />
+        <FailedSnackbar message={"Failed to sign in!"}/>
       </div>
       <div
         className={
@@ -167,7 +167,7 @@ const LoginForm = ({
             : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
         }
       >
-        <SuccessSnackbar action={login ? 'signIn' : 'signUp'} />
+        <SuccessSnackbar message={login ? 'Signed in sucessfully!' : 'Signed up sucessfully!'} />
       </div>
     </>
   )
