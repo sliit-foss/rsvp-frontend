@@ -70,15 +70,17 @@ const SingleEvent = (): JSX.Element => {
           style={{ height: '95vh' }}
         >
           <div className="absolute w-full sm:w-3/4 md:w-8/12 xl:w-1/2 2xl:w-5/12 z-0 mb-25vh lg:mb-0 mr-0 lg:mr-20vw p-5 ">
-            <img
-              src={`${router.query.headerImage}`}
-              alt="Logo"
-              className=" border-white shadow hover:shadow-lg filter hover:brightness-110 rounded-xl rounded-b-lg transition-all ease-out duration-500"
-              data-aos="fade-right"
-            ></img>
+            <div data-aos="fade-right">
+              <img
+                src={`${router.query.headerImage}`}
+                alt="Logo"
+                className="border-white shadow hover:shadow-lg filter hover:brightness-110 rounded-xl rounded-b-lg transition-all ease-out duration-500"
+              />
+            </div>            
           </div>
 
-          <div className="bg-white rounded-lg shadow hover:shadow-xl w-10/12 sm:w-1/2 lg:w-5/12 2xl:w-4/12 transition-all ease-out duration-500 z-10 mt-20vh lg:mt-0 ml-0 lg:ml-20vw" data-aos="fade-left">
+          <div className="w-10/12 sm:w-1/2 lg:w-5/12 2xl:w-4/12  z-10 mt-20vh lg:mt-0 ml-0 lg:ml-20vw" data-aos="fade-left">
+            <div className="bg-white rounded-lg shadow hover:shadow-xl transition-all ease-out duration-500">
             <div className="px-4 py-8 sm:px-10">
               <div className="relative mt-6">
                 <div className="absolute inset-0 flex items-center">
@@ -146,6 +148,7 @@ const SingleEvent = (): JSX.Element => {
               <p className="text-xs leading-5 text-gray-500 text-center">
                 SLIIT FOSS
               </p>
+            </div>
             </div>
           </div>
         </div>
