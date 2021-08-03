@@ -6,9 +6,9 @@ import 'aos/dist/aos.css'
 import Layout from '../../../components/Layout'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
-import LoadingOverlay from '../../../Components/LoadingOverlay'
-import FailedSnackbar from '../../../Components/Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../../../Components/Common/Snackbars/SuccessSnackbar'
+import LoadingOverlay from '../../../components/LoadingOverlay'
+import FailedSnackbar from '../../../components/Common/Snackbars/FailedSnackbar'
+import SuccessSnackbar from '../../../components/Common/Snackbars/SuccessSnackbar'
 import { EventEndpoints } from '../../api/event'
 const SingleEvent = (): JSX.Element => {
   useEffect(() => {
