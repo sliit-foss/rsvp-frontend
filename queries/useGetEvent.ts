@@ -13,5 +13,11 @@ const EVENT_BY_ID = 'EVENT_BY_ID'
 export function useGetEvent(
   eventId: string
 ): UseQueryResult<EventData, boolean> {
-  return useQuery([EVENT_BY_ID,{eventId}], EventEndpoints.getEvent)
+  return useQuery([EVENT_BY_ID, { eventId }], EventEndpoints.getEvent)
+}
+
+const LATEST_EVENTS = 'LATEST_EVENTS'
+
+export function useGetLatestEvents(): UseQueryResult<EventData[], boolean> {
+  return useQuery(LATEST_EVENTS, EventEndpoints.getLatestEvents)
 }
