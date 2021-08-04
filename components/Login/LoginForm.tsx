@@ -133,7 +133,7 @@ const LoginForm = ({
           <SignUpFormFields onSubmit={onSignUpSubmitAction} />
         )}
         <button
-          className="w-full lg:w-4/5 bg-lightBlue rounded-lg font-inter text-sm leading-6 text-white font-semibold h-10 mt-4 mb-2"
+          className="w-full lg:w-4/5 bg-gradientBlue hover:bg-gradientPurple shadow-md hover:shadow-lg rounded-lg font-inter text-sm leading-6 text-white font-semibold h-10 mt-4 mb-4 transition ease-in duration-150"
           form={login ? 'loginForm' : 'signUpForm'}
         >
           {login ? 'Login' : 'Sign Up'}
