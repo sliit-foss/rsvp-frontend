@@ -63,7 +63,7 @@ export async function registerEvent(
   data: AttendeeData
 ): Promise<boolean> {
   try {
-    const PATH = `/events/register/${eventID}`
+    const PATH = `/attendees/${eventID}`
     const res = await apiInstance.post(PATH, data)
     return res.data
   } catch (e) {

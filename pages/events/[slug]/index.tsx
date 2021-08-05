@@ -146,7 +146,7 @@ const SingleEvent = (): JSX.Element => {
                   <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start">
                     <button
                       onClick={() => {
-                        if (event?.attendees.length !== event?.capacity && event?.status==="Upcoming") {
+                        if (event?.attendeeCount !== event?.capacity && event?.status==="Upcoming") {
                           router.push({
                             pathname: `/events/${eventID}/register`,
                             query: {
@@ -157,14 +157,14 @@ const SingleEvent = (): JSX.Element => {
                         }
                       }}
                       className={`py-2 px-8 text-white rounded-lg shadow-md duration-150 transition ease-in font-medium ${
-                        event?.attendees.length !== event?.capacity && event?.status==="Upcoming"
+                        event?.attendeeCount !== event?.capacity && event?.status==="Upcoming"
                           ? 'bg-gradientBlue hover:bg-gradientPurple'
                           : 'bg-gray-500 cursor-default'
                       }`}
                     >
                       Register Here
                     </button>
-                    {event?.attendees.length === event?.capacity ? (
+                    {event?.attendeeCount === event?.capacity ? (
                       <p className="px-10 mt-8 lg:mt-0 text-red-500 text-center lg:text-left">
                         {`Event Capacity Reached (${event?.capacity}/${event?.capacity})`}
                       </p>
