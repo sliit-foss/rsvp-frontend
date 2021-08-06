@@ -18,6 +18,7 @@ export interface EventData {
   photos: string[]
   tags: string[]
   capacity:number
+  attendeeCount:number
   category: string
   speakers: SpeakerData[]
   attendees:AttendeeData[]
