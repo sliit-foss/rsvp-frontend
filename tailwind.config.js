@@ -39,6 +39,14 @@ module.exports = {
         infoCard: ' 0px 0px 20px rgba(110, 110, 110, 0.4)',
         infoCardHover: ' 0px 0px 35px rgba(0, 0, 0, 0.3)',
       },
+      scale: {
+        103: '1.03',
+      },
+      margin: {
+        "20vw": '20vw',
+        "20vh": '20vh',
+        "25vh": '25vh'
+       }
     },
   },
   variants: {
@@ -47,6 +55,7 @@ module.exports = {
       height: ['group-hover'],
       padding: ['group-hover'],
       brightness: ['hover'],
+      borderWidth: ['focus'],
     },
   },
   plugins: [require('@tailwindcss/forms')],

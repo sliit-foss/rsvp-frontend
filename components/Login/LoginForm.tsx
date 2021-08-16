@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import NextImage from '../NextImage'
+import { useRouter } from 'next/router'
 import SignInFormFields from './FormFields/SignInFormFields'
 import SignUpFormFields from './FormFields/SignUpFormFields'
 import googleLogo from '../../public/logos/google_colour.svg'
@@ -22,6 +23,8 @@ const LoginForm = ({
   const [showLoading, setShowLoading] = useState(false)
   const [rememberMeValue, setRememberMeValue] = useState(false)
 
+  const router = useRouter()
+
   const onSignInSubmitAction = (event: any) => {
     event.preventDefault()
     setShowLoading(true)
@@ -36,9 +39,15 @@ const LoginForm = ({
         setOpenSuccessSnackbar(true)
         setShowLoading(false)
         window.localStorage.setItem('RememberMe', rememberMeValue.toString())
+        window.localStorage.setItem('LoggedIn', 'true')
         setTimeout(function () {
           setOpenSuccessSnackbar(false)
         }, 1500)
+        setTimeout(function () {
+          router.push({
+            pathname: '/',
+          })
+        }, 1800)
       })
       .catch((e) => {
         console.error(e)
@@ -59,7 +68,7 @@ const LoginForm = ({
       email: event.target.email.value,
       password: event.target.password.value,
     }
-    console.log(formData)
+
     UserEndpoints.signUpUser(formData)
       .then(() => {
         setOpenSuccessSnackbar(true)
@@ -67,6 +76,9 @@ const LoginForm = ({
         setTimeout(function () {
           setOpenSuccessSnackbar(false)
         }, 1500)
+        setTimeout(function () {
+          loginToggleHandler()
+        }, 1800)
       })
       .catch((error) => {
         console.error(error)
@@ -121,7 +133,7 @@ const LoginForm = ({
           <SignUpFormFields onSubmit={onSignUpSubmitAction} />
         )}
         <button
-          className="w-full lg:w-4/5 bg-lightBlue rounded-lg font-inter text-sm leading-6 text-white font-semibold h-10 mt-4 mb-2"
+          className="w-full lg:w-4/5 bg-gradientBlue hover:bg-gradientPurple shadow-md hover:shadow-lg rounded-lg font-inter text-sm leading-6 text-white font-semibold h-10 mt-4 mb-4 transition ease-in duration-150"
           form={login ? 'loginForm' : 'signUpForm'}
         >
           {login ? 'Login' : 'Sign Up'}
@@ -129,7 +141,10 @@ const LoginForm = ({
         <div className="w-full lg:w-4/5">
           <p className="text-xs text-left font-semibold">
             {login ? 'Not Registered Yet?' : 'Already have an account?'}{' '}
-            <span onClick={loginToggleHandler} className="text-blue cursor-pointer">
+            <span
+              onClick={loginToggleHandler}
+              className="text-blue cursor-pointer"
+            >
               {login ? 'Create An Account' : 'login'}
             </span>
           </p>
@@ -143,7 +158,7 @@ const LoginForm = ({
             : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
         }
       >
-        <FailedSnackbar />
+        <FailedSnackbar message={"Failed to sign in!"}/>
       </div>
       <div
         className={
@@ -152,7 +167,7 @@ const LoginForm = ({
             : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
         }
       >
-        <SuccessSnackbar action={login ? 'signIn' : 'signUp'} />
+        <SuccessSnackbar message={login ? 'Signed in sucessfully!' : 'Signed up sucessfully!'} />
       </div>
     </>
   )

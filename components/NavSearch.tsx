@@ -1,13 +1,19 @@
+import AutoCompleteForm from './Common/AutocompleteForm'
+
 interface SearchProps {
   handleFilterChange: any
   handleSearchParam: any
   formSubmit: any
+  searchValue: string
+  searchSuggestions: Array<string>
 }
 
 const NavSearch = ({
   handleFilterChange,
   handleSearchParam,
   formSubmit,
+  searchValue,
+  searchSuggestions,
 }: SearchProps): JSX.Element => {
   return (
     <div className="flex flex-col  px-6 mb-6  bg-white relative z-20 shadow ">
@@ -17,20 +23,21 @@ const NavSearch = ({
           onSubmit={formSubmit}
         >
           <select
-            className="m-3 mt-5  mb-1 pl-10 md:pl-4  md:my-4 mx-0 md:mx-5 w-full md:w-4/12 h-12 md:h-auto rounded-sm"
+            className="m-3 mt-5  mb-1 pl-5 md:pl-8 md:my-4 mx-0 md:mx-5 w-full md:w-4/12 h-12 md:h-auto rounded-sm"
             onChange={handleFilterChange}
           >
             <option value="All">All</option>
             <option value="Happening Now">Happening Now</option>
             <option value="Upcoming">Upcoming</option>
+            <option value="Closed">Closed</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Postponed">Postponed</option>
           </select>
-          <input
-            type="search"
-            name="search"
-            required
-            className="form-control w-full  my-4 border border-gray-500 rounded-sm pr-4 pl-10 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
+          <AutoCompleteForm
+            value={searchValue}
+            setValue={handleSearchParam}
+            suggestions={searchSuggestions}
             placeholder="Search for event..."
-            onChange={handleSearchParam}
           />
           <button
             type="submit"

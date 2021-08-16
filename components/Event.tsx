@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import Image from 'next/image'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,69 +12,79 @@ import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share'
 
 interface EventProps {
   id: string
-  logo: StaticImageData
+  imageURL: string
   title: string
   category: string
   description: string
-  date: string
+  startTime: number
   status: string
 }
 
 const Event = ({
   id,
-  logo,
+  imageURL,
   title,
   category,
   description,
-  date,
+  startTime,
   status,
 }: EventProps): JSX.Element => {
   useEffect(() => {
     Aos.init({ duration: 1000 })
   }, [])
 
+  const router = useRouter()
+
   return (
     <div data-aos="fade-up" className="w-full lg:w-2/6  md:px-4 lg:px-6 py-5 ">
       <div className="bg-white hover:shadow-xl h-full rounded-xl transition-all ease-out duration-500">
-        <Image
-          className="border-white border-8 hover:opacity-25 rounded-xl rounded-b-none transition-all ease-out duration-500"
-          src={logo}
-          alt="SLIIT FOSS"
-          quality={90}
-          layout="responsive"
-          placeholder="blur"
-        />
-        <div className="px-4 py-4 md:px-10">
+        <img
+          src={imageURL}
+          alt="Logo"
+          className="w-full mb-3 border-white hover:opacity-75 rounded-xl rounded-b-lg transition-all ease-out duration-500"
+        ></img>
+
+        <div className="px-6 py-4 md:px-10">
           <h1 className="font-bold text-lg">{title}</h1>
           <p className="py-4">{description}</p>
-          <Link href={'/events/' + id}>
+          <button
+            onClick={() => {
+              router.push({
+                pathname: '/events/' + id,
+                query: {
+                  name: title,
+                },
+              })
+            }}
+          >
             <a className="w-full mb-1 md:w-full text-base font-bold text-gray-dark hover:text-lightBlueAccent">
               Read More
             </a>
-          </Link>
+          </button>
 
           <div className="flex flex-wrap pt-8">
             <div className="text-sm font-medium  flex flex-wrap">
-              <div className="bg-lightBlueAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm">
+              <div className="bg-lightBlueAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm transform hover:scale-103 filter hover:brightness-110 transition ease-in duration-150 cursor-default">
                 {category}
               </div>
               <div className="w-2" />
-              {status == 'Happenning Now' || status == 'Closed' ? (
-                <div
-                  className={
-                    status == 'Closed'
-                      ? 'bg-redAccent py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
-                      : 'bg-green-400 py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm'
-                  }
-                >
-                  {status}
-                </div>
-              ) : (
-                <div />
-              )}
+
+              <div
+                className={`py-0.5 px-4 mb-4 rounded-3xl shadow-md text-white text-sm transform hover:scale-103 filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
+                  status === 'Closed' || status === 'Cancelled'
+                    ? 'bg-redAccent'
+                    : status === 'Postponed'
+                    ? 'bg-yellow-400'
+                    : status === 'Upcoming'
+                    ? 'bg-gradientBlue'
+                    : 'bg-green-400'
+                }`}
+              >
+                {status}
+              </div>
             </div>
             <div className="w-full mb-1 md:w-full text-sm font-bold">
-              {date}
+              {new Date(startTime).toString().substring(4, 15)}
             </div>
             <div className="2/3 mb-3">
               <div className="text-sm font-medium  flex flex-row flex-wrap justify-center items-center">
