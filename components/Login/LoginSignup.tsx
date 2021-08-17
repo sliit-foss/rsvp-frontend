@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 const LoginSignup = (): JSX.Element => {
   const animationDisplacement = 3000
-  const [selectLogin, setSelectLogin] = useState(false)
+  const [selectLogin, setSelectLogin] = useState(true)
   const [animateXInitial, setAnimateXInitial] = useState(-animationDisplacement)
   const [animateXDestination, setAnimateXDestination] = useState(0)
   const [opacity, setOpacity] = useState(true)
