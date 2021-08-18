@@ -50,27 +50,40 @@ const Navbar = (): JSX.Element => {
           SLIIT RSVP PORTAL
         </h3>
         <nav className="absolute right-5">
-          <ul className="inline-flex items-center space-x-6">
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+          <ul className="inline-flex items-center ">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/">
                 <a>Home</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/events">
                 <a>Events</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/clubs">
                 <a>Clubs</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li
+              className={`hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 ${
+                loginStatus ? 'mr-3' : 'mr-6'
+              }`}
+            >
               <Link href="/contact">
                 <a>Contact</a>
               </Link>
             </li>
+            {loginStatus ? (
+              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 mr-6">
+                <Link href="/admin/">
+                  <a>Management</a>
+                </Link>
+              </li>
+            ) : (
+              <div></div>
+            )}
             <button
               onClick={
                 loginStatus
@@ -175,16 +188,36 @@ const Navbar = (): JSX.Element => {
                   </li>
                 </a>
               </Link>
-              <Link href="/login">
-                <a>
-                  <li
-                    className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Sign In
-                  </li>
-                </a>
-              </Link>
+              {loginStatus ? (
+                <Link href="/admin/">
+                  <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                    <li onClick={() => setIsOpen(false)}>
+                      <div className="py-4">Management</div>
+                    </li>
+                  </a>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+
+              <button
+                onClick={
+                  loginStatus
+                    ? logOut
+                    : () => {
+                        router.push({
+                          pathname: '/login',
+                        })
+                      }
+                }
+              >
+                <li
+                  className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4 mt-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {loginStatus ? 'Sign Out' : 'Sign In'}
+                </li>
+              </button>
             </motion.ul>
           </motion.div>
         ) : (

@@ -24,6 +24,11 @@ module.exports = {
         bgWhite: '#F4F3F5',
         gradientBlue: '#21B3D0',
         gradientPurple: '#7B50A2',
+        purple: {
+          light: '#626CAF',
+          dark: '#4A56A6',
+        },
+
         gray: {
           default: '#6C7075',
           light: '#DFDFDF',
@@ -43,10 +48,13 @@ module.exports = {
         103: '1.03',
       },
       margin: {
-        "20vw": '20vw',
-        "20vh": '20vh',
-        "25vh": '25vh'
-       }
+        '20vw': '20vw',
+        '20vh': '20vh',
+        '25vh': '25vh',
+      },
+      height: {
+        '95vh': '95vh',
+      },
     },
   },
   variants: {
