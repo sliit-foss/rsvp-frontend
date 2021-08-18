@@ -1,10 +1,11 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import SideNav from '../../components/Admin/SideNav'
 import Container from '../../components/Admin/Container'
+import AdminUsers from '../../modules/Admin/AdminUsers'
+import AdminEvents from '../../modules/Admin/AdminEvents'
+import AdminAccount from '../../modules/Admin/AdminAccount'
 
 const Admin = (): JSX.Element => {
   const [selectedMenuOption, setSelectedMenuOption] = useState('Users')
@@ -20,7 +21,15 @@ const Admin = (): JSX.Element => {
           onMenuItemSelect={setSelectedMenuOption}
           selectedMenuOption={selectedMenuOption}
         />
-        <Container>Haylow</Container>
+        <Container>
+          {selectedMenuOption === 'Users' ? (
+            <AdminUsers />
+          ) : selectedMenuOption === 'Events' ? (
+            <AdminEvents />
+          ) : (
+            <AdminAccount />
+          )}
+        </Container>
       </section>
     </Layout>
   )
