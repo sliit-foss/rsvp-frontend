@@ -1,9 +1,10 @@
 import NextImage from '../NextImage'
 import image from '../../public/sideNav/image.svg'
+import { Dispatch, SetStateAction } from 'react'
 
 interface props {
   selectedMenuOption: string
-  onMenuItemSelect: any
+  onMenuItemSelect: Dispatch<SetStateAction<string>>
 }
 
 const SideNav = ({
