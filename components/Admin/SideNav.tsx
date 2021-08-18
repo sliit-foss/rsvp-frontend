@@ -54,7 +54,7 @@ const SideNav = ({
       {/* for mobile screens */}
       <header className="fixed bottom-0 w-full shadow-noOffset z-10 bg-purple-light lg:opacity-0 lg:pointer-events-none h-16 lg:h-0">
         <div className="w-full flex flex-row justify-between items-center">
-          <div className="text-xl text-white font-medium text-center mx-5 w-32">
+          <div className="text-lg text-white font-medium text-center mx-5 w-32">
             Management
           </div>
           <div className="h-16 w-auto"></div>
@@ -72,7 +72,7 @@ const SideNav = ({
                     : 'bg-purple-light'
                 }`}
               >
-                <div className="text-sm text-white font-medium text-center">
+                <div className="text-sm text-white font-medium text-center mt-1">
                   {menuOption}
                 </div>
               </div>
