@@ -77,7 +77,7 @@ const Navbar = (): JSX.Element => {
             </li>
             {loginStatus ? (
               <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 mr-6">
-                <Link href="/">
+                <Link href="/admin/">
                   <a>Management</a>
                 </Link>
               </li>
@@ -189,7 +189,7 @@ const Navbar = (): JSX.Element => {
                 </a>
               </Link>
               {loginStatus ? (
-                <Link href="/">
+                <Link href="/admin/">
                   <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
                     <li onClick={() => setIsOpen(false)}>
                       <div className="py-4">Management</div>
