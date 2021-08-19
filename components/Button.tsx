@@ -2,6 +2,7 @@ interface ButtonProps {
   value: string
   onClick?: () => void
   width?: string
+  padding?: string
   type?: 'button' | 'submit' | 'reset' | undefined
 }
 
@@ -9,12 +10,13 @@ const Button = ({
   value,
   onClick,
   width,
+  padding = 'py-2 px-8',
   type = 'button',
 }: ButtonProps): JSX.Element => {
   return (
     <button
       onClick={onClick}
-      className={`py-2 px-8 ${width} text-white bg-gradientBlue rounded-lg shadow-md hover:bg-gradientPurple duration-150 transition ease-in font-medium`}
+      className={`${padding} ${width} text-white bg-gradientBlue rounded-lg shadow-md hover:bg-gradientPurple duration-150 transition ease-in font-medium`}
       type={type}
     >
       {value}
