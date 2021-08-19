@@ -4,7 +4,7 @@ interface props {
 
 const FailedSnackbar = ({message}: props): JSX.Element => {
   return (
-    <div className="flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 h-20  shadow-md hover:shadow-lg transition ease-in duration-200">
+    <div className="flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 h-20 shadow-md hover:shadow-lg transition ease-in duration-200">
       <div className="flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
         <span className="text-red-500">
           <svg fill="currentColor" viewBox="0 0 20 20" className="h-6 w-6">

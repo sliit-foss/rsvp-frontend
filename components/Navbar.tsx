@@ -26,6 +26,7 @@ const Navbar = (): JSX.Element => {
     window.localStorage.setItem('RememberMe', 'false')
     window.localStorage.setItem('LoggedIn', 'false')
     window.localStorage.setItem('Token', '')
+    window.localStorage.setItem('Role', '')
     window.location.reload()
   }
 
@@ -46,7 +47,7 @@ const Navbar = (): JSX.Element => {
           </Link>
         </div>
 
-        <h3 className="absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold cursor-default">
+        <h3 className="absolute left-1/2 lg:left-1/4 2xl:left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold cursor-default ">
           SLIIT RSVP PORTAL
         </h3>
         <nav className="absolute right-5">

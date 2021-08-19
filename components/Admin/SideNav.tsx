@@ -1,5 +1,5 @@
 import NextImage from '../NextImage'
-import image from '../../public/sideNav/image.svg'
+import image from '../../public/admin/sideNav/image.svg'
 import { Dispatch, SetStateAction } from 'react'
 
 interface props {
@@ -12,7 +12,6 @@ const SideNav = ({
   onMenuItemSelect,
 }: props): JSX.Element => {
   const menuItems = ['Users', 'Events', 'Account']
-  console.log(selectedMenuOption)
   return (
     <div className="md:col-span-2 md:flex flex-col w-full bg-purple-light hidden p-4">
       <div className="md:flex flex-col">

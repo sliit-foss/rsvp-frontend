@@ -1,26 +1,29 @@
 import { apiInstance } from '../apiInstance'
-import { UserSignUpData, UserSignInData } from './user.interface'
+import { UserData } from './user.interface'
 
-export async function signUpUser(
-  requestData: UserSignUpData
-): Promise<boolean> {
-  const PATH = '/signup'
-
-  const res = await apiInstance.post(PATH, requestData)
-  return res.data
+export async function getUserInfo(): Promise<UserData | boolean> {
+  try {
+    const response = await apiInstance.get(`/users/myuserdata`)
+    return response.data as UserData
+  } catch (e) {
+    console.error(e.message)
+    return false
+  }
 }
 
-export async function signInUser(
-  requestData: UserSignInData
-): Promise<boolean> {
-  const PATH = '/login'
+export async function changePassword(
+  newPassword: string
+): Promise<string | boolean> {
+  try {
+    const body = {
+      newPassword: newPassword,
+    }
+    const response = await apiInstance.put(`/users/changepassword`, body)
+    return response.data
+  } catch (e) {
 
-  const res = await apiInstance.post(PATH, requestData)
-  const token = res.data['token']
+    throw JSON.stringify(e.response)
 
-  if (token) {
-    window.localStorage.setItem('Token', token)
+    return false
   }
-
-  return res.data
 }

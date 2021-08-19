@@ -53,9 +53,16 @@ module.exports = {
         '25vh': '25vh',
       },
       height: {
+        '84vh': '84vh',
         '85vh-50': 'calc(85vh - 50px)',
         '85vh': '85vh',
         '95vh': '95vh',
+        '15vw': '15vw',
+        '20vw': '20vw',
+      },
+      width: {
+        '15vw': '15vw',
+        '20vw': '20vw',
       },
       minHeight: {
         '85vh': '85vh',
