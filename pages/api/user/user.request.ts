@@ -21,9 +21,6 @@ export async function changePassword(
     const response = await apiInstance.put(`/users/changepassword`, body)
     return response.data
   } catch (e) {
-
     throw JSON.stringify(e.response)
-
-    return false
   }
 }

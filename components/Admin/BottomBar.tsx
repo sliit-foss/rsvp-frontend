@@ -10,6 +10,14 @@ const BottomBar = ({
   onMenuItemSelect,
 }: props): JSX.Element => {
   const menuItems = ['Users', 'Events', 'Account']
+  let userRole
+  if (process.browser) {
+    userRole=window.localStorage.getItem('Role')
+  }
+  if(userRole!="Admin"){
+    menuItems.shift()
+  }
+  console.log(userRole)
   return (
     <div className="fixed bottom-0 left-0 right-0 md:hidden bg-purple-light inline-flex items-center justify-between px-3 py-2">
       <div className=" sm:text-lg text-white font-medium">Management</div>

@@ -17,8 +17,7 @@ export async function signInUser(
 
   const res = await apiInstance.post(PATH, requestData)
   const token = res.data['token']
-  const userRole = res.data['role']
-
+  const userRole = res.data['userRole']
   if (token) {
     window.localStorage.setItem('Token', token)
     window.localStorage.setItem('Role', userRole)

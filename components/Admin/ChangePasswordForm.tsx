@@ -34,7 +34,6 @@ export default function Content(props: ContentProps): JSX.Element {
       })
       .catch((e) => {
         const error = JSON.parse(e)
-        console.log(error)
         setErrorMessage(error.data.error)
         setOpenFailedSnackbar(true)
         setShowLoading(false)

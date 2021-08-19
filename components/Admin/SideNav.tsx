@@ -12,6 +12,13 @@ const SideNav = ({
   onMenuItemSelect,
 }: props): JSX.Element => {
   const menuItems = ['Users', 'Events', 'Account']
+  let userRole
+  if (process.browser) {
+    userRole=window.localStorage.getItem('Role')
+  }
+  if(userRole!="Admin"){
+    menuItems.shift()
+  }
   return (
     <div className="md:col-span-2 md:flex flex-col w-full bg-purple-light hidden p-4">
       <div className="md:flex flex-col">
