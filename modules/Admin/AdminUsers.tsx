@@ -71,9 +71,9 @@ const AdminUsers = (): JSX.Element => {
       {/* data goes here */}
       <div className="flex flex-col space-y-2 md:max-h-65vh md:overflow-y-scroll scrollbar-hide">
         {sampleData.length ? (
-          sampleData.map(({ username, email, faculty }) => (
+          sampleData.map(({ username, email, faculty }, i) => (
             <div
-              key={email}
+              key={i}
               className="grid grid-rows-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-2 sm:gap-4 rounded-xl shadow-lg p-4"
             >
               <p className="sm:col-span-3 md:col-span-2 font-medium text-xl md:text-base text-gray-700">
@@ -105,6 +105,7 @@ const AdminUsers = (): JSX.Element => {
       {showModal && (
         <div className="fixed z-10 top-0 bottom-0 right-0 left-0 w-full h-full bg-gray-900 bg-opacity-30">
           <form
+            method="post"
             onSubmit={handleSubmit}
             className="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-72 md:w-96 mx-auto md:mx-0 rounded-lg p-4"
           >
