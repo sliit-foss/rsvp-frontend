@@ -20,7 +20,7 @@ const SideNav = ({
     menuItems.shift()
   }
   return (
-    <div className="md:col-span-2 md:flex flex-col w-full bg-purple-light hidden p-4">
+    <div className="md:col-span-2 md:flex flex-col w-full bg-gradient-to-b from-purple-light to-purple-dark hidden p-4">
       <div className="md:flex flex-col">
         <div className="text-3xl text-white font-semibold text-center my-16">
           Management

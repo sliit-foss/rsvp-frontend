@@ -37,7 +37,7 @@ const AdminAccount = (): JSX.Element => {
           className="h-full flex flex-col justify-center items-center"
           onClick={resetPasswordVisilibity ? toggleVisibility : () => null}
         >
-          <div className="w-10/12 h-20 md:h-14 mt-16 mb-16 md:mb-20 bg-purple-light rounded-lg flex justify-center items-center" data-aos="fade-down">
+          <div className="w-10/12 h-20 md:h-14 mt-16 mb-16 md:mb-20 bg-gradient-to-r from-purple-light to-purple-dark rounded-lg flex justify-center items-center" data-aos="fade-down">
             <div className="text-2xl md:text-3xl text-white font-medium text-center">
               Account Info
             </div>
