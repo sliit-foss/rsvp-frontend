@@ -29,7 +29,7 @@ const AdminUsers = (): JSX.Element => {
     { username: 'Madusha', email: 'Madusha@gmail.com', faculty: 'FOSS' },
   ]
   return (
-    <section className="p-4 sm:p-5 md:h-95vh md:overflow-y-scroll">
+    <section className="p-4 sm:p-5">
       <div className="inline-flex items-center justify-between w-full mb-4">
         <h2 className="font-semibold text-xl sm:text-2xl">Users</h2>
         <Button value="Add Users" />
@@ -41,7 +41,7 @@ const AdminUsers = (): JSX.Element => {
         <div className="md:col-span-1" />
       </div>
       {/* data goes here */}
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 md:max-h-95vh md:overflow-y-scroll">
         {sampleData.length ? (
           sampleData.map(({ username, email, faculty }) => (
             <div
