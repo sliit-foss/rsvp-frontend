@@ -57,6 +57,14 @@ module.exports = {
         '85vh': '85vh',
         '95vh': '95vh',
       },
+      minHeight: {
+        '85vh': '85vh',
+        '90vh': '90vh'
+      },
+      maxHeight: {
+        '95vh': '95vh',
+        '65vh': '65vh'
+      }
     },
   },
   variants: {
@@ -68,5 +76,5 @@ module.exports = {
       borderWidth: ['focus'],
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar-hide')],
 }
