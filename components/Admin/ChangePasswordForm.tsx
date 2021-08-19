@@ -57,14 +57,14 @@ export default function Content(props: ContentProps): JSX.Element {
         <div className="bg-white rounded-2xl shadow-xl px-10 md:px-12 py-10 pb-0 md:pb-10 justify-center items-center fixed top-3/4 md:top-1/2 left-7/12 transform -translate-x-2/4 -translate-y-full md:-translate-y-2/4 z-40">
           <div className="w-full flex flex-row justify-end">
             <div
-              className="mr-0 md:mr-5 m-5 my-2 mt-0 cursor-pointer transform hover:scale-105 transition ease-in duration-100 fill-current text-purple-light hover:text-gray-800"
+              className="mb-2 cursor-pointer transform hover:scale-105 transition ease-in duration-100 fill-current text-purple-light hover:text-gray-800"
               onClick={props.toggleFunction}
             >
               <AiOutlineClose size={40} />
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <div className="text-3xl font-bold md:text-left text-center text-purple-dark mt-2 mb-5 ">
+            <div className="text-3xl font-bold md:text-left text-center text-purple-dark mt-2 mb-6 ">
               Reset Password
             </div>
           </div>
