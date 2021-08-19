@@ -19,7 +19,7 @@ const BottomBar = ({
   }
   console.log(userRole)
   return (
-    <div className="fixed bottom-0 left-0 right-0 md:hidden bg-purple-light inline-flex items-center justify-between px-3 py-2">
+    <div className="fixed bottom-0 left-0 right-0 md:hidden bg-gradient-to-l from-purple-light to-purple-dark inline-flex items-center justify-between px-3 py-2">
       <div className=" sm:text-lg text-white font-medium">Management</div>
       <div className="inline-flex items-center space-x-2 sm:space-x-3">
         {menuItems.map((menuOption, index) => (

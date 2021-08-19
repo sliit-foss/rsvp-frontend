@@ -62,7 +62,7 @@ const AdminUsers = (): JSX.Element => {
         <h2 className="font-semibold text-xl sm:text-2xl">Users</h2>
         <Button value="Add Users" onClick={toggleModal} />
       </div>
-      <div className="hidden md:grid md:grid-rows-1 md:grid-cols-7 md:gap-4 bg-purple-light font-medium text-lg text-white p-4 rounded-t-xl shadow-lg mb-3">
+      <div className="hidden md:grid md:grid-rows-1 md:grid-cols-7 md:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 rounded-t-xl shadow-lg mb-3">
         <h3 className="md:col-span-2">Username</h3>
         <h3 className="md:col-span-3">Email</h3>
         <h3 className="md:col-span-1">Faculty</h3>
