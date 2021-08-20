@@ -107,7 +107,7 @@ const AdminAccount = (): JSX.Element => {
           onClick={showModal ? toggleModal : () => null}
         >
           <div
-            className="w-10/12 h-20 md:h-14 mt-16 mb-16 md:mb-20 bg-gradient-to-r from-purple-light to-purple-dark rounded-lg flex justify-center items-center"
+            className="w-10/12 h-20 md:h-14 mt-16 mb-16 md:mb-20 bg-gradient-to-r from-purple-light to-purple-dark rounded-lg flex justify-center items-center cursor-default"
             data-aos="fade-down"
           >
             <div className="text-2xl md:text-3xl text-white font-medium text-center">

@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
-import { MdDelete } from 'react-icons/md'
+import { MdDelete, MdEmail } from 'react-icons/md'
 import { AiOutlineClose } from 'react-icons/ai'
+import { FaSchool } from 'react-icons/fa'
+import { HiUserGroup } from 'react-icons/hi'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Button from '../../components/Button'
@@ -170,21 +172,39 @@ const AdminUsers = (): JSX.Element => {
                   <p className="sm:col-span-3 md:col-span-2 font-semibold text-xl md:text-base text-gray-700">
                     {username}
                   </p>
-                  <p
-                    className="sm:col-span-3 md:col-span-3 font-medium text-gray-700 w-full"
-                    style={{ wordWrap: 'break-word' }}
-                  >
-                    {email}
-                  </p>
-                  <p className="sm:col-span-3 md:col-span-3 font-medium text-gray-700">
-                    {role}
-                  </p>
-                  <p className="sm:col-span-3 md:col-span-1 font-medium text-sm md:text-base text-gray-700">
-                    {faculty == 'SLIIT Cyber Security Community'
-                      ? 'Cyber'
-                      : faculty}
-                  </p>
+                  <div className="sm:col-span-3 md:col-span-3 flex flex-row justify-start items-end">
+                    <MdEmail
+                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 mr-4 md:mr-0"
+                      size={28}
+                    />
+                    <p
+                      className="font-medium text-gray-700 w-full"
+                      style={{ wordWrap: 'break-word' }}
+                    >
+                      {email}
+                    </p>
+                  </div>
 
+                  <div className="sm:col-span-3 md:col-span-3 flex flex-row justify-start items-end">
+                    <HiUserGroup
+                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 mr-4 md:mr-0"
+                      size={26}
+                    />
+                    <p className="font-medium text-md md:text-base text-gray-700">
+                      {role}
+                    </p>
+                  </div>
+                  <div className="sm:col-span-3 md:col-span-1 flex flex-row justify-start items-end mb-2 md:mb-0">
+                    <FaSchool
+                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 mr-4 md:mr-0"
+                      size={26}
+                    />
+                    <p className="font-medium text-md md:text-base text-gray-700 ">
+                      {faculty == 'SLIIT Cyber Security Community'
+                        ? 'Cyber'
+                        : faculty}
+                    </p>
+                  </div>
                   <button
                     className="sm:col-span-1 md:col-span-1 md:flex hidden items-center justify-center"
                     onClick={deleteUser.bind(this, _id)}

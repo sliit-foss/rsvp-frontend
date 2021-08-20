@@ -145,7 +145,7 @@ const AdminEvents = ({
                   >
                     {status}
                   </div>
-                  <p className="col-span-1 lg:col-span-2 font-medium text-sm lg:text-base text-gray-700">
+                  <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
                     {createdBy}
                   </p>
                   <div className="col-span-2 mb-2 lg:mb-0">
