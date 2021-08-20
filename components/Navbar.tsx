@@ -27,7 +27,9 @@ const Navbar = (): JSX.Element => {
     window.localStorage.setItem('LoggedIn', 'false')
     window.localStorage.setItem('Token', '')
     window.localStorage.setItem('Role', '')
-    window.location.reload()
+    router.push({
+      pathname: '/',
+    })
   }
 
   return (

@@ -22,6 +22,7 @@ export interface EventData {
   category: string
   speakers: SpeakerData[]
   attendees:AttendeeData[]
+  createdBy:string
 }
 
 interface SpeakerData {

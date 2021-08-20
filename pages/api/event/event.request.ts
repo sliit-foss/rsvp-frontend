@@ -11,6 +11,15 @@ export async function addEvent(requestData: CreateEventData): Promise<boolean> {
   }
 }
 
+export async function deleteEvent(id: string): Promise<string | boolean> {
+  try {
+    const response = await apiInstance.delete(`/events/${id}`)
+    return response.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
+  }
+}
+
 export async function getEvents(): Promise<EventData[] | boolean> {
   try {
     const response = await apiInstance.get('/events')
