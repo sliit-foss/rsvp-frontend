@@ -172,13 +172,15 @@ const AdminUsers = (): JSX.Element => {
                   <p className="sm:col-span-3 md:col-span-2 font-semibold text-xl md:text-base text-gray-700">
                     {username}
                   </p>
-                  <div className="sm:col-span-3 md:col-span-3 flex flex-row justify-start items-end">
+                  <div className="sm:col-span-3 md:col-span-3 flex flex-row justify-start items-center">
+                    <div className="w-27 md:w-0 md:h-0 mr-4 md:mr-0">
                     <MdEmail
-                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 mr-4 md:mr-0"
-                      size={28}
+                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 "
+                      size={27}
                     />
+                    </div>
                     <p
-                      className="font-medium text-gray-700 w-full"
+                      className="font-medium text-gray-700 w-3/4 md:w-full"
                       style={{ wordWrap: 'break-word' }}
                     >
                       {email}
