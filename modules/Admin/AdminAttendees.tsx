@@ -20,11 +20,11 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
         {isSuccess ? (
           <div className="h-full">
             <div
-              className="w-auto px-6 mt-4 mb-8 py-2 mx-3 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0"
+              className="w-auto px-6 mt-4 mb-8 py-2 md:py-3 mx-3 md:mx-0 rounded-lg shadow-md bg-purple-dark cursor-default "
               data-aos="fade-right"
             >
               <div className="text-2xl text-white font-semibold text-left ">
-                ATTENDEES
+                Attendees
               </div>
             </div>
             <div
@@ -64,7 +64,7 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
               </>
             ) : (
               <div
-                className="w-full h-84vh lg:h-auto flex flex-col justify-center items-center lg:mt-22%"
+                className="w-full h-84vh lg:h-auto flex flex-col justify-center items-center lg:mt-20%"
                 data-aos="fade-left"
               >
                 <div className="font-inter font-bold text-5xl md:text-6xl lg:text-7xl text-center text-lightBlue mb-5 px-5 animate-pulse">

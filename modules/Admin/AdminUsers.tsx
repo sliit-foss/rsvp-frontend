@@ -136,11 +136,11 @@ const AdminUsers = (): JSX.Element => {
         {isSuccess && users ? (
           <>
             <div
-              className="w-auto px-6 mt-4 mb-8 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0"
+              className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0"
               data-aos="fade-right"
             >
               <div className="text-2xl text-white font-semibold text-left ">
-                USERS
+                Users
               </div>
             </div>
             <div
