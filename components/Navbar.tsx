@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import foss_dark from '../public/logos/foss_dark.svg'
-import foss_light from '../public/logos/foss_light.svg'
 import { mobileNavVariants, navElementsVariants } from '../animations'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { RiCloseFill } from 'react-icons/ri'
@@ -99,7 +98,7 @@ const Navbar = (): JSX.Element => {
               }
             >
               <a>
-                <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
+                <li className="hidden lg:block font-medium text-lg bg-gradientBlue hover:bg-gradientPurple text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
                   {loginStatus ? 'Sign Out' : 'Sign In'}
                 </li>
               </a>
@@ -126,8 +125,8 @@ const Navbar = (): JSX.Element => {
             variants={mobileNavVariants}
             className={`fixed top-0 left-0 bottom-0 z-10 min-h-screen ${
               isOpen ? `w-full` : `w-0`
-            } bg-blue flex flex-col items-center justify-center bg-no-repeat bg-right-top bg-cover `}
-            style={{ backgroundImage: 'url(/patterns/mobile-navbar.svg)' }}
+            } bg-gray-200 flex flex-col items-center justify-center bg-no-repeat bg-center bg-cover`}
+            style={{ backgroundImage: 'url(/patterns/single-event.svg)' }}
           >
             <ParticleBG backgroundMode={true} />
 
@@ -136,7 +135,7 @@ const Navbar = (): JSX.Element => {
               onClick={toggleNav}
             >
               {isOpen ? (
-                <RiCloseFill className="h-6 w-6 hover:text-gray-light text-white transition ease-in" />
+                <RiCloseFill className="h-6 w-6 hover:text-blue text-gray-700 transition ease-in" />
               ) : (
                 ''
               )}
@@ -150,7 +149,7 @@ const Navbar = (): JSX.Element => {
               className="h-32 w-48 flex items-center"
             >
               <Image
-                src={foss_light}
+                src={foss_dark}
                 alt="foss logo"
                 layout="intrinsic"
                 quality={90}
@@ -164,28 +163,28 @@ const Navbar = (): JSX.Element => {
               className="flex flex-col items-center justify-center w-full"
             >
               <Link href="/">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Home</div>
                   </li>
                 </a>
               </Link>
               <Link href="/events">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Events</div>
                   </li>
                 </a>
               </Link>
               <Link href="/clubs">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Clubs</div>
                   </li>
                 </a>
               </Link>
               <Link href="/contact">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Contacts</div>
                   </li>
@@ -193,7 +192,7 @@ const Navbar = (): JSX.Element => {
               </Link>
               {loginStatus ? (
                 <Link href="/admin/">
-                  <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                  <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                     <li onClick={() => setIsOpen(false)}>
                       <div className="py-4">Management</div>
                     </li>
@@ -215,7 +214,7 @@ const Navbar = (): JSX.Element => {
                 }
               >
                 <li
-                  className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4 mt-6"
+                  className="font-medium text-2xl bg-gradientBlue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4 mt-6"
                   onClick={() => setIsOpen(false)}
                 >
                   {loginStatus ? 'Sign Out' : 'Sign In'}
