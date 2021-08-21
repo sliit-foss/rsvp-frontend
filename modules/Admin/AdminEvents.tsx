@@ -171,12 +171,12 @@ const AdminEvents = ({
                       }}
                     />
                   </div>
-                  <div className="col-span-1 lg:hidden inline-flex items-center space-x-2 w-full mb-2">
-                    <button className="flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in">
+                  <div className="col-span-2 lg:hidden grid grid-rows-1 grid-cols-2 gap-2 w-full mb-2">
+                    <button className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in">
                       Edit
                     </button>
                     <button
-                      className="flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                      className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
                       onClick={deleteEvent.bind(this, _id)}
                     >
                       Remove
