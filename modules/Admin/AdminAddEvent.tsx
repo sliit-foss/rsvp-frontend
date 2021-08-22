@@ -1,10 +1,11 @@
-import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import LoadingOverlay from '../../components/LoadingOverlay'
 import FailedSnackbar from '../../components/Common/Snackbars/FailedSnackbar'
 import SuccessSnackbar from '../../components/Common/Snackbars/SuccessSnackbar'
 import SpeakerFormFields from '../../components/Admin/SpeakerFormFields'
+import GeneralFormFields from '../../components/Admin/GeneralFormFields'
 
 const AdminAddEvent = (): JSX.Element => {
   useEffect(() => {
@@ -29,14 +30,6 @@ const AdminAddEvent = (): JSX.Element => {
     setShowModal((prev) => !prev)
   }
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {}
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    //TODO: form handling logic goes here
-  }
-
   return (
     <>
       <LoadingOverlay show={showLoading} />
@@ -50,7 +43,7 @@ const AdminAddEvent = (): JSX.Element => {
             showModal ? 'opacity-50' : 'opacity-0 '
           }`}
         ></div>
-        <div
+        <form
           className="flex flex-col space-y-2 md:max-h-84vh-50 pb-4 md:overflow-y-scroll scrollbar-hide"
           id="container"
         >
@@ -60,6 +53,7 @@ const AdminAddEvent = (): JSX.Element => {
           >
             General Details
           </div>
+          <GeneralFormFields />
           <div
             className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
             data-aos="fade-right"
@@ -117,7 +111,7 @@ const AdminAddEvent = (): JSX.Element => {
               Finish Adding Event
             </button>
           </div>
-        </div>
+        </form>
       </section>
       {showModal && (
         <div className="fixed z-50 top-1/2 left-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-10/12 md:w-3/4 mx-auto md:mx-0 rounded-lg pointer-events-auto overflow-auto max-h-95vh scrollbar-hide">
