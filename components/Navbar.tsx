@@ -26,6 +26,8 @@ const Navbar = (): JSX.Element => {
     window.localStorage.setItem('LoggedIn', 'false')
     window.localStorage.setItem('Token', '')
     window.localStorage.setItem('Role', '')
+    window.localStorage.setItem('MenuOptionCache', '')
+    window.localStorage.setItem('SelectedEventIdCache', '')
     router.push({
       pathname: '/',
     })
@@ -78,11 +80,20 @@ const Navbar = (): JSX.Element => {
               </Link>
             </li>
             {loginStatus ? (
-              <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 mr-6">
-                <Link href="/admin/">
+              <button
+                onClick={() => {
+                  if (process.browser) {
+                    window.localStorage.setItem('MenuOptionCache', '')
+                  }
+                  router.push({
+                    pathname: '/admin/',
+                  })
+                }}
+              >
+                <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 mr-6">
                   <a>Management</a>
-                </Link>
-              </li>
+                </li>
+              </button>
             ) : (
               <div></div>
             )}
@@ -193,7 +204,14 @@ const Navbar = (): JSX.Element => {
               {loginStatus ? (
                 <Link href="/admin/">
                   <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
-                    <li onClick={() => setIsOpen(false)}>
+                    <li
+                      onClick={() => {
+                        setIsOpen(false)
+                        if (process.browser) {
+                          window.localStorage.setItem('MenuOptionCache', '')
+                        }
+                      }}
+                    >
                       <div className="py-4">Management</div>
                     </li>
                   </a>

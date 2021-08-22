@@ -1,9 +1,4 @@
-import {
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from 'react'
+import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
@@ -18,8 +13,8 @@ import { useGetEvents } from '../../queries/useGetEvent'
 import { EventEndpoints } from '../../pages/api/event'
 
 interface props {
-  setSelectedModule: Dispatch<SetStateAction<string>>
-  setSelectedEventId: Dispatch<SetStateAction<string>>
+  setSelectedModule: any
+  setSelectedEventId: any
 }
 
 const AdminEvents = ({
