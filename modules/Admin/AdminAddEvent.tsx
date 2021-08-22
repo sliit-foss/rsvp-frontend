@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import Button from '../../components/Button'
 import LoadingOverlay from '../../components/LoadingOverlay'
 import FailedSnackbar from '../../components/Common/Snackbars/FailedSnackbar'
 import SuccessSnackbar from '../../components/Common/Snackbars/SuccessSnackbar'
@@ -90,34 +89,38 @@ const AdminAddEvent = (): JSX.Element => {
             )
           })}
           <div
-            className="flex justify-end items-start pt-5 my-5"
+            className="flex justify-center md:justify-end items-start pt-5 my-5"
             data-aos="fade-left"
             data-aos-anchor="#container"
           >
-            <Button
-              value="Add New Speaker"
+            <button
+              className="w-full md:w-5/12 xl:w-1/4 py-2 mx-8 mb-2 rounded-md bg-gradientBlue hover:bg-gradientPurple text-white transition ease-in flex items-center justify-center"
               onClick={() => {
                 setModalObjective('Add')
                 toggleModal()
               }}
-            />
+            >
+              Add New Speaker
+            </button>
           </div>
           <div
-            className="flex justify-end items-start my-5"
+            className="flex justify-center md:justify-end items-start my-5"
             data-aos="fade-right"
             data-aos-anchor="#container"
           >
-            <Button
-              value="Finish Adding Event"
+            <button
+              className="w-full md:w-5/12 xl:w-1/4 py-2 mx-8 rounded-md bg-gradientBlue hover:bg-gradientPurple text-white transition ease-in flex items-center justify-center"
               onClick={() => {
                 console.log('Haylow')
               }}
-            />
+            >
+              Finish Adding Event
+            </button>
           </div>
         </div>
       </section>
       {showModal && (
-        <div className="fixed z-50 top-1/2 left-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-10/12 md:w-3/4 mx-auto md:mx-0 rounded-lg pointer-events-auto ">
+        <div className="fixed z-50 top-1/2 left-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-10/12 md:w-3/4 mx-auto md:mx-0 rounded-lg pointer-events-auto overflow-auto max-h-95vh scrollbar-hide">
           <SpeakerFormFields
             key={-1}
             index={selectedEditIndex}
