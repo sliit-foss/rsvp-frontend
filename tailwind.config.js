@@ -20,6 +20,7 @@ module.exports = {
         blue: '#005BDC',
         lightBlue: '#21B3D0',
         lightBlueAccent: '#66a1ff',
+        darkBlue: '#362B7A',
         redAccent: '#ff5454',
         bgWhite: '#F4F3F5',
         gradientBlue: '#21B3D0',
@@ -64,7 +65,7 @@ module.exports = {
         '20vw': '20vw',
       },
       width: {
-        '27':'27px',
+        27: '27px',
         '15vw': '15vw',
         '20vw': '20vw',
       },
@@ -74,6 +75,7 @@ module.exports = {
         '90vh': '90vh',
       },
       maxHeight: {
+        '84vh-50': 'calc(84vh - 50px)',
         '95vh': '95vh',
         '65vh': '65vh',
       },

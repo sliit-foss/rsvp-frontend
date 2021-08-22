@@ -1,14 +1,6 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from 'react'
+import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
-import { IoMdClose } from 'react-icons/io'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -21,7 +13,7 @@ import { useGetEvents } from '../../queries/useGetEvent'
 import { EventEndpoints } from '../../pages/api/event'
 
 interface props {
-  setSelectedModule: Dispatch<SetStateAction<string>>
+  setSelectedModule: any
   setSelectedEventId: any
 }
 
@@ -39,31 +31,6 @@ const AdminEvents = ({
   const [showLoading, setShowLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [showModal, setShowModal] = useState(false)
-  const [formData, setFormData] = useState({
-    eventName: '',
-    status: '',
-    createdBy: '',
-  })
-
-  const toggleModal = () => {
-    setShowModal((prev) => !prev)
-  }
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value.trim(),
-    })
-  }
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log(formData)
-
-    //TODO: form handling logic goes here
-  }
-
   const deleteEvent = (eventId: string) => {
     setShowLoading(true)
     EventEndpoints.deleteEvent(eventId)
@@ -107,7 +74,12 @@ const AdminEvents = ({
               className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0"
               data-aos="fade-left"
             >
-              <Button value="Add Event" onClick={toggleModal} />
+              <Button
+                value="Add Event"
+                onClick={() => {
+                  setSelectedModule('AddEvent')
+                }}
+              />
             </div>
             <div
               className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
@@ -205,47 +177,6 @@ const AdminEvents = ({
         ) : (
           <div className="h-84vh-32">
             <LoadingIndicator />
-          </div>
-        )}
-
-        {showModal && (
-          <div className="fixed z-10 top-0 bottom-0 right-0 left-0 w-full h-full bg-gray-900 bg-opacity-30">
-            <form
-              method="post"
-              onSubmit={handleSubmit}
-              className="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-72 md:w-96 mx-auto md:mx-0 rounded-lg p-4"
-            >
-              <div className="inline-flex items-center justify-between w-full mb-4">
-                <h2 className="font-semibold text-xl sm:text-2xl text-gray-800">
-                  Add Events
-                </h2>
-                <button onClick={toggleModal}>
-                  <IoMdClose className="text-xl text-gray-700" />
-                </button>
-              </div>
-              <input
-                onChange={handleChange}
-                className="rounded-lg mb-2 placeholder-gray-400 w-full"
-                placeholder="Event Name"
-                type="text"
-                name="eventName"
-              />
-              <input
-                onChange={handleChange}
-                className="rounded-lg mb-2 placeholder-gray-400 w-full"
-                placeholder="Status"
-                type="text"
-                name="status"
-              />
-              <input
-                onChange={handleChange}
-                className="rounded-lg mb-4 placeholder-gray-400 w-full"
-                placeholder="Created At"
-                type="text"
-                name="createdAt"
-              />
-              <Button value="Add Event" width="w-full" type="submit" />
-            </form>
           </div>
         )}
       </section>

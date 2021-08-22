@@ -253,20 +253,20 @@ const AdminUsers = (): JSX.Element => {
             </div>
             <input
               onChange={handleInputChange}
-              className="rounded-md mb-2 placeholder-gray-400 w-full"
+              className="rounded-md mb-2 shadow-ds2 border-0 placeholder-gray-400 w-full"
               placeholder="Username"
               type="text"
               name="username"
             />
             <input
               onChange={handleInputChange}
-              className="rounded-md mb-2 placeholder-gray-400 w-full"
+              className="rounded-md mb-2 shadow-ds2 border-0 placeholder-gray-400 w-full"
               placeholder="Email"
               type="email"
               name="email"
             />
             <select
-              className="rounded-md mb-2 placeholder-gray-400 w-full"
+              className="rounded-md mb-2 shadow-ds2 border-0 placeholder-gray-400 w-full"
               name="role"
               onChange={handleSelectChange()}
             >
@@ -277,7 +277,7 @@ const AdminUsers = (): JSX.Element => {
               <option value="Publisher">Event Publisher</option>
             </select>
             <select
-              className="rounded-md mb-6 placeholder-gray-400 w-full"
+              className="rounded-md mb-6 shadow-ds2 border-0 placeholder-gray-400 w-full"
               name="faculty"
               onChange={handleSelectChange()}
             >

@@ -8,8 +8,7 @@ interface SpeakerProps {
   name: string
   description: string
   topic: string
-  status: string
-  company: string
+  occupation: string
   twitterURL: string
   linkedinURL: string
   photoURL: string
@@ -19,8 +18,7 @@ const Speaker = ({
   name,
   description,
   topic,
-  status,
-  company,
+  occupation,
   twitterURL,
   linkedinURL,
   photoURL,
@@ -62,10 +60,7 @@ const Speaker = ({
           {name}
         </div>
         <div className="w-full text-2xl font-extrabold text-center lg:text-left mt-5">
-          {status}
-        </div>
-        <div className="w-full text-2xl font-extrabold text-center lg:text-left">
-          {company}
+          {occupation}
         </div>
         <div className="w-full text-base lg:text-lg font-normal text-center lg:text-left mt-8">
           {description}
