@@ -90,7 +90,7 @@ const AdminAccount = (): JSX.Element => {
             </div>
             <input
               onChange={handleInputChange}
-              className="rounded-md mb-6 placeholder-gray-400 w-full py-2 px-3 "
+              className="rounded-md mb-6 shadow-ds2 border-0 placeholder-gray-400 w-full py-2 px-3 "
               placeholder="New Password"
               type="password"
               name="password"

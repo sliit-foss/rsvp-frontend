@@ -32,7 +32,9 @@ const SideNav = ({
             onClick={onMenuItemSelect.bind(this, menuOption)}
             className={`w-full hover:bg-purple-dark shadow-lg hover:shadow-xl flex flex-col justify-center items-center transition ease-in duration-200 text-xl text-white font-medium text-center p-4 my-2 ${
               selectedMenuOption == menuOption ||
-              (menuOption == 'Events' && selectedMenuOption == 'Attendees')
+              (menuOption == 'Events' &&
+                (selectedMenuOption == 'Attendees' ||
+                  selectedMenuOption == 'AddEvent'))
                 ? 'bg-purple-dark'
                 : 'bg-purple-light'
             }`}

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import Layout from '../../components/Layout'
 import Navbar from '../../components/Navbar'
-import ModifiedSideNav from '../../components/Admin/SideNav'
+import SideNav from '../../components/Admin/SideNav'
 import AdminUsers from '../../modules/Admin/AdminUsers'
 import AdminEvents from '../../modules/Admin/AdminEvents'
 import AdminAccount from '../../modules/Admin/AdminAccount'
 import BottomBar from '../../components/Admin/BottomBar'
 import AdminAttendees from '../../modules/Admin/AdminAttendees'
+import AdminAddEvent from '../../modules/Admin/AdminAddEvent'
 
 const Admin = (): JSX.Element => {
   let userRole = ''
@@ -29,7 +30,7 @@ const Admin = (): JSX.Element => {
         style={{ backgroundImage: 'url(/patterns/clubs.svg)' }}
         className="bg-no-repeat bg-right-top bg-cover grid grid-rows-1 grid-cols-1 md:grid-cols-8 gap-4 min-h-90vh"
       >
-        <ModifiedSideNav
+        <SideNav
           onMenuItemSelect={setSelectedMenuOption}
           selectedMenuOption={selectedMenuOption}
         />
@@ -45,8 +46,10 @@ const Admin = (): JSX.Element => {
                 />
               ) : selectedMenuOption === 'Account' ? (
                 <AdminAccount />
-              ) : (
+              ) : selectedMenuOption === 'Attendees' ? (
                 <AdminAttendees selectedEventId={selectedEventId} />
+              ) : (
+                <AdminAddEvent />
               )}
             </div>
           </section>
