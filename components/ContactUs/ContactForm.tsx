@@ -6,7 +6,7 @@ import Container from '../Layout/Container'
 import { HiArrowRight } from 'react-icons/hi'
 import ContactVector from '../public/contact/ContactVector.svg'
 import { MailEndpoints } from '../../pages/api/mail'
-import LoadingOverlay from '../common/LoadingOverlay'
+import LoadingOverlay from '../Common/LoadingOverlay'
 import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
 import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
 
