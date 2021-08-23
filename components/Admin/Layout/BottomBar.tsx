@@ -29,7 +29,7 @@ const BottomBar = ({
               selectedMenuOption == menuOption ||
               (menuOption == 'Events' &&
                 (selectedMenuOption == 'Attendees' ||
-                  selectedMenuOption == 'AddEvent'))
+                  selectedMenuOption == 'Add/EditEvent'))
                 ? 'bg-purple-dark'
                 : 'bg-purple-light'
             }`}

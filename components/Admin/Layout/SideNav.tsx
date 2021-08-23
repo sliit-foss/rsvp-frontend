@@ -1,5 +1,5 @@
-import NextImage from '../NextImage'
-import image from '../../public/admin/sideNav/image.svg'
+import NextImage from '../../Common/NextImage'
+import image from '../../../public/admin/sideNav/image.svg'
 
 interface props {
   selectedMenuOption: string
@@ -33,7 +33,7 @@ const SideNav = ({
               selectedMenuOption == menuOption ||
               (menuOption == 'Events' &&
                 (selectedMenuOption == 'Attendees' ||
-                  selectedMenuOption == 'AddEvent'))
+                  selectedMenuOption == 'Add/EditEvent'))
                 ? 'bg-purple-dark'
                 : 'bg-purple-light'
             }`}

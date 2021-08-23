@@ -1,6 +1,6 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
-import EventBanner from '../../components/EventBanner'
+import EventBanner from '../../components/Events/EventBanner'
 import { useGetLatestEvents } from '../../queries/useGetEvent'
 
 const HeroSection = (): JSX.Element => {

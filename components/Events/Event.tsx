@@ -30,18 +30,18 @@ const Event = ({
   status,
 }: EventProps): JSX.Element => {
   useEffect(() => {
-    Aos.init({ duration: 1000 })
+    Aos.init({ offset: 200, duration: 1000 })
   }, [])
 
   const router = useRouter()
 
   return (
     <div data-aos="fade-up" className="w-full lg:w-2/6  md:px-4 lg:px-6 py-5 ">
-      <div className="bg-white hover:shadow-xl h-full rounded-xl transition-all ease-out duration-500">
+      <div className="bg-white hover:shadow-xl h-full  rounded-xl transition-all ease-out duration-500">
         <img
           src={imageURL}
           alt="Logo"
-          className="w-full mb-3 border-white hover:opacity-75 rounded-xl rounded-b-lg transition-all ease-out duration-500"
+          className="w-full h-35vh object-cover mb-3 border-white hover:opacity-75 rounded-xl rounded-b-lg transition-all ease-out duration-500"
         ></img>
 
         <div className="px-6 py-4 md:px-10">

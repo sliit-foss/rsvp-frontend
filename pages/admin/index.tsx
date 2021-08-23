@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import Layout from '../../components/Layout'
-import Navbar from '../../components/Navbar'
-import SideNav from '../../components/Admin/SideNav'
+import Navbar from '../../components/Layout/Navbar'
+import SideNav from '../../components/Admin/Layout/SideNav'
 import AdminUsers from '../../modules/Admin/AdminUsers'
-import AdminEvents from '../../modules/Admin/AdminEvents'
+import AdminEvents from '../../modules/Admin/Events/AdminEvents'
 import AdminAccount from '../../modules/Admin/AdminAccount'
-import BottomBar from '../../components/Admin/BottomBar'
+import BottomBar from '../../components/Admin/Layout/BottomBar'
 import AdminAttendees from '../../modules/Admin/AdminAttendees'
-import AdminAddEvent from '../../modules/Admin/AdminAddEvent'
+import AdminAddEvent from '../../modules/Admin/Events/AdminEventManager'
 
 const Admin = (): JSX.Element => {
   let userRole = ''
@@ -36,23 +36,26 @@ const Admin = (): JSX.Element => {
   }, [selectedMenuOptionCache])
 
   useEffect(() => {
-    if (selectedEventIdCache != '') {
+    if (selectedEventIdCache != '' && selectedEventIdCache != null) {
       setSelectedEventId(selectedEventIdCache)
     }
   }, [selectedEventIdCache])
 
   const updateSelectedMenuOption = (option: string) => {
+    setSelectedMenuOption(option)
     if (process.browser) {
       window.localStorage.setItem('MenuOptionCache', option)
     }
-    setSelectedMenuOption(option)
+    if (option == 'Events') {
+      updateSelectedEventId(null)
+    }
   }
 
-  const updateSelectedEventId = (id: string) => {
+  const updateSelectedEventId = (id: any) => {
+    setSelectedEventId(id)
     if (process.browser) {
       window.localStorage.setItem('SelectedEventIdCache', id)
     }
-    setSelectedEventId(id)
   }
 
   return (
@@ -81,7 +84,10 @@ const Admin = (): JSX.Element => {
               ) : selectedMenuOption === 'Attendees' ? (
                 <AdminAttendees selectedEventId={selectedEventId} />
               ) : (
-                <AdminAddEvent />
+                <AdminAddEvent
+                  setSelectedModule={updateSelectedMenuOption}
+                  selectedEventId={selectedEventId}
+                />
               )}
             </div>
           </section>

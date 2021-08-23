@@ -3,7 +3,7 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 import Container from '../../components/Layout/Container'
-import NextImage from '../../components/NextImage'
+import NextImage from '../../components/Common/NextImage'
 
 // partners logos
 import { logoData } from '../../lib/LogoData'

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import LoadingIndicator from '../../components/Admin/LoadingIndicator'
+import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
 import { useGetAttendees } from '../../queries/useGetAttendee'
 
 interface props {

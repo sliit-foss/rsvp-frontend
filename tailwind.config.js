@@ -56,6 +56,7 @@ module.exports = {
         full: '100%',
       },
       height: {
+        '35vh': '35vh',
         '84vh-32': 'calc(84vh - 32px)',
         '84vh': '84vh',
         '85vh-50': 'calc(85vh - 50px)',
@@ -75,6 +76,7 @@ module.exports = {
         '90vh': '90vh',
       },
       maxHeight: {
+        '35vh': '35vh',
         '84vh-50': 'calc(84vh - 50px)',
         '95vh': '95vh',
         '65vh': '65vh',

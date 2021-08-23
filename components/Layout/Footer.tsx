@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import fossLogo from '../public/logos/foss_light.svg'
+import fossLogo from '../../public/logos/foss_light.svg'
 import {
   FaFacebook,
   FaInstagram,

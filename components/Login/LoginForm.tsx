@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import NextImage from '../NextImage'
+import NextImage from '../Common/NextImage'
 import { useRouter } from 'next/router'
 import SignInFormFields from './FormFields/SignInFormFields'
 import SignUpFormFields from './FormFields/SignUpFormFields'
 import googleLogo from '../../public/logos/google_colour.svg'
 import { AuthEndpoints } from '../../pages/api/auth'
-import LoadingOverlay from '../LoadingOverlay'
+import LoadingOverlay from '../Common/LoadingOverlay'
 import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
 import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
 

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Container from './Layout/Container'
-import Button from './Button'
+import Container from '../Layout/Container'
+import Button from '../Common/Button'
 import { HiArrowRight } from 'react-icons/hi'
 
 interface BannerProps {

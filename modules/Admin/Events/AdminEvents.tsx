@@ -1,16 +1,16 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import Button from '../../components/Button'
-import LoadingOverlay from '../../components/LoadingOverlay'
-import FailedSnackbar from '../../components/Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../../components/Common/Snackbars/SuccessSnackbar'
-import LoadingIndicator from '../../components/Admin/LoadingIndicator'
-import { useGetEvents } from '../../queries/useGetEvent'
-import { EventEndpoints } from '../../pages/api/event'
+import Button from '../../../components/Common/Button'
+import LoadingOverlay from '../../../components/Common/LoadingOverlay'
+import FailedSnackbar from '../../../components/Common/Snackbars/FailedSnackbar'
+import SuccessSnackbar from '../../../components/Common/Snackbars/SuccessSnackbar'
+import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
+import { useGetEvents } from '../../../queries/useGetEvent'
+import { EventEndpoints } from '../../../pages/api/event'
 
 interface props {
   setSelectedModule: any
@@ -77,7 +77,8 @@ const AdminEvents = ({
               <Button
                 value="Add Event"
                 onClick={() => {
-                  setSelectedModule('AddEvent')
+                  setSelectedEventId(null)
+                  setSelectedModule('Add/EditEvent')
                 }}
               />
             </div>
@@ -105,7 +106,7 @@ const AdminEvents = ({
                     {name}
                   </p>
                   <div
-                    className={`col-span-1 lg:col-span-2 w-full 2xl:w-3/4 px-4 py-1 font-semibold rounded lg:rounded-3xl shadow-md text-white text-base text-center filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
+                    className={`col-span-1 lg:col-span-2 w-full 2xl:w-10/12 px-4 py-1 font-semibold rounded lg:rounded-3xl shadow-md text-white text-base text-center filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
                       status === 'Closed' || status === 'Cancelled'
                         ? 'bg-redAccent'
                         : status === 'Postponed'
@@ -144,7 +145,13 @@ const AdminEvents = ({
                     />
                   </div>
                   <div className="col-span-2 lg:hidden grid grid-rows-1 grid-cols-2 gap-2 w-full mb-2">
-                    <button className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in">
+                    <button
+                      className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                      onClick={() => {
+                        setSelectedModule('Add/EditEvent')
+                        setSelectedEventId(_id)
+                      }}
+                    >
                       Edit
                     </button>
                     <button
@@ -155,7 +162,13 @@ const AdminEvents = ({
                     </button>
                   </div>
 
-                  <button className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center">
+                  <button
+                    className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center"
+                    onClick={() => {
+                      setSelectedModule('Add/EditEvent')
+                      setSelectedEventId(_id)
+                    }}
+                  >
                     <AiTwotoneEdit
                       className="text-lg text-gray-700 hover:text-green-500 transition ease-in duration-200"
                       size={32}

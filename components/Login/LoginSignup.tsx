@@ -1,6 +1,6 @@
 import LoginForm from './LoginForm'
 import LoginInfo from './LoginInfo'
-import NextImage from '../NextImage'
+import NextImage from '../Common/NextImage'
 import { motion } from 'framer-motion'
 import lineBreak from '../../public/patterns/linebreak.svg'
 import { useState } from 'react'

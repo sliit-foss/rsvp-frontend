@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import NextImage from '../../components/NextImage'
+import NextImage from '../../components/Common/NextImage'
 import Container from '../../components/Layout/Container'
 
 import whatWeDo from '../../public/what-we-do.svg'

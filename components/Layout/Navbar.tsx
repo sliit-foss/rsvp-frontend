@@ -3,11 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import foss_dark from '../public/logos/foss_dark.svg'
-import { mobileNavVariants, navElementsVariants } from '../animations'
+import foss_dark from '../../public/logos/foss_dark.svg'
+import { mobileNavVariants, navElementsVariants } from '../../animations'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { RiCloseFill } from 'react-icons/ri'
-import ParticleBG from './Common/ParticleBG'
+import ParticleBG from '../Common/ParticleBG'
 
 const Navbar = (): JSX.Element => {
   const router = useRouter()

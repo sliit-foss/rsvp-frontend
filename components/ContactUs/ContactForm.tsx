@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Image from 'next/image'
-import Container from './Layout/Container'
+import Container from '../Layout/Container'
 import { HiArrowRight } from 'react-icons/hi'
-import ContactVector from '../public/contact/ContactVector.svg'
+import ContactVector from '../../public/contact/ContactVector.svg'
 
 const ContactForm = (): JSX.Element => {
   useEffect(() => {

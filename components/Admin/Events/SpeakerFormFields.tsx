@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react'
-import Button from '../Button'
+import Button from '../../Common/Button'
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdAddAPhoto } from 'react-icons/md'
 
@@ -29,7 +29,6 @@ const SpeakerFormFields = ({
   speakers,
   setSelectedEditIndex,
 }: props): JSX.Element => {
-  console.log(speakers)
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -55,7 +54,7 @@ const SpeakerFormFields = ({
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value.trim(),
+      [e.target.id]: e.target.value,
     })
   }
 
@@ -66,7 +65,6 @@ const SpeakerFormFields = ({
       setModalObjective('Edit')
       setSelectedEditIndex(index)
     } else {
-      console.log(formData)
       if (modalObjective == 'Edit') {
         const newSpeakers = speakers.slice()
         newSpeakers[index] = formData
@@ -76,6 +74,24 @@ const SpeakerFormFields = ({
         setSpeakers(speakers)
       }
       toggleModal()
+    }
+  }
+
+  const encodeImage = (fileInput: any) => {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      const reader = new FileReader()
+      reader.onload = (e: any) => {
+        const image = new Image()
+        image.src = e.target.result
+        image.onload = () => {
+          const imgBase64Path = e.target.result
+          setFormData({
+            ...formData,
+            [fileInput.target.name]: imgBase64Path.split(',')[1],
+          })
+        }
+      }
+      reader.readAsDataURL(fileInput.target.files[0])
     }
   }
 
@@ -102,23 +118,40 @@ const SpeakerFormFields = ({
         <form method="post" onSubmit={handleSubmit} className={`w-full p-8 `}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-0 mb-8">
             <div className="col-span-1 grid grid-rows-6 gap-5">
-              <button className="row-span-5 md:row-span-5 rounded-md shadow-ds2 relative">
+              <button className="row-span-5 rounded-md shadow-ds2 relative">
                 <input
                   type="file"
                   id="photo"
                   name="photo"
-                  className="absolute left-0 w-full h-full col-span-1 row-span-5 opacity-0"
+                  className="absolute left-0 w-full h-full col-span-1 row-span-5 opacity-0 cursor-pointer"
+                  onChange={encodeImage}
                   disabled={disabled}
                 ></input>
-                <div className="h-full w-full flex flex-col justify-center items-center">
-                  <MdAddAPhoto
-                    className="fill-current-color text-gray-400"
-                    size={100}
-                  />
-                  <div className="mt-4 text-lg text-gray-400 font-semibold">
-                    Add User Photo
+                {formData.photo ? (
+                  <div className="w-full h-full flex flex-col justify-center items-center">
+                    <img
+                    className="object-cover"
+                      src={
+                        formData.photo.includes(
+                          'https://firebasestorage.googleapis.com'
+                        )
+                          ? formData.photo
+                          : `data:image/jpeg;base64,${formData.photo}`
+                      }
+                      alt="speakerImage"
+                    ></img>
                   </div>
-                </div>
+                ) : (
+                  <div className="h-full w-full flex flex-col justify-center items-center">
+                    <MdAddAPhoto
+                      className="fill-current-color text-gray-400"
+                      size={100}
+                    />
+                    <div className="mt-4 text-lg text-gray-400 font-semibold">
+                      Add User Photo
+                    </div>
+                  </div>
+                )}
               </button>
               <input
                 className={`row-span-1 rounded-md shadow-ds2 border-0 mb-2 placeholder-gray-400 w-full ${
@@ -197,7 +230,6 @@ const SpeakerFormFields = ({
               />
             </div>
           </div>
-
           <Button
             value={
               disabled
