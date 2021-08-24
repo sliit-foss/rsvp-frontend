@@ -122,38 +122,8 @@ const AdminManageEvent = ({
           }, 1500)
         })
     } else {
-      const eventDataCopy = { ...eventData }
-      if (event?.name == eventDataCopy.name) {
-        delete eventDataCopy.name
-      }
-      if (event?.headerImage == eventDataCopy.headerImage) {
-        delete eventDataCopy.headerImage
-      }
-      if (event?.description == eventDataCopy.description) {
-        delete eventDataCopy.description
-      }
-      if (event?.status == eventDataCopy.status) {
-        delete eventDataCopy.status
-      }
-      if (event?.startTime == eventDataCopy.startTime) {
-        delete eventDataCopy.startTime
-      }
-      if (event?.endTime == eventDataCopy.endTime) {
-        delete eventDataCopy.endTime
-      }
-      if (event?.host == eventDataCopy.host) {
-        delete eventDataCopy.host
-      }
-      if (event?.capacity == eventDataCopy.capacity) {
-        delete eventDataCopy.capacity
-      }
-      if (event?.category == eventDataCopy.category) {
-        delete eventDataCopy.category
-      }
-      if (event?.venue == eventDataCopy.venue) {
-        delete eventDataCopy.venue
-      }
-      EventEndpoints.updateEvent(selectedEventId, eventDataCopy)
+      const requestBody = getCleanedRequestBody(eventData)
+      EventEndpoints.updateEvent(selectedEventId, requestBody)
         .then(() => {
           setSuccessMessage('Event updated successfully')
           setOpenSuccessSnackbar(true)
@@ -188,6 +158,41 @@ const AdminManageEvent = ({
           }, 1500)
         })
     }
+  }
+
+  const getCleanedRequestBody = (eventData: EventDataInterface) => {
+    const eventDataCopy = { ...eventData }
+    if (event?.name == eventDataCopy.name) {
+      delete eventDataCopy.name
+    }
+    if (event?.headerImage == eventDataCopy.headerImage) {
+      delete eventDataCopy.headerImage
+    }
+    if (event?.description == eventDataCopy.description) {
+      delete eventDataCopy.description
+    }
+    if (event?.status == eventDataCopy.status) {
+      delete eventDataCopy.status
+    }
+    if (event?.startTime == eventDataCopy.startTime) {
+      delete eventDataCopy.startTime
+    }
+    if (event?.endTime == eventDataCopy.endTime) {
+      delete eventDataCopy.endTime
+    }
+    if (event?.host == eventDataCopy.host) {
+      delete eventDataCopy.host
+    }
+    if (event?.capacity == eventDataCopy.capacity) {
+      delete eventDataCopy.capacity
+    }
+    if (event?.category == eventDataCopy.category) {
+      delete eventDataCopy.category
+    }
+    if (event?.venue == eventDataCopy.venue) {
+      delete eventDataCopy.venue
+    }
+    return eventDataCopy
   }
 
   return (
