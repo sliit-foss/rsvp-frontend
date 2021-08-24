@@ -77,18 +77,25 @@ const AdminUsers = (): JSX.Element => {
       })
       .catch((e) => {
         const error = JSON.parse(e).data.error
-        if (error == 'No username was given') {
-          setErrorMessage('Please enter a username')
-        } else if (error.includes('Path `email` is required.')) {
-          setErrorMessage('Please enter an email')
-        } else if (error.includes('email_1 dup key')) {
-          setErrorMessage('Email already exists')
-        } else if (error.includes('Path `role` is required.')) {
-          setErrorMessage('Please select a user role')
-        } else if (error.includes('Path `faculty` is required.')) {
-          setErrorMessage('Please select a faculty')
-        } else {
-          setErrorMessage(error)
+        switch (true) {
+          case error == 'No username was given':
+            setErrorMessage('Please enter a username')
+            break
+          case error.includes('Path `email` is required.'):
+            setErrorMessage('Please enter an email')
+            break
+          case error.includes('email_1 dup key'):
+            setErrorMessage('Email already exists')
+            break
+          case error.includes('Path `role` is required.'):
+            setErrorMessage('Please select a user role')
+            break
+          case error.includes('Path `faculty` is required.'):
+            setErrorMessage('Please select a faculty')
+            break
+          default:
+            setErrorMessage(error)
+            break
         }
         setOpenFailedSnackbar(true)
         setShowLoading(false)
@@ -174,10 +181,10 @@ const AdminUsers = (): JSX.Element => {
                   </p>
                   <div className="sm:col-span-3 md:col-span-3 flex flex-row justify-start items-center">
                     <div className="w-27 md:w-0 md:h-0 mr-4 md:mr-0">
-                    <MdEmail
-                      className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 "
-                      size={27}
-                    />
+                      <MdEmail
+                        className="text-gray-700 hover:text-purple-light transition ease-in duration-200 md:w-0 md:h-0 "
+                        size={27}
+                      />
                     </div>
                     <p
                       className="font-medium text-gray-700 w-3/4 md:w-full"
