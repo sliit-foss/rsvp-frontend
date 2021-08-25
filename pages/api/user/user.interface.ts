@@ -1,10 +1,7 @@
-export interface UserSignUpData {
+export interface UserData {
+  _id: string
   username: string
   email: string
-  password: string
-}
-
-export interface UserSignInData {
-  username: string
-  password: string
+  role: string
+  faculty: string
 }

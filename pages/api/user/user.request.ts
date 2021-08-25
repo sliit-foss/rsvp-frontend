@@ -1,26 +1,53 @@
 import { apiInstance } from '../apiInstance'
-import { UserSignUpData, UserSignInData } from './user.interface'
+import { UserData } from './user.interface'
 
-export async function signUpUser(
-  requestData: UserSignUpData
-): Promise<boolean> {
-  const PATH = '/signup'
-
-  const res = await apiInstance.post(PATH, requestData)
-  return res.data
+export async function createUser(userData: any): Promise<string | boolean> {
+  try {
+    const response = await apiInstance.post(`/users`, userData)
+    return response.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
+  }
 }
 
-export async function signInUser(
-  requestData: UserSignInData
-): Promise<boolean> {
-  const PATH = '/login'
-
-  const res = await apiInstance.post(PATH, requestData)
-  const token = res.data['token']
-
-  if (token) {
-    window.localStorage.setItem('Token', token)
+export async function deleteUser(id: string): Promise<string | boolean> {
+  try {
+    const response = await apiInstance.delete(`/users/${id}`)
+    return response.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
   }
+}
 
-  return res.data
+export async function getAllUsers(): Promise<UserData[] | boolean> {
+  try {
+    const response = await apiInstance.get(`/users`)
+    return response.data as UserData[]
+  } catch (e) {
+    return false
+  }
+}
+
+export async function getUserInfo(): Promise<UserData | boolean> {
+  try {
+    const response = await apiInstance.get(`/users/myuserdata`)
+    return response.data as UserData
+  } catch (e) {
+    console.error(e.message)
+    return false
+  }
+}
+
+export async function changePassword(
+  newPassword: string
+): Promise<string | boolean> {
+  try {
+    const body = {
+      newPassword: newPassword,
+    }
+    const response = await apiInstance.put(`/users/changepassword`, body)
+    return response.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
+  }
 }

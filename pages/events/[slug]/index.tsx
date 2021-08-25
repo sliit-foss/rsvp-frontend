@@ -6,10 +6,10 @@ import 'aos/dist/aos.css'
 
 import { useGetEvent } from '../../../queries/useGetEvent'
 import Layout from '../../../components/Layout'
-import Navbar from '../../../components/Navbar'
-import Footer from '../../../components/Footer'
+import Navbar from '../../../components/Layout/Navbar'
+import Footer from '../../../components/Layout/Footer'
 import Container from '../../../components/Layout/Container'
-import Speaker from '../../../components/Speaker'
+import Speaker from '../../../components/Events/Speaker'
 
 const SingleEvent = (): JSX.Element => {
   useEffect(() => {
@@ -41,9 +41,14 @@ const SingleEvent = (): JSX.Element => {
       >
         {isSuccess ? (
           <Container>
+            <div className="w-full lg:w-1/2" data-aos="fade-right">
+              <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mt-14 mb-14 lg:mb-0">
+                {event?.name}
+              </div>
+            </div>
             <div className="flex flex-col lg:flex-row justify-between items-start mt-16 lg:mt-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-darkBlue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Event
                 </div>
               </div>
@@ -105,31 +110,38 @@ const SingleEvent = (): JSX.Element => {
 
             <div className="flex flex-col lg:flex-row justify-between items-start mt-20 lg:mt-36 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-darkBlue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Speakers
                 </div>
               </div>
 
               <div className="w-full lg:w-1/2" data-aos="fade-left">
-                {event?.speakers.map((speaker) => (
-                  <Speaker
-                    key={speaker._id}
-                    name={speaker.name}
-                    description={speaker.description}
-                    photoURL={speaker.photo}
-                    status={speaker.status}
-                    company={speaker.company}
-                    topic={speaker.topic}
-                    twitterURL={speaker.twitterURL}
-                    linkedinURL={speaker.linkedInURL}
-                  />
-                ))}
+                {event?.speakers.length != 0 ? (
+                  <>
+                    {event?.speakers.map((speaker) => (
+                      <Speaker
+                        key={speaker._id}
+                        name={speaker.name}
+                        description={speaker.description}
+                        photoURL={speaker.photo}
+                        occupation={speaker.occupation}
+                        topic={speaker.topic}
+                        twitterURL={speaker.twitterURL}
+                        linkedinURL={speaker.linkedInURL}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <div className="text-xl text-black font-bold text-center lg:text-left mt-5">
+                  This event has no speakers
+                </div>
+                )}
               </div>
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between items-start mt-16 lg:mt-36 mb-20 lg:mb-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2" data-aos="fade-right">
-                <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mb-14 lg:mb-0">
+                <div className="text-5xl lg:text-6xl xl:text-7xl text-darkBlue font-bold text-center lg:text-left mb-14 lg:mb-0">
                   Sponsors
                 </div>
               </div>
@@ -146,7 +158,10 @@ const SingleEvent = (): JSX.Element => {
                   <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start">
                     <button
                       onClick={() => {
-                        if (event?.attendeeCount !== event?.capacity && event?.status==="Upcoming") {
+                        if (
+                          event?.attendeeCount !== event?.capacity &&
+                          event?.status === 'Upcoming'
+                        ) {
                           router.push({
                             pathname: `/events/${eventID}/register`,
                             query: {
@@ -157,7 +172,8 @@ const SingleEvent = (): JSX.Element => {
                         }
                       }}
                       className={`py-2 px-8 text-white rounded-lg shadow-md duration-150 transition ease-in font-medium ${
-                        event?.attendeeCount !== event?.capacity && event?.status==="Upcoming"
+                        event?.attendeeCount !== event?.capacity &&
+                        event?.status === 'Upcoming'
                           ? 'bg-gradientBlue hover:bg-gradientPurple'
                           : 'bg-gray-500 cursor-default'
                       }`}

@@ -1,4 +1,4 @@
-import AutoCompleteForm from './Common/AutocompleteForm'
+import AutoCompleteForm from '../Common/AutocompleteForm'
 
 interface SearchProps {
   handleFilterChange: any

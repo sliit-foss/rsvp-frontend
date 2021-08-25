@@ -1,13 +1,21 @@
 import { apiInstance } from '../apiInstance'
-import { CreateEventData, EventData, AttendeeData } from './event.interface'
+import { EventData, AttendeeData } from './event.interface'
 
-export async function addEvent(requestData: CreateEventData): Promise<boolean> {
+export async function createEvent(requestData: any): Promise<boolean> {
   try {
-    const response = await apiInstance.post(`/event`, requestData)
+    const response = await apiInstance.post(`/events`, requestData)
     return response.data
   } catch (e) {
-    console.error(e.message)
-    return false
+    throw JSON.stringify(e.response)
+  }
+}
+
+export async function deleteEvent(id: string): Promise<string | boolean> {
+  try {
+    const response = await apiInstance.delete(`/events/${id}`)
+    return response.data
+  } catch (e) {
+    throw JSON.stringify(e.response)
   }
 }
 
@@ -47,14 +55,13 @@ export async function getLatestEvents(): Promise<EventData[] | boolean> {
 
 export async function updateEvent(
   eventId: string,
-  eventData: EventData
+  eventData: any
 ): Promise<boolean> {
   try {
-    const response = await apiInstance.put(`/event/${eventId}`, eventData)
+    const response = await apiInstance.put(`/events/${eventId}`, eventData)
     return response.data
   } catch (e) {
-    console.error(e.message)
-    return false
+    throw JSON.stringify(e.response)
   }
 }
 

@@ -15,13 +15,13 @@ export interface EventData {
   venue: string
   startTime: number
   endTime: number
-  photos: string[]
   tags: string[]
-  capacity:number
-  attendeeCount:number
+  capacity: number
+  attendeeCount: number
   category: string
   speakers: SpeakerData[]
-  attendees:AttendeeData[]
+  attendees: AttendeeData[]
+  createdBy: string
 }
 
 interface SpeakerData {
@@ -29,8 +29,7 @@ interface SpeakerData {
   name: string
   description: string
   topic: string
-  status: string
-  company: string
+  occupation: string
   photo: string
   twitterURL: string
   linkedInURL: string
@@ -41,4 +40,3 @@ export interface AttendeeData {
   email: string
   organization: string
 }
-

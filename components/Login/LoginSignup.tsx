@@ -1,13 +1,13 @@
 import LoginForm from './LoginForm'
 import LoginInfo from './LoginInfo'
-import NextImage from '../NextImage'
+import NextImage from '../Common/NextImage'
 import { motion } from 'framer-motion'
 import lineBreak from '../../public/patterns/linebreak.svg'
 import { useState } from 'react'
 
 const LoginSignup = (): JSX.Element => {
   const animationDisplacement = 3000
-  const [selectLogin, setSelectLogin] = useState(false)
+  const [selectLogin, setSelectLogin] = useState(true)
   const [animateXInitial, setAnimateXInitial] = useState(-animationDisplacement)
   const [animateXDestination, setAnimateXDestination] = useState(0)
   const [opacity, setOpacity] = useState(true)

@@ -1,4 +1,4 @@
-import NextImage from '../NextImage'
+import NextImage from '../Common/NextImage'
 import signupImage from '../../public/signup.svg'
 import loginImage from '../../public/login.svg'
 

@@ -3,12 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import foss_dark from '../public/logos/foss_dark.svg'
-import foss_light from '../public/logos/foss_light.svg'
-import { mobileNavVariants, navElementsVariants } from '../animations'
+import foss_dark from '../../public/logos/foss_dark.svg'
+import { mobileNavVariants, navElementsVariants } from '../../animations'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { RiCloseFill } from 'react-icons/ri'
-import ParticleBG from './Common/ParticleBG'
+import ParticleBG from '../Common/ParticleBG'
 
 const Navbar = (): JSX.Element => {
   const router = useRouter()
@@ -26,7 +25,12 @@ const Navbar = (): JSX.Element => {
     window.localStorage.setItem('RememberMe', 'false')
     window.localStorage.setItem('LoggedIn', 'false')
     window.localStorage.setItem('Token', '')
-    window.location.reload()
+    window.localStorage.setItem('Role', '')
+    window.localStorage.setItem('MenuOptionCache', '')
+    window.localStorage.setItem('SelectedEventIdCache', '')
+    router.push({
+      pathname: '/',
+    })
   }
 
   return (
@@ -46,31 +50,53 @@ const Navbar = (): JSX.Element => {
           </Link>
         </div>
 
-        <h3 className="absolute left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold cursor-default">
+        <h3 className="absolute left-1/2 lg:left-1/4 2xl:left-1/2 transform -translate-x-1/2 text-sm sm:text-xl md:text-xl font-bold cursor-default ">
           SLIIT RSVP PORTAL
         </h3>
         <nav className="absolute right-5">
-          <ul className="inline-flex items-center space-x-6">
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+          <ul className="inline-flex items-center ">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/">
                 <a>Home</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/events">
                 <a>Events</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3">
               <Link href="/clubs">
                 <a>Clubs</a>
               </Link>
             </li>
-            <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in">
+            <li
+              className={`hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 ${
+                loginStatus ? 'mr-3' : 'mr-6'
+              }`}
+            >
               <Link href="/contact">
                 <a>Contact</a>
               </Link>
             </li>
+            {loginStatus ? (
+              <button
+                onClick={() => {
+                  if (process.browser) {
+                    window.localStorage.setItem('MenuOptionCache', '')
+                  }
+                  router.push({
+                    pathname: '/admin/',
+                  })
+                }}
+              >
+                <li className="hidden lg:block font-medium text-lg hover:text-gray-default transition ease-in mx-3 mr-6">
+                  <a>Management</a>
+                </li>
+              </button>
+            ) : (
+              <div></div>
+            )}
             <button
               onClick={
                 loginStatus
@@ -83,7 +109,7 @@ const Navbar = (): JSX.Element => {
               }
             >
               <a>
-                <li className="hidden lg:block font-medium text-lg bg-blue hover:bg-gradientBlue text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
+                <li className="hidden lg:block font-medium text-lg bg-gradientBlue hover:bg-gradientPurple text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
                   {loginStatus ? 'Sign Out' : 'Sign In'}
                 </li>
               </a>
@@ -110,8 +136,8 @@ const Navbar = (): JSX.Element => {
             variants={mobileNavVariants}
             className={`fixed top-0 left-0 bottom-0 z-10 min-h-screen ${
               isOpen ? `w-full` : `w-0`
-            } bg-blue flex flex-col items-center justify-center bg-no-repeat bg-right-top bg-cover `}
-            style={{ backgroundImage: 'url(/patterns/mobile-navbar.svg)' }}
+            } bg-gray-200 flex flex-col items-center justify-center bg-no-repeat bg-center bg-cover`}
+            style={{ backgroundImage: 'url(/patterns/single-event.svg)' }}
           >
             <ParticleBG backgroundMode={true} />
 
@@ -120,7 +146,7 @@ const Navbar = (): JSX.Element => {
               onClick={toggleNav}
             >
               {isOpen ? (
-                <RiCloseFill className="h-6 w-6 hover:text-gray-light text-white transition ease-in" />
+                <RiCloseFill className="h-6 w-6 hover:text-blue text-gray-700 transition ease-in" />
               ) : (
                 ''
               )}
@@ -134,7 +160,7 @@ const Navbar = (): JSX.Element => {
               className="h-32 w-48 flex items-center"
             >
               <Image
-                src={foss_light}
+                src={foss_dark}
                 alt="foss logo"
                 layout="intrinsic"
                 quality={90}
@@ -148,43 +174,70 @@ const Navbar = (): JSX.Element => {
               className="flex flex-col items-center justify-center w-full"
             >
               <Link href="/">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Home</div>
                   </li>
                 </a>
               </Link>
               <Link href="/events">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Events</div>
                   </li>
                 </a>
               </Link>
               <Link href="/clubs">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Clubs</div>
                   </li>
                 </a>
               </Link>
               <Link href="/contact">
-                <a className="w-full flex justify-center items-center font-medium text-2xl hover:text-gray-light text-white hover:bg-blue transform hover:scale-105 transition ease-in">
+                <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
                   <li onClick={() => setIsOpen(false)}>
                     <div className="py-4">Contacts</div>
                   </li>
                 </a>
               </Link>
-              <Link href="/login">
-                <a>
-                  <li
-                    className="font-medium text-2xl bg-blue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Sign In
-                  </li>
-                </a>
-              </Link>
+              {loginStatus ? (
+                <Link href="/admin/">
+                  <a className="w-full flex justify-center items-center font-medium text-2xl text-gray-700 hover:text-white hover:bg-gradientBlue transform hover:scale-105 transition ease-in">
+                    <li
+                      onClick={() => {
+                        setIsOpen(false)
+                        if (process.browser) {
+                          window.localStorage.setItem('MenuOptionCache', '')
+                        }
+                      }}
+                    >
+                      <div className="py-4">Management</div>
+                    </li>
+                  </a>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+
+              <button
+                onClick={
+                  loginStatus
+                    ? logOut
+                    : () => {
+                        router.push({
+                          pathname: '/login',
+                        })
+                      }
+                }
+              >
+                <li
+                  className="font-medium text-2xl bg-gradientBlue hover:bg-gradientPurple py-1.5 px-8 text-white shadow hover:shadow-md transform hover:scale-105 transition duration-400 rounded-lg cursor-pointer my-4 mt-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {loginStatus ? 'Sign Out' : 'Sign In'}
+                </li>
+              </button>
             </motion.ul>
           </motion.div>
         ) : (
