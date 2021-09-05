@@ -94,98 +94,106 @@ const AdminEvents = ({
               <div className="lg:col-span-1" />
               <div className="lg:col-span-1" />
             </div>
-            {/* data goes here */}
-            <div className="flex flex-col space-y-2 pb-4 md:max-h-65vh md:overflow-y-scroll scrollbar-hide">
-              {eventList.map(({ _id, name, status, createdBy }, i) => (
-                <div
-                  key={i}
-                  className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center"
-                  data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
-                >
-                  <p className="col-span-1 lg:col-span-2 font-semibold text-xl lg:text-base text-gray-700">
-                    {name}
-                  </p>
+            {eventList.length != 0 ? (
+              <div className="flex flex-col space-y-2 pb-4 md:max-h-65vh md:overflow-y-scroll scrollbar-hide">
+                {eventList.map(({ _id, name, status, createdBy }, i) => (
                   <div
-                    className={`col-span-1 lg:col-span-2 w-full 2xl:w-10/12 px-4 py-1 font-semibold rounded lg:rounded-3xl shadow-md text-white text-base text-center filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
-                      status === 'Closed' || status === 'Cancelled'
-                        ? 'bg-redAccent'
-                        : status === 'Postponed'
-                        ? 'bg-yellow-400'
-                        : status === 'Upcoming'
-                        ? 'bg-gradientBlue'
-                        : 'bg-green-400'
-                    }`}
+                    key={i}
+                    className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center"
+                    data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                   >
-                    {status}
-                  </div>
-                  <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
-                    {createdBy}
-                  </p>
-                  <div className="col-span-2 mb-2 lg:mb-0">
-                    <Button
-                      value="Event Page"
-                      padding="py-2 px-2"
-                      width="w-3/4"
-                      onClick={() => {
-                        router.push({
-                          pathname: `/events/${_id}`,
-                        })
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-2 mb-2 lg:mb-0">
-                    <Button
-                      value="View"
-                      padding="py-2 px-2"
-                      width="w-3/4"
-                      onClick={() => {
-                        setSelectedModule('Attendees')
-                        setSelectedEventId(_id)
-                      }}
-                    />
-                  </div>
-                  <div className="col-span-2 lg:hidden grid grid-rows-1 grid-cols-2 gap-2 w-full mb-2">
+                    <p className="col-span-1 lg:col-span-2 font-semibold text-xl lg:text-base text-gray-700">
+                      {name}
+                    </p>
+                    <div
+                      className={`col-span-1 lg:col-span-2 w-full 2xl:w-10/12 px-4 py-1 font-semibold rounded lg:rounded-3xl shadow-md text-white text-base text-center filter hover:brightness-110 transition ease-in duration-150 cursor-default ${
+                        status === 'Closed' || status === 'Cancelled'
+                          ? 'bg-redAccent'
+                          : status === 'Postponed'
+                          ? 'bg-yellow-400'
+                          : status === 'Upcoming'
+                          ? 'bg-gradientBlue'
+                          : 'bg-green-400'
+                      }`}
+                    >
+                      {status}
+                    </div>
+                    <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
+                      {createdBy}
+                    </p>
+                    <div className="col-span-2 mb-2 lg:mb-0">
+                      <Button
+                        value="Event Page"
+                        padding="py-2 px-2"
+                        width="w-3/4"
+                        onClick={() => {
+                          router.push({
+                            pathname: `/events/${_id}`,
+                          })
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-2 mb-2 lg:mb-0">
+                      <Button
+                        value="View"
+                        padding="py-2 px-2"
+                        width="w-3/4"
+                        onClick={() => {
+                          setSelectedModule('Attendees')
+                          setSelectedEventId(_id)
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-2 lg:hidden grid grid-rows-1 grid-cols-2 gap-2 w-full mb-2">
+                      <button
+                        className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                        onClick={() => {
+                          setSelectedModule('Add/EditEvent')
+                          setSelectedEventId(_id)
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                        onClick={deleteEvent.bind(this, _id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+
                     <button
-                      className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                      className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center"
                       onClick={() => {
                         setSelectedModule('Add/EditEvent')
                         setSelectedEventId(_id)
                       }}
                     >
-                      Edit
+                      <AiTwotoneEdit
+                        className="text-lg text-gray-700 hover:text-green-500 transition ease-in duration-200"
+                        size={32}
+                      />
                     </button>
                     <button
-                      className="col-span-1 flex items-center justify-center w-full py-2 px-3 rounded-md bg-purple-light hover:bg-purple-dark text-white transition ease-in"
+                      className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center"
                       onClick={deleteEvent.bind(this, _id)}
                     >
-                      Remove
+                      <MdDelete
+                        className="text-lg text-gray-700 hover:text-red-500 transition ease-in duration-200"
+                        size={32}
+                      />
                     </button>
                   </div>
-
-                  <button
-                    className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center"
-                    onClick={() => {
-                      setSelectedModule('Add/EditEvent')
-                      setSelectedEventId(_id)
-                    }}
-                  >
-                    <AiTwotoneEdit
-                      className="text-lg text-gray-700 hover:text-green-500 transition ease-in duration-200"
-                      size={32}
-                    />
-                  </button>
-                  <button
-                    className="col-span-1 lg:col-span-1 hidden lg:flex items-center justify-center"
-                    onClick={deleteEvent.bind(this, _id)}
-                  >
-                    <MdDelete
-                      className="text-lg text-gray-700 hover:text-red-500 transition ease-in duration-200"
-                      size={32}
-                    />
-                  </button>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div
+                className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800"
+                data-aos="fade-left"
+              >
+                There are no events at the moment.
+              </div>
+            )}
           </>
         ) : (
           <div className="h-84vh-32">

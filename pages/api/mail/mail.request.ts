@@ -6,7 +6,7 @@ export async function sendMail(requestData: MailData): Promise<boolean> {
   try {
     const res = await apiInstance.post(PATH, requestData)
     return res.data
-  } catch (e) {
+  } catch (e:any) {
     throw JSON.stringify(e.response)
   }
 }

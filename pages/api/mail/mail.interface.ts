@@ -3,5 +3,6 @@ export interface MailData {
     email:string
     subject: string
     text: string
+    receiver:string
   }
   
