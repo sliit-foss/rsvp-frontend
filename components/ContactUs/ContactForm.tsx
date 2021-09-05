@@ -29,6 +29,7 @@ const ContactForm = (): JSX.Element => {
       email: event.target.email.value,
       subject: event.target.subject.value,
       text: event.target.body.value,
+      receiver: 'infosliitfoss@gmail.com',
     }
     MailEndpoints.sendMail(mailData)
       .then(() => {

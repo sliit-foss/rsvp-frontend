@@ -22,12 +22,7 @@ const Navbar = (): JSX.Element => {
   }
 
   const logOut = () => {
-    window.localStorage.setItem('RememberMe', 'false')
-    window.localStorage.setItem('LoggedIn', 'false')
-    window.localStorage.setItem('Token', '')
-    window.localStorage.setItem('Role', '')
-    window.localStorage.setItem('MenuOptionCache', '')
-    window.localStorage.setItem('SelectedEventIdCache', '')
+    window.localStorage.clear()
     router.push({
       pathname: '/',
     })

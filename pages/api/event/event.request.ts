@@ -5,7 +5,7 @@ export async function createEvent(requestData: any): Promise<boolean> {
   try {
     const response = await apiInstance.post(`/events`, requestData)
     return response.data
-  } catch (e) {
+  } catch (e:any) {
     throw JSON.stringify(e.response)
   }
 }
@@ -14,7 +14,7 @@ export async function deleteEvent(id: string): Promise<string | boolean> {
   try {
     const response = await apiInstance.delete(`/events/${id}`)
     return response.data
-  } catch (e) {
+  } catch (e:any) {
     throw JSON.stringify(e.response)
   }
 }
@@ -23,7 +23,7 @@ export async function getEvents(): Promise<EventData[] | boolean> {
   try {
     const response = await apiInstance.get('/events')
     return response.data as EventData[]
-  } catch (e) {
+  } catch (e:any) {
     console.error(e.message)
     return false
   }
@@ -37,7 +37,7 @@ export async function getEvent({
   try {
     const response = await apiInstance.get(`/events/${eventId}`)
     return response.data as EventData
-  } catch (e) {
+  } catch (e:any) {
     console.error(e.message)
     return false
   }
@@ -47,7 +47,7 @@ export async function getLatestEvents(): Promise<EventData[] | boolean> {
   try {
     const response = await apiInstance.get('/events/latest')
     return response.data as EventData[]
-  } catch (e) {
+  } catch (e:any) {
     console.error(e.message)
     return false
   }
@@ -60,7 +60,7 @@ export async function updateEvent(
   try {
     const response = await apiInstance.put(`/events/${eventId}`, eventData)
     return response.data
-  } catch (e) {
+  } catch (e:any) {
     throw JSON.stringify(e.response)
   }
 }
@@ -73,7 +73,7 @@ export async function registerEvent(
     const PATH = `/attendees/${eventID}`
     const res = await apiInstance.post(PATH, data)
     return res.data
-  } catch (e) {
+  } catch (e:any) {
     throw JSON.stringify(e.response)
   }
 }
