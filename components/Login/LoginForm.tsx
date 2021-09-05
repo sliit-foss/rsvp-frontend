@@ -6,8 +6,7 @@ import SignUpFormFields from './FormFields/SignUpFormFields'
 import googleLogo from '../../public/logos/google_colour.svg'
 import { AuthEndpoints } from '../../pages/api/auth'
 import LoadingOverlay from '../Common/LoadingOverlay'
-import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
+import Swal from 'sweetalert2'
 
 interface LoginFormProps {
   login: boolean
@@ -18,8 +17,6 @@ const LoginForm = ({
   login,
   loginToggleHandler,
 }: LoginFormProps): JSX.Element => {
-  const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false)
-  const [openFailedSnackbar, setOpenFailedSnackbar] = useState(false)
   const [showLoading, setShowLoading] = useState(false)
   const [rememberMeValue, setRememberMeValue] = useState(false)
 
@@ -36,26 +33,33 @@ const LoginForm = ({
 
     AuthEndpoints.signInUser(formData)
       .then(() => {
-        setOpenSuccessSnackbar(true)
         setShowLoading(false)
         window.localStorage.setItem('RememberMe', rememberMeValue.toString())
         window.localStorage.setItem('LoggedIn', 'true')
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
-        setTimeout(function () {
+        let timerInterval: any
+        Swal.fire({
+          icon: 'success',
+          title: '<div class="text-2xl">Signed in sucessfully!</div>',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then(() => {
           router.push({
-            pathname: '/',
+            pathname: '/admin',
           })
-        }, 1800)
+        })
       })
       .catch((e) => {
-        console.error(e)
-        setOpenFailedSnackbar(true)
+        console.log(e)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          title: '<div class="text-2xl">Failed to sign in!</div>',
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -71,22 +75,31 @@ const LoginForm = ({
 
     AuthEndpoints.signUpUser(formData)
       .then(() => {
-        setOpenSuccessSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
-        setTimeout(function () {
+        let timerInterval: any
+        Swal.fire({
+          heightAuto: false,
+          icon: 'success',
+          title: '<div class="text-2xl">Signed up sucessfully!</div>',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then(() => {
           loginToggleHandler()
-        }, 1800)
+        })
       })
       .catch((error) => {
         console.error(error)
-        setOpenFailedSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          heightAuto: false,
+          title: '<div class="text-2xl">Failed to sign up!</div>',
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -138,27 +151,6 @@ const LoginForm = ({
         >
           {login ? 'Login' : 'Sign Up'}
         </button>
-      </div>
-
-      <div
-        className={
-          openFailedSnackbar
-            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <FailedSnackbar message={'Failed to sign in!'} />
-      </div>
-      <div
-        className={
-          openSuccessSnackbar
-            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <SuccessSnackbar
-          message={login ? 'Signed in sucessfully!' : 'Signed up sucessfully!'}
-        />
       </div>
     </>
   )

@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
-import FailedSnackbar from '../../../components/Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../../../components/Common/Snackbars/SuccessSnackbar'
 import SpeakerFormFields from '../../../components/Admin/Events/SpeakerFormFields'
 import GeneralFormFields from '../../../components/Admin/Events/GeneralFormFields'
 import { EventEndpoints } from '../../../pages/api/event'
 import { useGetEvent } from '../../../queries/useGetEvent'
+import Swal from 'sweetalert2'
 
 interface EventDataInterface {
   name?: string
@@ -39,11 +38,7 @@ const AdminManageEvent = ({
   const [speakers, setSpeakers] = useState<Array<any>>([])
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1)
   const [modalObjective, setModalObjective] = useState('Edit')
-  const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false)
-  const [openFailedSnackbar, setOpenFailedSnackbar] = useState(false)
   const [showLoading, setShowLoading] = useState(false)
-  const [successMessage, setSuccessMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [generalFormData, setGeneralFormData] = useState({
     name: '',
@@ -89,8 +84,6 @@ const AdminManageEvent = ({
     if (selectedEventId == null) {
       EventEndpoints.createEvent(eventData)
         .then(() => {
-          setSuccessMessage('Event added successfully')
-          setOpenSuccessSnackbar(true)
           setShowLoading(false)
           setGeneralFormData({
             name: '',
@@ -105,28 +98,33 @@ const AdminManageEvent = ({
             capacity: 0,
           })
           setSpeakers([])
-          setTimeout(function () {
-            setOpenSuccessSnackbar(false)
-          }, 1500)
-          setTimeout(function () {
+          let timerInterval: any
+          Swal.fire({
+            icon: 'success',
+            title: '<div class="text-2xl">Event added successfully</div>',
+            showConfirmButton: false,
+            timer: 1500,
+            willClose: () => {
+              clearInterval(timerInterval)
+            },
+          }).then(() => {
             setSelectedModule('Events')
-          }, 1800)
+          })
         })
         .catch((e) => {
           const error = JSON.parse(e).data.error
-          setErrorMessage(error)
-          setOpenFailedSnackbar(true)
           setShowLoading(false)
-          setTimeout(function () {
-            setOpenFailedSnackbar(false)
-          }, 1500)
+          Swal.fire({
+            icon: 'error',
+            title: `<div class="text-2xl">${error}</div>`,
+            showConfirmButton: false,
+            timer: 1500,
+          })
         })
     } else {
       const requestBody = getCleanedRequestBody(eventData)
       EventEndpoints.updateEvent(selectedEventId, requestBody)
         .then(() => {
-          setSuccessMessage('Event updated successfully')
-          setOpenSuccessSnackbar(true)
           setShowLoading(false)
           setGeneralFormData({
             name: '',
@@ -141,21 +139,28 @@ const AdminManageEvent = ({
             capacity: 0,
           })
           setSpeakers([])
-          setTimeout(function () {
-            setOpenSuccessSnackbar(false)
-          }, 1500)
-          setTimeout(function () {
+          let timerInterval: any
+          Swal.fire({
+            icon: 'success',
+            title: '<div class="text-2xl">Event updated successfully</div>',
+            showConfirmButton: false,
+            timer: 1500,
+            willClose: () => {
+              clearInterval(timerInterval)
+            },
+          }).then(() => {
             setSelectedModule('Events')
-          }, 1800)
+          })
         })
         .catch((e) => {
           const error = JSON.parse(e).data.error
-          setErrorMessage(error)
-          setOpenFailedSnackbar(true)
           setShowLoading(false)
-          setTimeout(function () {
-            setOpenFailedSnackbar(false)
-          }, 1500)
+          Swal.fire({
+            icon: 'error',
+            title: `<div class="text-2xl">${error}</div>`,
+            showConfirmButton: false,
+            timer: 1500,
+          })
         })
     }
   }
@@ -295,24 +300,6 @@ const AdminManageEvent = ({
           />
         </div>
       )}
-      <div
-        className={
-          openFailedSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <FailedSnackbar message={errorMessage} />
-      </div>
-      <div
-        className={
-          openSuccessSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <SuccessSnackbar message={successMessage} />
-      </div>
     </>
   )
 }
