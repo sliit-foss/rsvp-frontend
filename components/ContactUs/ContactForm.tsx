@@ -7,18 +7,14 @@ import { HiArrowRight } from 'react-icons/hi'
 import ContactVector from '../../public/contact/ContactVector.svg'
 import { MailEndpoints } from '../../pages/api/mail'
 import LoadingOverlay from '../Common/LoadingOverlay'
-import FailedSnackbar from '../Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../Common/Snackbars/SuccessSnackbar'
+import Swal from 'sweetalert2'
 
 const ContactForm = (): JSX.Element => {
   useEffect(() => {
     Aos.init({ offset: 0, duration: 1000 })
   }, [])
 
-  const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false)
-  const [openFailedSnackbar, setOpenFailedSnackbar] = useState(false)
   const [showLoading, setShowLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
 
   const sendMail = (event: any) => {
     event.preventDefault()
@@ -33,20 +29,23 @@ const ContactForm = (): JSX.Element => {
     }
     MailEndpoints.sendMail(mailData)
       .then(() => {
-        setOpenSuccessSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'success',
+          title: `<div class="text-2xl">Message sent sucessfully</div>`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
       .catch((e) => {
-        const error = JSON.parse(e)
-        setErrorMessage(error.data.error)
-        setOpenFailedSnackbar(true)
+        const error = JSON.parse(e).data.error
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          title: `<div class="text-2xl">${error}</div>`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -145,24 +144,6 @@ const ContactForm = (): JSX.Element => {
             </div>
           </div>
         </Container>
-      </div>
-      <div
-        className={
-          openFailedSnackbar
-            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <FailedSnackbar message={errorMessage} />
-      </div>
-      <div
-        className={
-          openSuccessSnackbar
-            ? 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 left-0 w-full flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <SuccessSnackbar message={'Message sent sucessfully'} />
       </div>
     </>
   )

@@ -6,11 +6,10 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Button from '../../../components/Common/Button'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
-import FailedSnackbar from '../../../components/Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../../../components/Common/Snackbars/SuccessSnackbar'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
 import { useGetEvents } from '../../../queries/useGetEvent'
 import { EventEndpoints } from '../../../pages/api/event'
+import Swal from 'sweetalert2'
 
 interface props {
   setSelectedModule: any
@@ -26,33 +25,36 @@ const AdminEvents = ({
   }, [])
   const router = useRouter()
   const { data: eventList = [], isSuccess } = useGetEvents()
-  const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false)
-  const [openFailedSnackbar, setOpenFailedSnackbar] = useState(false)
   const [showLoading, setShowLoading] = useState(false)
-  const [successMessage, setSuccessMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
   const deleteEvent = (eventId: string) => {
     setShowLoading(true)
     EventEndpoints.deleteEvent(eventId)
       .then(() => {
-        setSuccessMessage('Event deleted successfully')
-        setOpenSuccessSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
-        if (process.browser) {
-          window.location.reload()
-        }
+        let timerInterval: any
+        Swal.fire({
+          icon: 'success',
+          title: '<div class="text-2xl">Event deleted successfully</div>',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then(() => {
+          if (process.browser) {
+            window.location.reload()
+          }
+        })     
       })
       .catch((e) => {
         const error = JSON.parse(e).data.error
-        setErrorMessage(error)
-        setOpenFailedSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          title: `<div class="text-2xl">${error}</div>`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -201,24 +203,6 @@ const AdminEvents = ({
           </div>
         )}
       </section>
-      <div
-        className={
-          openFailedSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <FailedSnackbar message={errorMessage} />
-      </div>
-      <div
-        className={
-          openSuccessSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <SuccessSnackbar message={successMessage} />
-      </div>
     </>
   )
 }

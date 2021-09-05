@@ -7,22 +7,17 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import Button from '../../components/Common/Button'
 import LoadingOverlay from '../../components/Common/LoadingOverlay'
-import FailedSnackbar from '../../components/Common/Snackbars/FailedSnackbar'
-import SuccessSnackbar from '../../components/Common/Snackbars/SuccessSnackbar'
 import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
 import { useGetAllUsers } from '../../queries/useGetUser'
 import { UserEndpoints } from '../../pages/api/user'
+import Swal from 'sweetalert2'
 
 const AdminUsers = (): JSX.Element => {
   useEffect(() => {
     Aos.init({ offset: 0, duration: 1000 })
   }, [])
   const { data: users, isSuccess } = useGetAllUsers()
-  const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false)
-  const [openFailedSnackbar, setOpenFailedSnackbar] = useState(false)
   const [showLoading, setShowLoading] = useState(false)
-  const [successMessage, setSuccessMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
     username: '',
@@ -56,8 +51,6 @@ const AdminUsers = (): JSX.Element => {
 
     UserEndpoints.createUser(formData)
       .then(() => {
-        setSuccessMessage('User added successfully')
-        setOpenSuccessSnackbar(true)
         setShowLoading(false)
         setFormData({
           username: '',
@@ -65,43 +58,52 @@ const AdminUsers = (): JSX.Element => {
           role: '',
           faculty: '',
         })
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
-        setTimeout(function () {
+        let timerInterval: any
+        Swal.fire({
+          icon: 'success',
+          title: '<div class="text-2xl">User added successfully</div>',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then(() => {
           toggleModal()
           if (process.browser) {
             window.location.reload()
           }
-        }, 1800)
+        })
       })
       .catch((e) => {
         const error = JSON.parse(e).data.error
+        let errorMessage
         switch (true) {
           case error == 'No username was given':
-            setErrorMessage('Please enter a username')
+            errorMessage = 'Please enter a username'
             break
           case error.includes('Path `email` is required.'):
-            setErrorMessage('Please enter an email')
+            errorMessage = 'Please enter an email'
             break
           case error.includes('email_1 dup key'):
-            setErrorMessage('Email already exists')
+            errorMessage = 'Email already exists'
             break
           case error.includes('Path `role` is required.'):
-            setErrorMessage('Please select a user role')
+            errorMessage = 'Please select a user role'
             break
           case error.includes('Path `faculty` is required.'):
-            setErrorMessage('Please select a faculty')
+            errorMessage = 'Please select a faculty'
             break
           default:
-            setErrorMessage(error)
+            errorMessage = error
             break
         }
-        setOpenFailedSnackbar(true)
         setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          title: `<div class="text-2xl">${errorMessage}</div>`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -109,24 +111,29 @@ const AdminUsers = (): JSX.Element => {
     setShowLoading(true)
     UserEndpoints.deleteUser(userId)
       .then(() => {
-        setSuccessMessage('User removed successfully')
-        setOpenSuccessSnackbar(true)
-        setShowLoading(false)
-        setTimeout(function () {
-          setOpenSuccessSnackbar(false)
-        }, 1500)
-        if (process.browser) {
-          window.location.reload()
-        }
+        let timerInterval: any
+        Swal.fire({
+          icon: 'success',
+          title: '<div class="text-2xl">User removed successfully</div>',
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then(() => {
+          if (process.browser) {
+            window.location.reload()
+          }
+        })
       })
       .catch((e) => {
         const error = JSON.parse(e).data.error
-        setErrorMessage(error)
-        setOpenFailedSnackbar(true)
-        setShowLoading(false)
-        setTimeout(function () {
-          setOpenFailedSnackbar(false)
-        }, 1500)
+        Swal.fire({
+          icon: 'error',
+          title: `<div class="text-2xl">${error}</div>`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
       })
   }
 
@@ -310,24 +317,6 @@ const AdminUsers = (): JSX.Element => {
           </form>
         </div>
       )}
-      <div
-        className={
-          openFailedSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <FailedSnackbar message={errorMessage} />
-      </div>
-      <div
-        className={
-          openSuccessSnackbar
-            ? 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-40 opacity-100 transition ease-in duration-200'
-            : 'fixed top-24 md:top-3/4 w-full left-0 md:left-12.5% flex justify-center z-10 opacity-0 transition ease-in duration-200 pointer-events-none'
-        }
-      >
-        <SuccessSnackbar message={successMessage} />
-      </div>
     </>
   )
 }
