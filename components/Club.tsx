@@ -21,10 +21,6 @@ const Club = ({ logo, title }: ClubProps): JSX.Element => {
         <h2 className="text-base sm:text-2xl md:text-3xl font-bold text-white group-hover:text-opacity-100 text-opacity-0 text-center mb-4">
           {title}
         </h2>
-        {/* TODO: add the club or society link to the button */}
-        <button className="text-white border-2 border-white hover:bg-gradientBlue transition ease-in rounded-md shadow py-1 px-4">
-          More info
-        </button>
       </div>
     </div>
   )
