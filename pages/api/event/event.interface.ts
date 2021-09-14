@@ -19,6 +19,7 @@ export interface EventData {
   capacity: number
   attendeeCount: number
   category: string
+  joinLink: string
   speakers: SpeakerData[]
   attendees: AttendeeData[]
   createdBy: string

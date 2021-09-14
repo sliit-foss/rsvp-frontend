@@ -7,10 +7,8 @@ import Container from '../../components/Layout/Container'
 import Event from '../../components/Events/Event'
 import NextImage from '../../components/Common/NextImage'
 import NavSearch from '../../components/Events/NavSearch'
-import FloatingActionButton from '../../components/Common/FloatingActionButton'
 import StayTuned from '../../components/Common/StayTuned'
 import bg from '../../public/events/eventBG.jpg'
-import { SiGooglecalendar } from 'react-icons/si'
 import { EventData } from '../api/event/event.interface'
 
 const AllEvents = (): JSX.Element => {
@@ -102,9 +100,6 @@ const AllEvents = (): JSX.Element => {
             </div>
           )}
         </Container>
-        <FloatingActionButton
-          icon={<SiGooglecalendar color="white" className="p-5 w-20 h-20" />}
-        />
       </section>
       <Footer />
     </Layout>

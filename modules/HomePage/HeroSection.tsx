@@ -38,7 +38,7 @@ const HeroSection = (): JSX.Element => {
         ) : (
           <div
             className={`bg-white fixed top-0 flex justify-center items-center w-screen h-screen transition duration-500 z-10 ${
-              isSuccess ? 'opacity-0' : 'opacity-100'
+              isSuccess ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
             }`}
           > <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gradientBlue" />
           </div>

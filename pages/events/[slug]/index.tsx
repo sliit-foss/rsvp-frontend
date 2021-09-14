@@ -133,8 +133,8 @@ const SingleEvent = (): JSX.Element => {
                   </>
                 ) : (
                   <div className="text-xl text-black font-bold text-center lg:text-left mt-5">
-                  This event has no speakers
-                </div>
+                    This event has no speakers
+                  </div>
                 )}
               </div>
             </div>
@@ -152,10 +152,17 @@ const SingleEvent = (): JSX.Element => {
                     A big thanks to our sponsors for pitching in and helping
                     keep these sessions free for attendees
                   </div>
-                  <div className="w-full text-base lg:text-lg font-semibold text-center lg:text-left mt-10">
+                </div>
+              </div>
+            </div>
+            <div className="w-full h-1 bg-blue mt-8 rounded-lg"></div>
+            <div className="flex flex-col lg:flex-row justify-end items-start mt-6 lg:mt-14 mb-20 lg:mb-32 px-5 lg:px-16 2xl:px-0">
+              <div className="w-full lg:w-1/2">
+                <div className="flex flex-col justify-center items-start mt-5">
+                  <div className="w-full text-base lg:text-lg font-semibold text-center lg:text-left mt-10" data-aos="fade-left">
                     Register and join us on this day for an amazing experience
                   </div>
-                  <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start">
+                  <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start" data-aos="fade-right">
                     <button
                       onClick={() => {
                         if (

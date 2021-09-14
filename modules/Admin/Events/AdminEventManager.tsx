@@ -16,6 +16,7 @@ interface EventDataInterface {
   category?: string
   venue?: string
   host?: string
+  joinLink?: string
   startTime?: number
   endTime?: number
   capacity?: number
@@ -48,6 +49,7 @@ const AdminManageEvent = ({
     category: '',
     venue: '',
     host: '',
+    joinLink: '',
     startTime: 0,
     endTime: 0,
     capacity: 0,
@@ -62,6 +64,7 @@ const AdminManageEvent = ({
       category: event?.category || '',
       venue: event?.venue || '',
       host: event?.host || '',
+      joinLink: event?.joinLink || '',
       startTime: event?.startTime || 0,
       endTime: event?.endTime || 0,
       capacity: event?.capacity || 0,
@@ -85,19 +88,7 @@ const AdminManageEvent = ({
       EventEndpoints.createEvent(eventData)
         .then(() => {
           setShowLoading(false)
-          setGeneralFormData({
-            name: '',
-            description: '',
-            headerImage: '',
-            status: '',
-            category: '',
-            venue: '',
-            host: '',
-            startTime: 0,
-            endTime: 0,
-            capacity: 0,
-          })
-          setSpeakers([])
+          clearData()
           let timerInterval: any
           Swal.fire({
             icon: 'success',
@@ -126,19 +117,7 @@ const AdminManageEvent = ({
       EventEndpoints.updateEvent(selectedEventId, requestBody)
         .then(() => {
           setShowLoading(false)
-          setGeneralFormData({
-            name: '',
-            description: '',
-            headerImage: '',
-            status: '',
-            category: '',
-            venue: '',
-            host: '',
-            startTime: 0,
-            endTime: 0,
-            capacity: 0,
-          })
-          setSpeakers([])
+          clearData()
           let timerInterval: any
           Swal.fire({
             icon: 'success',
@@ -165,6 +144,23 @@ const AdminManageEvent = ({
     }
   }
 
+  const clearData = () => {
+    setGeneralFormData({
+      name: '',
+      description: '',
+      headerImage: '',
+      status: '',
+      category: '',
+      venue: '',
+      host: '',
+      joinLink: '',
+      startTime: 0,
+      endTime: 0,
+      capacity: 0,
+    })
+    setSpeakers([])
+  }
+
   const getCleanedRequestBody = (eventData: EventDataInterface) => {
     const eventDataCopy = { ...eventData }
     if (event?.name == eventDataCopy.name) {
@@ -187,6 +183,9 @@ const AdminManageEvent = ({
     }
     if (event?.host == eventDataCopy.host) {
       delete eventDataCopy.host
+    }
+    if (event?.joinLink == eventDataCopy.joinLink) {
+      delete eventDataCopy.joinLink
     }
     if (event?.capacity == eventDataCopy.capacity) {
       delete eventDataCopy.capacity

@@ -209,6 +209,14 @@ const GeneralFormFields = ({
         <option value="Cancelled">Cancelled</option>
         <option value="Postponed">Postponed</option>
       </select>
+      <input
+        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
+        placeholder="Event Join Link"
+        value={generalFormData.joinLink}
+        onChange={handleInputChange}
+        name="joinLink"
+        type="text"
+      />
     </form>
   )
 }
