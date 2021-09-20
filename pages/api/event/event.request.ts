@@ -21,7 +21,7 @@ export async function deleteEvent(id: string): Promise<string | boolean> {
 
 export async function getEvents(): Promise<EventData[] | boolean> {
   try {
-    const response = await apiInstance.get('/events')
+    const response = await apiInstance.get('/events/all')
     return response.data as EventData[]
   } catch (e:any) {
     console.error(e.message)
@@ -45,7 +45,7 @@ export async function getEvent({
 
 export async function getLatestEvents(): Promise<EventData[] | boolean> {
   try {
-    const response = await apiInstance.get('/events/latest')
+    const response = await apiInstance.get('/events/latest/all')
     return response.data as EventData[]
   } catch (e:any) {
     console.error(e.message)
