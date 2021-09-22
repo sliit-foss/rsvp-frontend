@@ -21,7 +21,7 @@ export async function deleteEvent(id: string): Promise<string | boolean> {
 
 export async function getEvents(): Promise<EventData[] | boolean> {
   try {
-    const response = await apiInstance.get('/events/all')
+    const response = await apiInstance.get('/events/allevents/all')
     return response.data as EventData[]
   } catch (e:any) {
     console.error(e.message)
