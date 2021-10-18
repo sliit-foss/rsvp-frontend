@@ -1,6 +1,3 @@
-import { useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { FaLinkedin } from 'react-icons/fa'
 
@@ -23,11 +20,7 @@ const Speaker = ({
   linkedinURL,
   photoURL,
 }: SpeakerProps): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ duration: 1000 })
-  }, [])
-
-  return (
+ return (
     <div className="mb-8">
       <div className="flex flex-col lg:flex-row items-center lg:items-end">
         <div className="w-full lg:w-1/2 flex justify-center items-center rounded-xl mt-5">

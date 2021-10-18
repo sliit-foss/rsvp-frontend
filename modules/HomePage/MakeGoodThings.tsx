@@ -1,21 +1,12 @@
-import { useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-
 import Container from '../../components/Layout/Container'
 import NextImage from '../../components/Common/NextImage'
-
 import makeGoodThings from '../../public/make-good-things.svg'
 import ParticleBG from '../../components/Common/ParticleBG'
 
 const MakeGoodThings = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
-
   return (
     <div className="relative">
-      <ParticleBG backgroundMode={false}/>
+      <ParticleBG backgroundMode={false} />
       <Container>
         <section className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 md:py-24 py-16 z-10">
           <div data-aos="fade-right">

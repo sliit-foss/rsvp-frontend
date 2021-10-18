@@ -1,6 +1,3 @@
-import { useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import Layout from '../components/Layout'
 import Navbar from '../components/Layout/Navbar'
 import Footer from '../components/Layout/Footer'
@@ -37,9 +34,6 @@ const clubs = [
 ]
 
 const ClubsPage = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   return (
     <Layout title="Clubs | RSVP SLIIT">
       <Navbar />

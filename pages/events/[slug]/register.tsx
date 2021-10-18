@@ -1,8 +1,6 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import Layout from '../../../components/Layout'
 import Navbar from '../../../components/Layout/Navbar'
 import Footer from '../../../components/Layout/Footer'
@@ -11,10 +9,6 @@ import { EventEndpoints } from '../../api/event'
 import Swal from 'sweetalert2'
 
 const SingleEvent = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
-
   const [showLoading, setShowLoading] = useState(false)
 
   const router = useRouter()

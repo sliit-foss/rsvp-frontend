@@ -1,19 +1,9 @@
-import { useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-
 import Container from '../../components/Layout/Container'
 import NextImage from '../../components/Common/NextImage'
-
-// partners logos
 import { logoData } from '../../lib/LogoData'
 import ParticleBG from '../../components/Common/ParticleBG'
 
 const OurPartners = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ duration: 1000 })
-  }, [])
-
   return (
     <div className="relative">
       <ParticleBG backgroundMode={false} />

@@ -1,7 +1,5 @@
-import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import NextImage from '../../components/Common/NextImage'
 import user from '../../public/admin/account/user.svg'
 import email from '../../public/admin/account/email.svg'
@@ -14,9 +12,6 @@ import { UserEndpoints } from '../../pages/api/user'
 import Swal from 'sweetalert2'
 
 const AdminAccount = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   const [newPassword, setNewPassword] = useState('')
   const [showLoading, setShowLoading] = useState(false)
   const [showModal, setShowModal] = useState(false)

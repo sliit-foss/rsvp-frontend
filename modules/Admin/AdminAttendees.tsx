@@ -1,6 +1,3 @@
-import { useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
 import { useGetAttendees } from '../../queries/useGetAttendee'
 
@@ -9,9 +6,6 @@ interface props {
 }
 
 const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   const { data: attendees, isSuccess } = useGetAttendees(selectedEventId)
 
   return (

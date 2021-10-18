@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import Button from '../../../components/Common/Button'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
@@ -20,9 +18,6 @@ const AdminEvents = ({
   setSelectedModule,
   setSelectedEventId,
 }: props): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   const router = useRouter()
   const { data: eventList = [], isSuccess } = useGetEvents()
   const [showLoading, setShowLoading] = useState(false)
@@ -44,7 +39,7 @@ const AdminEvents = ({
           if (process.browser) {
             window.location.reload()
           }
-        })     
+        })
       })
       .catch((e) => {
         const error = JSON.parse(e).data.error
