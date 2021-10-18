@@ -1,22 +1,14 @@
-import { useEffect } from 'react'
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 
 const InfoCards = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset:0,duration: 1000 })
-  }, [])
-
   return (
     <div>
       <div className="grid lg:grid-cols-3 md:grid-cols-3 w-full mt-10 mb-10">
-        <div data-aos="fade-up" >
+        <div data-aos="fade-up">
           <div
             className="grid grid-cols-1 justify-center items-center rounded-lg
       text-center shadow-infoCard hover:shadow-infoCardHover lg:m-auto md:m-auto mb-5 sm:w-full lg:w-56 md:w-56 h-44
        bg-white hover:bg-lightBlue cursor-default transition duration-500"
-            
           >
             <div>
               <div className="flex justify-center mb-3 mt-3">
@@ -28,7 +20,7 @@ const InfoCards = (): JSX.Element => {
           </div>
         </div>
 
-        <div data-aos="fade-up" >
+        <div data-aos="fade-up">
           <div
             className="grid grid-cols-1 justify-center items-center rounded-lg
       text-center shadow-infoCard hover:shadow-infoCardHover lg:m-auto md:m-auto mb-5 sm:w-full lg:w-56 md:w-56 h-44
@@ -44,7 +36,7 @@ const InfoCards = (): JSX.Element => {
           </div>
         </div>
 
-        <div data-aos="fade-up" >
+        <div data-aos="fade-up">
           <div
             className="grid grid-cols-1 justify-center items-center rounded-lg
       text-center shadow-infoCard hover:shadow-infoCardHover lg:m-auto md:m-auto mb-5 sm:w-full lg:w-56 md:w-56 h-44

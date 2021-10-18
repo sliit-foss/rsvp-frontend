@@ -1,9 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-
 import { useGetEvent } from '../../../queries/useGetEvent'
 import Layout from '../../../components/Layout'
 import Navbar from '../../../components/Layout/Navbar'
@@ -12,10 +8,6 @@ import Container from '../../../components/Layout/Container'
 import Speaker from '../../../components/Events/Speaker'
 
 const SingleEvent = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
-
   const router = useRouter()
   let eventID = ''
   if (process.browser) {
@@ -155,7 +147,7 @@ const SingleEvent = (): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="w-full h-1 bg-blue mt-8 rounded-lg"></div>
+            <div className="w-full h-1 bg-blue mt-8 rounded-lg" data-aos="fade"></div>
             <div className="flex flex-col lg:flex-row justify-end items-start mt-6 lg:mt-14 mb-20 lg:mb-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2">
                 <div className="flex flex-col justify-center items-start mt-5">

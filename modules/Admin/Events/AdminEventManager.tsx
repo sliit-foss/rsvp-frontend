@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import SpeakerFormFields from '../../../components/Admin/Events/SpeakerFormFields'
 import GeneralFormFields from '../../../components/Admin/Events/GeneralFormFields'
@@ -32,9 +30,6 @@ const AdminManageEvent = ({
   setSelectedModule,
   selectedEventId,
 }: props): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   const { data: event } = useGetEvent(selectedEventId)
   const [speakers, setSpeakers] = useState<Array<any>>([])
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1)

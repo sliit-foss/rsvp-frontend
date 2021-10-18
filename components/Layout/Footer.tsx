@@ -75,63 +75,22 @@ const Footer = (): JSX.Element => {
         </div>
         <div className="w-full h-4/6">
           <div className="flex flex-row w-full text-white pl-10 pr-10">
-            <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-1/2">
-              <ul>
-                <li className="pt-3 pb-3">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/clubs">
-                    <a>Clubs</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/">
-                    <a>About Us</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/contact">
-                    <a>Contact Us</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/events">
-                    <a>Events</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-1/2">
-              <ul>
-                <li className="pt-3 pb-3">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/clubs">
-                    <a>Clubs</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/">
-                    <a>About Us</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/contact">
-                    <a>Contact Us</a>
-                  </Link>
-                </li>
-                <li className="pt-3 pb-3">
-                  <Link href="/events">
-                    <a>Events</a>
-                  </Link>
-                </li>
-              </ul>
+            <div className="mt-10 md:mt-10 xl:mt-12 sm:mb-5 md:mb-5 w-3/4 sm:w-1/2 grid grid-cols-2 gap-4 gap-x-8">
+              <Link href="/">
+                <a className="hover:text-gray-light transition ease-in">Home</a>
+              </Link>
+              <Link href="/clubs">
+                <a className="hover:text-gray-light transition ease-in">Clubs</a>
+              </Link>
+              <Link href="/">
+                <a className="hover:text-gray-light transition ease-in">About Us</a>
+              </Link>
+              <Link href="/contact">
+                <a className="hover:text-gray-light transition ease-in">Contact Us</a>
+              </Link>
+              <Link href="/events">
+                <a className="hover:text-gray-light transition ease-in">Events</a>
+              </Link>
             </div>
           </div>
         </div>
@@ -150,8 +109,8 @@ const Footer = (): JSX.Element => {
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>
-                As a student run community we&#39;re always up to something!,
-                one of the best ways to keep up with us is to follow us on
+                As a student run community we&#39;re always up to something!
+                One of the best ways to keep up with us is to follow us on
                 social media or even subscribe to alerts using your email below!
               </p>
               <div className="flex flex-row item-center mb-5">

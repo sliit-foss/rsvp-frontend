@@ -1,10 +1,8 @@
-import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { MdDelete, MdEmail } from 'react-icons/md'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FaSchool } from 'react-icons/fa'
 import { HiUserGroup } from 'react-icons/hi'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import Button from '../../components/Common/Button'
 import LoadingOverlay from '../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
@@ -13,9 +11,6 @@ import { UserEndpoints } from '../../pages/api/user'
 import Swal from 'sweetalert2'
 
 const AdminUsers = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
   const { data: users, isSuccess } = useGetAllUsers()
   const [showLoading, setShowLoading] = useState(false)
   const [showModal, setShowModal] = useState(false)

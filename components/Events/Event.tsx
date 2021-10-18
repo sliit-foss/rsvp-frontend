@@ -1,7 +1,4 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -29,11 +26,7 @@ const Event = ({
   startTime,
   status,
 }: EventProps): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 200, duration: 1000 })
-  }, [])
-
-  const router = useRouter()
+const router = useRouter()
 
   return (
     <div data-aos="fade-up" className="w-full lg:w-2/6  md:px-4 lg:px-6 py-5 ">

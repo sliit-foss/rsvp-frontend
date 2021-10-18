@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import { useState } from 'react'
 import Image from 'next/image'
 import Container from '../Layout/Container'
 import { HiArrowRight } from 'react-icons/hi'
@@ -10,10 +8,6 @@ import LoadingOverlay from '../Common/LoadingOverlay'
 import Swal from 'sweetalert2'
 
 const ContactForm = (): JSX.Element => {
-  useEffect(() => {
-    Aos.init({ offset: 0, duration: 1000 })
-  }, [])
-
   const [showLoading, setShowLoading] = useState(false)
 
   const sendMail = (event: any) => {
