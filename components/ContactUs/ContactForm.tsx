@@ -96,12 +96,14 @@ const ContactForm = (): JSX.Element => {
                             className="bg-white border-none shadow-ds2 rounded-lg lg:w-72 md:w-full mr-0 lg:mr-3"
                             type="text"
                             placeholder="Name"
+                            required
                           />
                           <input
                             id="email"
                             className="bg-white border-none shadow-ds2 rounded-lg lg:w-72 md:w-full mt-5 lg:mt-0 ml-0 lg:ml-3"
                             type="text"
                             placeholder="Email"
+                            required
                           />
                         </div>
                         <div className="grid grid-cols-1 mt-5">
@@ -110,6 +112,7 @@ const ContactForm = (): JSX.Element => {
                             className="bg-white border-none shadow-ds2 rounded-lg"
                             type="text"
                             placeholder="Subject"
+                            required
                           />
                         </div>
                         <div className="grid grid-cols-1 mt-5">
@@ -117,6 +120,7 @@ const ContactForm = (): JSX.Element => {
                             id="body"
                             className="bg-white border-none shadow-ds2 h-40 rounded-lg"
                             placeholder="Message"
+                            required
                           />
                         </div>
                         <div className="grid grid-cols-1 mt-5">
