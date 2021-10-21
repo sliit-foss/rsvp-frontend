@@ -33,7 +33,7 @@ const SingleEvent = (): JSX.Element => {
       >
         {isSuccess ? (
           <Container>
-            <div className="w-full lg:w-1/2" data-aos="fade-right">
+            <div className="w-full lg:px-16 2xl:px-0" data-aos="fade-right">
               <div className="text-5xl lg:text-6xl xl:text-7xl text-blue font-bold text-center lg:text-left mt-14 mb-14 lg:mb-0">
                 {event?.name}
               </div>
