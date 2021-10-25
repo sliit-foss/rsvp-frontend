@@ -57,7 +57,7 @@ const GeneralFormFields = ({
       onSubmit={handleSubmit}
       data-aos="fade-left"
     >
-      <div className="col-span-1 md:col-span-2 grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="col-span-2 md:col-span-2 grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
         <input
           className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
           placeholder="Event Name"
@@ -77,7 +77,7 @@ const GeneralFormFields = ({
           required
         />
       </div>
-      <div className="col-span-1 md:col-span-2 grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="col-span-2 md:col-span-2 grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
         <div className="col-span-1">
           <label className="text-sm text-gray-400" htmlFor="startTime">
             Start Time
@@ -123,7 +123,7 @@ const GeneralFormFields = ({
           />
         </div>
       </div>
-      <div className="col-span-1 md:col-span-2 grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="col-span-2 md:col-span-2 grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
         <textarea
           className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
           placeholder="Event Description"
@@ -168,7 +168,7 @@ const GeneralFormFields = ({
         </button>
       </div>
       <input
-        className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
+        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Category"
         value={generalFormData.category}
         onChange={handleInputChange}
@@ -177,7 +177,7 @@ const GeneralFormFields = ({
         required
       />
       <input
-        className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
+        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Host"
         value={generalFormData.host}
         onChange={handleInputChange}
