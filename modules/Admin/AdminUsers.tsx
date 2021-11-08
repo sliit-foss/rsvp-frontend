@@ -122,6 +122,7 @@ const AdminUsers = (): JSX.Element => {
         })
       })
       .catch((e) => {
+        setShowLoading(false)
         const error = JSON.parse(e).data.error
         Swal.fire({
           icon: 'error',
