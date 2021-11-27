@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import NextImage from '../Common/NextImage'
 import { useRouter } from 'next/router'
 import SignInFormFields from './FormFields/SignInFormFields'
 import SignUpFormFields from './FormFields/SignUpFormFields'
-import googleLogo from '../../public/logos/google_colour.svg'
 import { AuthEndpoints } from '../../pages/api/auth'
 import LoadingOverlay from '../Common/LoadingOverlay'
 import Swal from 'sweetalert2'
@@ -115,16 +113,6 @@ const LoginForm = ({
         <p className="font-inter text-textBlackSecondary font-medium mb-6 text-sm">
           {login ? 'Login' : 'Sign up'} to access the best things!
         </p>
-        <button className="shadow-ds2 flex flex-row w-full lg:w-4/5 h-10 rounded-lg items-center justify-center leading-4 font-semibold font-inter text-sm mb-6">
-          <NextImage
-            classnames="w-4 h-4 mr-4 line"
-            src={googleLogo}
-            alt="sign up"
-            layout="intrinsic"
-            quality={90}
-          />
-          {login ? 'Sign in with Google' : 'Sign up with Google'}
-        </button>
         <p
           className="text-sm border-b-2 w-full lg:w-4/5 text-center mb-2"
           style={{
@@ -133,9 +121,6 @@ const LoginForm = ({
             borderColor: '#D2D2D2',
           }}
         >
-          <span className="px-3 bg-white">
-            {login ? 'or Sign in with Email' : 'or Signup with Email'}
-          </span>
         </p>
         {login ? (
           <SignInFormFields
