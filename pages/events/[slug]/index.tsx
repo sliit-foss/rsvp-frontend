@@ -11,7 +11,7 @@ const SingleEvent = (): JSX.Element => {
   const router = useRouter()
   let eventID = ''
   if (process.browser) {
-    eventID = window.location.href.split('/').reverse()[0].split('?')[0]
+    eventID = window.location.href.split('/').reverse()[1].replaceAll('/','')
   }
   const { data: event, isSuccess } = useGetEvent(eventID)
 
