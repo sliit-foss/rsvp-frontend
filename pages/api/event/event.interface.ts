@@ -15,7 +15,7 @@ export interface EventData {
   venue: string
   startTime: number
   endTime: number
-  tags: string[]
+  tags: Array<string>
   capacity: number
   attendeeCount: number
   category: string

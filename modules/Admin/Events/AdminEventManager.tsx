@@ -19,6 +19,7 @@ interface EventDataInterface {
   endTime?: number
   capacity?: number
   speakers?: Array<any>
+  tags?: Array<string>
 }
 
 interface props {
@@ -48,6 +49,7 @@ const AdminManageEvent = ({
     startTime: 0,
     endTime: 0,
     capacity: 0,
+    tags: [] as Array<string>,
   })
 
   useEffect(() => {
@@ -63,6 +65,7 @@ const AdminManageEvent = ({
       startTime: event?.startTime || 0,
       endTime: event?.endTime || 0,
       capacity: event?.capacity || 0,
+      tags: event?.tags || [],
     })
     setSpeakers(event?.speakers || [])
   }, [event])
@@ -152,6 +155,7 @@ const AdminManageEvent = ({
       startTime: 0,
       endTime: 0,
       capacity: 0,
+      tags: [],
     })
     setSpeakers([])
   }
@@ -190,6 +194,9 @@ const AdminManageEvent = ({
     }
     if (event?.venue == eventDataCopy.venue) {
       delete eventDataCopy.venue
+    }
+    if (JSON.stringify(event?.tags) == JSON.stringify(eventDataCopy.tags)) {
+      delete eventDataCopy.tags
     }
     return eventDataCopy
   }
