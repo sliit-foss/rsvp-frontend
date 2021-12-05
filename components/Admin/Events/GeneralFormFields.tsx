@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Dispatch, SetStateAction } from 'react'
 import { MdAddAPhoto } from 'react-icons/md'
 
@@ -12,6 +13,23 @@ const GeneralFormFields = ({
   setGeneralFormData,
   handleSubmit,
 }: props): JSX.Element => {
+  const [tagVisibility, setTagVisibility] = useState(true)
+
+  useEffect(() => {
+    const tagInput = document.getElementById('tagInput') as HTMLInputElement
+    tagInput.addEventListener('focusin', () => {
+      setTagVisibility(false)
+    })
+    tagInput.addEventListener('focusout', () => {
+      setTagVisibility(true)
+    })
+  })
+
+  const focusTagInput = () =>{
+    const tagInput = document.getElementById('tagInput') as HTMLInputElement
+    tagInput.focus()
+  }
+
   const handleInputChange = (e: any) => {
     setGeneralFormData({
       ...generalFormData,
@@ -20,6 +38,8 @@ const GeneralFormFields = ({
           ? Date.parse(e.target.value)
           : e.target.name == 'capacity'
           ? Number(e.target.value)
+          : e.target.name == 'tags'
+          ? ( e.target.value === '' ? [] : e.target.value.split(',') )
           : e.target.value,
     })
   }
@@ -168,7 +188,7 @@ const GeneralFormFields = ({
         </button>
       </div>
       <input
-        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
+        className="col-span-2 md:col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Category"
         value={generalFormData.category}
         onChange={handleInputChange}
@@ -176,15 +196,28 @@ const GeneralFormFields = ({
         type="text"
         required
       />
-      <input
-        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
-        placeholder="Host"
-        value={generalFormData.host}
-        onChange={handleInputChange}
-        name="host"
-        type="text"
-        required
-      />
+      <div className="col-span-2 md:col-span-1 relative">
+        <div className={`absolute top-2 ${tagVisibility? 'flex flex-row':'hidden'} justify-start w-full pl-2 overflow-x-scroll hide-input-scroll`}  onClick={focusTagInput}>
+          {generalFormData.tags.map((tag: string, index: number) => (
+            <div key={index}>
+              <div
+                className={`py-0.5 px-4 mb-4 mr-2 rounded-md shadow-md text-white text-sm filter hover:brightness-110 transition ease-in duration-150 cursor-default bg-gradientBlue`}
+              >
+                {tag.includes('#') ? tag :`#${tag}`.replaceAll(' ', '')}
+              </div>
+            </div>
+          ))}
+        </div>
+        <input
+          id="tagInput"
+          className={`rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full ${tagVisibility ? 'text-white':''}`}
+          placeholder="Tags"
+          value={generalFormData.tags}
+          onChange={handleInputChange}
+          name="tags"
+          type="text"
+        />
+      </div>
       <input
         className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Event Capacity"
@@ -209,6 +242,15 @@ const GeneralFormFields = ({
         <option value="Cancelled">Cancelled</option>
         <option value="Postponed">Postponed</option>
       </select>
+      <input
+        className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
+        placeholder="Host"
+        value={generalFormData.host}
+        onChange={handleInputChange}
+        name="host"
+        type="text"
+        required
+      />
       <input
         className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Event Join Link"

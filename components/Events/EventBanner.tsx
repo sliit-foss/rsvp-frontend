@@ -46,7 +46,7 @@ export default function EventBanner({
                 className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md cursor-default filter hover:brightness-105 transition ease-in duration-200"
                 key={index}
               >
-                {tag}
+                {tag.includes('#') ? tag :`#${tag}`}
               </div>
             ))}
           </div>
