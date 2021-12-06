@@ -21,6 +21,12 @@ const AdminEvents = ({
   const router = useRouter()
   const { data: eventList = [], isSuccess } = useGetEvents()
   const [showLoading, setShowLoading] = useState(false)
+  let loggedInUserClub: string
+  let loggedInUserRole: string
+  if (process.browser) {
+    loggedInUserClub = window.localStorage.getItem('Club') || ''
+    loggedInUserRole = window.localStorage.getItem('Role') || ''
+  }
   const deleteEvent = (eventId: string) => {
     setShowLoading(true)
     EventEndpoints.deleteEvent(eventId)
@@ -135,9 +141,10 @@ const AdminEvents = ({
                         value="View"
                         padding="py-2 px-2"
                         width="w-3/4"
+                        color={ loggedInUserRole !== 'Admin' && loggedInUserClub !== createdBy ? 'bg-gray-500 cursor-default pointer-events-none' : undefined }
                         onClick={() => {
                           setSelectedModule('Attendees')
-                          setSelectedEventId(_id)
+                          setSelectedEventId(_id)               
                         }}
                       />
                     </div>
