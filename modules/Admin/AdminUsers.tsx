@@ -103,34 +103,45 @@ const AdminUsers = (): JSX.Element => {
   }
 
   const deleteUser = (userId: string) => {
-    setShowLoading(true)
-    UserEndpoints.deleteUser(userId)
-      .then(() => {
-        let timerInterval: any
-        Swal.fire({
-          icon: 'success',
-          title: '<div class="text-2xl">User removed successfully</div>',
-          showConfirmButton: false,
-          timer: 1500,
-          willClose: () => {
-            clearInterval(timerInterval)
-          },
-        }).then(() => {
-          if (process.browser) {
-            window.location.reload()
-          }
-        })
-      })
-      .catch((e) => {
-        setShowLoading(false)
-        const error = JSON.parse(e).data.error
-        Swal.fire({
-          icon: 'error',
-          title: `<div class="text-2xl">${error}</div>`,
-          showConfirmButton: false,
-          timer: 1500,
-        })
-      })
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4A56A6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, remove user',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setShowLoading(true)
+        UserEndpoints.deleteUser(userId)
+          .then(() => {
+            let timerInterval: any
+            Swal.fire({
+              icon: 'success',
+              title: '<div class="text-2xl">User removed successfully</div>',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                clearInterval(timerInterval)
+              },
+            }).then(() => {
+              if (process.browser) {
+                window.location.reload()
+              }
+            })
+          })
+          .catch((e) => {
+            setShowLoading(false)
+            const error = JSON.parse(e).data.error
+            Swal.fire({
+              icon: 'error',
+              title: `<div class="text-2xl">${error}</div>`,
+              showConfirmButton: false,
+              timer: 1500,
+            })
+          })
+      }
+    })
   }
 
   return (

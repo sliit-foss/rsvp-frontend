@@ -37,7 +37,7 @@ const GeneralFormFields = ({
         e.target.name == 'startTime' || e.target.name == 'endTime'
           ? Date.parse(e.target.value)
           : e.target.name == 'capacity'
-          ? Number(e.target.value)
+          ? (e.target.value? Number(e.target.value) : 0)
           : e.target.name == 'tags'
           ? ( e.target.value === '' ? [] : e.target.value.split(',') )
           : e.target.value,
@@ -150,6 +150,7 @@ const GeneralFormFields = ({
           value={generalFormData.description}
           onChange={handleInputChange}
           name="description"
+          required
           cols={30}
           rows={10}
         ></textarea>
@@ -221,10 +222,11 @@ const GeneralFormFields = ({
       <input
         className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Event Capacity"
-        value={generalFormData.capacity}
+        value={generalFormData.capacity !== 0 ? generalFormData.capacity : undefined }
         onChange={handleInputChange}
         name="capacity"
         type="number"
+        min="0"
         required
       />
       <select
