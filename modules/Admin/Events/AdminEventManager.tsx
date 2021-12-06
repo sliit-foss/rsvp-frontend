@@ -16,7 +16,7 @@ interface EventDataInterface {
   host?: string
   joinLink?: string
   startTime?: number
-  endTime?: number
+  endTime?: number 
   capacity?: number
   speakers?: Array<any>
   tags?: Array<string>
@@ -46,8 +46,8 @@ const AdminManageEvent = ({
     venue: '',
     host: '',
     joinLink: '',
-    startTime: 0,
-    endTime: 0,
+    startTime: Date.now(),
+    endTime: Date.now(),
     capacity: 0,
     tags: [] as Array<string>,
   })
@@ -62,8 +62,8 @@ const AdminManageEvent = ({
       venue: event?.venue || '',
       host: event?.host || '',
       joinLink: event?.joinLink || '',
-      startTime: event?.startTime || 0,
-      endTime: event?.endTime || 0,
+      startTime: event?.startTime || Date.now(),
+      endTime: event?.endTime || Date.now(),
       capacity: event?.capacity || 0,
       tags: event?.tags || [],
     })
@@ -81,6 +81,17 @@ const AdminManageEvent = ({
     const eventData: EventDataInterface = {
       ...generalFormData,
       speakers: speakers ? speakers : undefined,
+    }
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    if (eventData.endTime! < eventData.startTime!) {
+      setShowLoading(false)
+      Swal.fire({
+        icon: 'warning',
+        title: `<div class="text-2xl">Event end time cannot be less than the start time</div>`,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      return
     }
     if (selectedEventId == null) {
       EventEndpoints.createEvent(eventData)
@@ -152,8 +163,8 @@ const AdminManageEvent = ({
       venue: '',
       host: '',
       joinLink: '',
-      startTime: 0,
-      endTime: 0,
+      startTime: Date.now(),
+      endTime: Date.now(),
       capacity: 0,
       tags: [],
     })

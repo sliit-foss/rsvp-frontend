@@ -28,35 +28,46 @@ const AdminEvents = ({
     loggedInUserRole = window.localStorage.getItem('Role') || ''
   }
   const deleteEvent = (eventId: string) => {
-    setShowLoading(true)
-    EventEndpoints.deleteEvent(eventId)
-      .then(() => {
-        setShowLoading(false)
-        let timerInterval: any
-        Swal.fire({
-          icon: 'success',
-          title: '<div class="text-2xl">Event deleted successfully</div>',
-          showConfirmButton: false,
-          timer: 1500,
-          willClose: () => {
-            clearInterval(timerInterval)
-          },
-        }).then(() => {
-          if (process.browser) {
-            window.location.reload()
-          }
-        })
-      })
-      .catch((e) => {
-        const error = JSON.parse(e).data.error
-        setShowLoading(false)
-        Swal.fire({
-          icon: 'error',
-          title: `<div class="text-2xl">${error}</div>`,
-          showConfirmButton: false,
-          timer: 1500,
-        })
-      })
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4A56A6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete event',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setShowLoading(true)
+        EventEndpoints.deleteEvent(eventId)
+          .then(() => {
+            setShowLoading(false)
+            let timerInterval: any
+            Swal.fire({
+              icon: 'success',
+              title: '<div class="text-2xl">Event deleted successfully</div>',
+              showConfirmButton: false,
+              timer: 1500,
+              willClose: () => {
+                clearInterval(timerInterval)
+              },
+            }).then(() => {
+              if (process.browser) {
+                window.location.reload()
+              }
+            })
+          })
+          .catch((e) => {
+            const error = JSON.parse(e).data.error
+            setShowLoading(false)
+            Swal.fire({
+              icon: 'error',
+              title: `<div class="text-2xl">${error}</div>`,
+              showConfirmButton: false,
+              timer: 1500,
+            })
+          })
+      }
+    })
   }
 
   return (
@@ -141,7 +152,12 @@ const AdminEvents = ({
                         value="View"
                         padding="py-2 px-2"
                         width="w-3/4"
-                        color={ loggedInUserRole !== 'Admin' && loggedInUserClub !== createdBy ? 'bg-gray-500 cursor-default pointer-events-none' : undefined }
+                        color={
+                          loggedInUserRole !== 'Admin' &&
+                          loggedInUserClub !== createdBy
+                            ? 'bg-gray-500 cursor-default pointer-events-none'
+                            : undefined
+                        }
                         onClick={() => {
                           setSelectedModule('Attendees')
                           setSelectedEventId(_id)

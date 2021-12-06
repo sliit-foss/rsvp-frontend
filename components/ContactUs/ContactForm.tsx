@@ -101,7 +101,7 @@ const ContactForm = (): JSX.Element => {
                           <input
                             id="email"
                             className="bg-white border-none shadow-ds2 rounded-lg lg:w-72 md:w-full mt-5 lg:mt-0 ml-0 lg:ml-3"
-                            type="text"
+                            type="email"
                             placeholder="Email"
                             required
                           />
