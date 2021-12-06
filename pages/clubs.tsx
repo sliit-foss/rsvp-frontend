@@ -6,7 +6,6 @@ import Club from '../components/Club'
 import foss from '../public/clubs/foss.png'
 import mozilla from '../public/clubs/mozilla.png'
 import ms from '../public/clubs/ms.png'
-import sliit from '../public/clubs/sliit.png'
 import wif from '../public/clubs/wif.png'
 import { HiArrowRight } from 'react-icons/hi'
 
@@ -14,22 +13,22 @@ const clubs = [
   {
     title: 'SLIIT FOSS Community',
     logo: foss,
+    url: 'https://sliitfoss.org',
   },
   {
     title: 'Mozilla Campus Club',
     logo: mozilla,
+    url: 'https://www.facebook.com/sliitmcc/',
   },
   {
     title: 'MS Club of SLIIT',
     logo: ms,
+    url: 'https://www.facebook.com/msclubsliit/',
   },
   {
     title: 'SLIIT Women in FOSS Community',
     logo: wif,
-  },
-  {
-    title: 'Other Societies',
-    logo: sliit,
+    url: 'https://wif-web.web.app'
   },
 ]
 
@@ -53,13 +52,13 @@ const ClubsPage = (): JSX.Element => {
               </span>
             </h1>
           </div>
-          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-5 max-w-3xl my-10 mx-auto">
             {clubs.map((club, index) => (
               <div
                 key={index}
                 data-aos={index % 2 == 0 ? 'fade-right' : 'fade-left'}
               >
-                <Club logo={club.logo} title={club.title} />
+                <Club logo={club.logo} title={club.title} url={club.url}/>
               </div>
             ))}
           </div>

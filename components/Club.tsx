@@ -3,11 +3,12 @@ import Image from 'next/image'
 interface ClubProps {
   logo: StaticImageData
   title: string
+  url: string
 }
 
-const Club = ({ logo, title }: ClubProps): JSX.Element => {
+const Club = ({ logo, title, url }: ClubProps): JSX.Element => {
   return (
-    <div className="relative group flex items-center justify-end max-w-md mx-auto overflow-hidden shadow-md hover:shadow-lg rounded-xl transition duration-500">
+    <a href={url} rel="noreferrer" target="_blank" className="relative group flex items-center justify-end max-w-md mx-auto overflow-hidden shadow-md hover:shadow-lg rounded-xl cursor-pointer transition duration-500">
       <Image
         className="rounded-xl"
         src={logo}
@@ -21,7 +22,7 @@ const Club = ({ logo, title }: ClubProps): JSX.Element => {
           {title}
         </h2>
       </div>
-    </div>
+    </a>
   )
 }
 
