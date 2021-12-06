@@ -144,7 +144,7 @@ const AdminEvents = ({
                         color={ loggedInUserRole !== 'Admin' && loggedInUserClub !== createdBy ? 'bg-gray-500 cursor-default pointer-events-none' : undefined }
                         onClick={() => {
                           setSelectedModule('Attendees')
-                          setSelectedEventId(_id)               
+                          setSelectedEventId(_id)
                         }}
                       />
                     </div>
