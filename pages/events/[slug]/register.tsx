@@ -14,8 +14,7 @@ const SingleEvent = (): JSX.Element => {
   const router = useRouter()
   let eventID = ''
   if (process.browser) {
-    eventID = window.location.href.split('/').reverse()[1]
-    console.log(eventID)
+    eventID = window.location.href.split('/').reverse()[2]
   }
 
   const formSubmit = (e: any) => {
