@@ -7,6 +7,7 @@ import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
 import { useGetEvents } from '../../../queries/useGetEvent'
 import { EventEndpoints } from '../../../pages/api/event'
+import { disableAos } from '../../../utils/utils'
 import Swal from 'sweetalert2'
 
 interface props {
@@ -21,22 +22,19 @@ const AdminEvents = ({
   const router = useRouter()
   const { data: eventList = [], isSuccess } = useGetEvents()
   const [showLoading, setShowLoading] = useState(false)
+
   let loggedInUserClub: string
   let loggedInUserRole: string
+
   if (process.browser) {
     loggedInUserClub = window.localStorage.getItem('Club') || ''
     loggedInUserRole = window.localStorage.getItem('Role') || ''
   }
+
   useEffect(() => {
-    setTimeout(() => {
-      if (process.browser) {
-        const eventItems = document.querySelectorAll('.eventItem')
-        eventItems.forEach((item: any) => {
-          item.removeAttribute('data-aos')
-        })
-      }
-    }, 2000)
+    disableAos('eventItem', 2000)
   }, [])
+
   const deleteEvent = (eventId: string) => {
     Swal.fire({
       title: 'Are you sure?',

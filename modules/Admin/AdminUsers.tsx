@@ -8,6 +8,7 @@ import LoadingOverlay from '../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
 import { useGetAllUsers } from '../../queries/useGetUser'
 import { UserEndpoints } from '../../pages/api/user'
+import { disableAos } from '../../utils/utils'
 import Swal from 'sweetalert2'
 
 const AdminUsers = (): JSX.Element => {
@@ -22,14 +23,7 @@ const AdminUsers = (): JSX.Element => {
   })
 
   useEffect(() => {
-    setTimeout(() => {
-      if (process.browser) {
-        const eventItems = document.querySelectorAll('.userRecord')
-        eventItems.forEach((item: any) => {
-          item.removeAttribute('data-aos')
-        })
-      }
-    }, 2000)
+    disableAos('userRecord', 2000)
   }, [])
 
   const toggleModal = () => {
