@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import { MdDelete, MdEmail } from 'react-icons/md'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FaSchool } from 'react-icons/fa'
@@ -20,6 +20,17 @@ const AdminUsers = (): JSX.Element => {
     role: '',
     faculty: '',
   })
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (process.browser) {
+        const eventItems = document.querySelectorAll('.userRecord')
+        eventItems.forEach((item: any) => {
+          item.removeAttribute('data-aos')
+        })
+      }
+    }, 2000)
+  }, [])
 
   const toggleModal = () => {
     setShowModal((prev) => !prev)
@@ -187,7 +198,7 @@ const AdminUsers = (): JSX.Element => {
               {users.map(({ _id, username, email, role, faculty }, i) => (
                 <div
                   key={i}
-                  className="grid grid-rows-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-10 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 md:px-8 justify-center items-center"
+                  className="grid grid-rows-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-10 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 md:px-8 justify-center items-center userRecord"
                   data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                 >
                   <p className="sm:col-span-3 md:col-span-2 font-semibold text-xl md:text-base text-gray-700">

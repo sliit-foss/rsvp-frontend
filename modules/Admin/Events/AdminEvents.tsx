@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
@@ -27,6 +27,16 @@ const AdminEvents = ({
     loggedInUserClub = window.localStorage.getItem('Club') || ''
     loggedInUserRole = window.localStorage.getItem('Role') || ''
   }
+  useEffect(() => {
+    setTimeout(() => {
+      if (process.browser) {
+        const eventItems = document.querySelectorAll('.eventItem')
+        eventItems.forEach((item: any) => {
+          item.removeAttribute('data-aos')
+        })
+      }
+    }, 2000)
+  }, [])
   const deleteEvent = (eventId: string) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -113,7 +123,7 @@ const AdminEvents = ({
                 {eventList.map(({ _id, name, status, createdBy }, i) => (
                   <div
                     key={i}
-                    className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center"
+                    className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center eventItem"
                     data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                   >
                     <p className="col-span-1 lg:col-span-2 font-semibold text-xl lg:text-base text-gray-700">
