@@ -106,7 +106,6 @@ const AdminAccount = (): JSX.Element => {
         >
           <div
             className="w-10/12 h-20 md:h-14 mt-16 mb-16 md:mb-20 bg-gradient-to-r from-purple-light to-purple-dark rounded-lg flex justify-center items-center cursor-default"
-            data-aos="fade-down"
           >
             <div className="text-2xl md:text-3xl text-white font-medium text-center">
               Account Info
@@ -116,7 +115,6 @@ const AdminAccount = (): JSX.Element => {
             {/* User */}
             <div
               className="w-10/12 md:w-15vw h-full md:h-15vw mb-10 md:mb-0"
-              data-aos="fade-right"
             >
               <div className="h-full w-full relative group bg-purple-light flex items-center justify-center rounded-xl transition cursor-default transform hover:scale-105 shadow-lg hover:shadow-xl transition ease-in duration-200">
                 <NextImage
@@ -140,7 +138,6 @@ const AdminAccount = (): JSX.Element => {
             {/* Email */}
             <div
               className="w-10/12 md:w-15vw h-full md:h-15vw mb-10 md:mb-0"
-              data-aos="fade"
             >
               <div className="h-full w-full relative group bg-purple-light flex items-center justify-center rounded-xl cursor-default transform hover:scale-105 shadow-lg hover:shadow-xl transition ease-in duration-200">
                 <NextImage
@@ -163,7 +160,6 @@ const AdminAccount = (): JSX.Element => {
             {/* Password */}
             <div
               className="w-10/12 md:w-15vw h-full md:h-15vw"
-              data-aos="fade-left"
             >
               <div className="h-full w-full relative group bg-purple-light flex items-center justify-center rounded-xl cursor-default transform hover:scale-105 shadow-lg hover:shadow-xl transition ease-in duration-200">
                 <NextImage
@@ -186,7 +182,6 @@ const AdminAccount = (): JSX.Element => {
           </div>
           <div
             className="w-8/12 sm:w-3/12 h-20 md:h-14 mb-16"
-            data-aos="fade-up"
           >
             <div className="bg-purple-light rounded-lg h-full w-full flex justify-center items-center shadow-lg hover:shadow-xl cursor-default transform hover:scale-105 transition ease-in duration-200">
               <div className="text-xl md:text-2xl text-white font-bold text-center">

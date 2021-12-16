@@ -15,7 +15,6 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
           <div className="h-full">
             <div
               className="w-auto px-6 mt-4 mb-8 py-2 md:py-3 mx-3 md:mx-0 rounded-lg shadow-md bg-purple-dark cursor-default "
-              data-aos="fade-right"
             >
               <div className="text-2xl text-white font-semibold text-left ">
                 Attendees
@@ -23,7 +22,6 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
             </div>
             <div
               className="hidden md:grid md:grid-rows-1 md:grid-cols-10 md:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 md:px-8 rounded-t-xl shadow-lg mb-3"
-              data-aos="fade-right"
             >
               <h3 className="md:col-span-2">Name</h3>
               <h3 className="md:col-span-3">Email</h3>
@@ -38,7 +36,6 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
                     <div
                       key={i}
                       className="grid grid-rows-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-10 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 md:px-8 justify-center items-center"
-                      data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                     >
                       <p className="sm:col-span-3 md:col-span-2 font-semibold text-xl md:text-base text-gray-700">
                         {name}
@@ -59,7 +56,6 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
             ) : (
               <div
                 className="w-full h-84vh lg:h-auto flex flex-col justify-center items-center lg:mt-20%"
-                data-aos="fade-left"
               >
                 <div className="font-inter font-bold text-5xl md:text-6xl lg:text-7xl text-center text-lightBlue mb-5 px-5 animate-pulse">
                   STAY TUNED

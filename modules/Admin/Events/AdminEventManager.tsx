@@ -230,7 +230,6 @@ const AdminManageEvent = ({
         >
           <div
             className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-            data-aos="fade-right"
           >
             General Details
           </div>
@@ -242,7 +241,6 @@ const AdminManageEvent = ({
           <div className="h-2"></div>
           <div
             className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-            data-aos="fade-right"
           >
             Speakers
           </div>
@@ -250,8 +248,6 @@ const AdminManageEvent = ({
             return (
               <div
                 key={index}
-                data-aos={index % 2 == 1 ? 'fade-right' : 'fade-left'}
-                data-aos-anchor="#mainForm"
               >
                 <SpeakerFormFields
                   index={index}
@@ -268,8 +264,6 @@ const AdminManageEvent = ({
           })}
           <div
             className="flex justify-center md:justify-end items-start pt-5 my-5"
-            data-aos="fade-left"
-            data-aos-anchor="#container"
           >
             <button
               type="button"
@@ -284,8 +278,6 @@ const AdminManageEvent = ({
           </div>
           <div
             className="flex justify-center md:justify-end items-start my-5"
-            data-aos="fade-right"
-            data-aos-anchor="#container"
           >
             <button
               type="submit"

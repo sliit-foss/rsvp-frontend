@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { MdDelete, MdEmail } from 'react-icons/md'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FaSchool } from 'react-icons/fa'
@@ -8,7 +8,6 @@ import LoadingOverlay from '../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../components/Admin/Layout/LoadingIndicator'
 import { useGetAllUsers } from '../../queries/useGetUser'
 import { UserEndpoints } from '../../pages/api/user'
-import { disableAos } from '../../utils/utils'
 import Swal from 'sweetalert2'
 
 const AdminUsers = (): JSX.Element => {
@@ -21,10 +20,6 @@ const AdminUsers = (): JSX.Element => {
     role: '',
     faculty: '',
   })
-
-  useEffect(() => {
-    disableAos('userRecord', 2000)
-  }, [])
 
   const toggleModal = () => {
     setShowModal((prev) => !prev)
@@ -165,7 +160,6 @@ const AdminUsers = (): JSX.Element => {
           <>
             <div
               className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0"
-              data-aos="fade-right"
             >
               <div className="text-2xl text-white font-semibold text-left ">
                 Users
@@ -173,13 +167,11 @@ const AdminUsers = (): JSX.Element => {
             </div>
             <div
               className="inline-flex items-center justify-end w-full mb-8 pr-4 lg:pr-0"
-              data-aos="fade-left"
             >
               <Button value="Add User" onClick={toggleModal} />
             </div>
             <div
               className="hidden md:grid md:grid-rows-1 md:grid-cols-10 md:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 md:px-8 rounded-t-xl shadow-lg mb-3"
-              data-aos="fade-right"
             >
               <h3 className="md:col-span-2">Username</h3>
               <h3 className="md:col-span-3">Email</h3>
@@ -193,7 +185,6 @@ const AdminUsers = (): JSX.Element => {
                 <div
                   key={i}
                   className="grid grid-rows-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-10 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 md:px-8 justify-center items-center userRecord"
-                  data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                 >
                   <p className="sm:col-span-3 md:col-span-2 font-semibold text-xl md:text-base text-gray-700">
                     {username}
