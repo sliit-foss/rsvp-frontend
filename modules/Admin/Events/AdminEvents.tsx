@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { MdDelete } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
@@ -7,7 +7,6 @@ import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
 import { useGetEvents } from '../../../queries/useGetEvent'
 import { EventEndpoints } from '../../../pages/api/event'
-import { disableAos } from '../../../utils/utils'
 import Swal from 'sweetalert2'
 
 interface props {
@@ -30,10 +29,6 @@ const AdminEvents = ({
     loggedInUserClub = window.localStorage.getItem('Club') || ''
     loggedInUserRole = window.localStorage.getItem('Role') || ''
   }
-
-  useEffect(() => {
-    disableAos('eventItem', 2000)
-  }, [])
 
   const deleteEvent = (eventId: string) => {
     Swal.fire({
@@ -86,7 +81,6 @@ const AdminEvents = ({
           <>
             <div
               className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0"
-              data-aos="fade-right"
             >
               <div className="text-2xl text-white font-semibold text-left ">
                 Events
@@ -94,7 +88,6 @@ const AdminEvents = ({
             </div>
             <div
               className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0"
-              data-aos="fade-left"
             >
               <Button
                 value="Add Event"
@@ -106,7 +99,6 @@ const AdminEvents = ({
             </div>
             <div
               className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-              data-aos="fade-right"
             >
               <h3 className="lg:col-span-2">Event Name</h3>
               <h3 className="lg:col-span-2">Status</h3>
@@ -122,7 +114,6 @@ const AdminEvents = ({
                   <div
                     key={i}
                     className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center eventItem"
-                    data-aos={i % 2 == 1 ? 'fade-right' : 'fade-left'}
                   >
                     <p className="col-span-1 lg:col-span-2 font-semibold text-xl lg:text-base text-gray-700">
                       {name}
@@ -217,7 +208,6 @@ const AdminEvents = ({
             ) : (
               <div
                 className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800"
-                data-aos="fade-left"
               >
                 There are no events at the moment.
               </div>

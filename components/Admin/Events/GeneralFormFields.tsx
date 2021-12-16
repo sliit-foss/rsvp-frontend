@@ -75,7 +75,6 @@ const GeneralFormFields = ({
       className="grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3 px-2"
       id="generalForm"
       onSubmit={handleSubmit}
-      data-aos="fade-left"
     >
       <div className="col-span-2 md:col-span-2 grid grid-rows-1 grid-cols-1 md:grid-cols-2 gap-3">
         <input
