@@ -29,31 +29,31 @@ const Footer = (): JSX.Element => {
           <div className="pl-10 pr-10 text-white mb-3 ">
             <h4 className="text-xl font-bold mb-3">Follow Us</h4>
             <div className="sm:mb-3 md:mb-3 flex flex-row">
-              <a href="https://www.facebook.com/sliitfoss">
+              <a href="https://www.facebook.com/sliitfoss" target="_blank" rel="noreferrer">
                 <FaFacebook
                   className="colorIcon mb-3 mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://www.instagram.com/sliitfoss/">
+              <a href="https://www.instagram.com/sliitfoss/" target="_blank" rel="noreferrer">
                 <FaInstagram
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://www.youtube.com/channel/UCPPO-QR0Dv13ewjhPsc_I3w">
+              <a href="https://www.youtube.com/channel/UCPPO-QR0Dv13ewjhPsc_I3w" target="_blank" rel="noreferrer">
                 <FaYoutube
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
                   size="22"
                 />
               </a>
-              <a href="https://www.linkedin.com/company/sliit-foss-community/mycompany/">
+              <a href="https://www.linkedin.com/company/sliit-foss-community/mycompany/" target="_blank" rel="noreferrer">
                 <FaLinkedin
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://twitter.com/fosssliit">
+              <a href="https://twitter.com/fosssliit" target="_blank" rel="noreferrer">
                 <FaTwitter
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
