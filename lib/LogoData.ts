@@ -6,6 +6,7 @@ import se from '../public/logos/se.png'
 import media from '../public/logos/media.png'
 import mozilla from '../public/logos/mozilla.png'
 import MSClubLogo from '../public/logos/MSClubLogo.png'
+import wif from '../public/logos/wif_light.png'
 
 interface LogoProps {
   image: StaticImageData
@@ -40,5 +41,9 @@ export const logoData: LogoProps[] = [
   {
     image: se,
     alt: 'Software engineering Student community',
+  },
+  {
+    image: wif,
+    alt: 'SLIIT Women In FOSS',
   },
 ]

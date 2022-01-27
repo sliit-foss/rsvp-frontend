@@ -151,7 +151,7 @@ const SingleEvent = (): JSX.Element => {
             <div className="flex flex-col lg:flex-row justify-end items-start mt-6 lg:mt-14 mb-20 lg:mb-32 px-5 lg:px-16 2xl:px-0">
               <div className="w-full lg:w-1/2">
                 <div className="flex flex-col justify-center items-start mt-5">
-                  <div className="w-full text-base lg:text-lg font-semibold text-center lg:text-left mt-10" data-aos="fade-left">
+                  <div className="w-full text-base lg:text-xl font-semibold text-center lg:text-left mt-10" data-aos="fade-left">
                     Register and join us on this day for an amazing experience
                   </div>
                   <div className="mt-10 w-full flex flex-col lg:flex-row justify-center items-center md:justify-start" data-aos="fade-right">
@@ -170,7 +170,7 @@ const SingleEvent = (): JSX.Element => {
                           })
                         }
                       }}
-                      className={`py-2 px-8 text-white rounded-lg shadow-md duration-150 transition ease-in font-medium ${
+                      className={`py-4 px-14 text-white rounded-lg shadow-md duration-150 transition ease-in text-xl ${
                         event?.attendeeCount !== event?.capacity &&
                         event?.status === 'Upcoming'
                           ? 'bg-gradientBlue hover:bg-gradientPurple'

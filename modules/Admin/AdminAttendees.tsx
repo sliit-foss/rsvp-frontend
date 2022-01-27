@@ -14,7 +14,7 @@ const AdminAttendees = ({ selectedEventId }: props): JSX.Element => {
         {isSuccess ? (
           <div className="h-full">
             <div
-              className="w-auto px-6 mt-4 mb-8 py-2 md:py-3 mx-3 md:mx-0 rounded-lg shadow-md bg-purple-dark cursor-default "
+              className="w-auto px-6 mt-4 mb-8 py-2 md:py-3 mx-3 md:mx-0 rounded-lg shadow-md bg-purple-dark cursor-default  pointer-events-none"
             >
               <div className="text-2xl text-white font-semibold text-left ">
                 Attendees
