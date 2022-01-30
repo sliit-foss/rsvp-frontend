@@ -9,6 +9,7 @@ interface ImageProps {
   height?: number
   placeholder?: 'blur' | 'empty'
   classnames?: string
+  nextImgClassnames?: string
 }
 
 const NextImage = ({
@@ -20,6 +21,7 @@ const NextImage = ({
   height,
   placeholder,
   classnames,
+  nextImgClassnames,
 }: ImageProps): JSX.Element => {
   return (
     <div className={classnames}>
@@ -31,6 +33,7 @@ const NextImage = ({
         height={height}
         quality={quality}
         placeholder={placeholder}
+        className={nextImgClassnames}
       />
     </div>
   )
