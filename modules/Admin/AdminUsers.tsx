@@ -70,7 +70,7 @@ const AdminUsers = (): JSX.Element => {
         })
       })
       .catch((e) => {
-        const error = JSON.parse(e).data.error
+        const error = e.response.data.message
         let errorMessage
         switch (true) {
           case error == 'No username was given':
@@ -132,10 +132,9 @@ const AdminUsers = (): JSX.Element => {
           })
           .catch((e) => {
             setShowLoading(false)
-            const error = JSON.parse(e).data.error
             Swal.fire({
               icon: 'error',
-              title: `<div class="text-2xl">${error}</div>`,
+              title: `<div class="text-2xl">${e.response.data.message}</div>`,
               showConfirmButton: false,
               timer: 1500,
             })
