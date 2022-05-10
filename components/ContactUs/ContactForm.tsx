@@ -32,11 +32,10 @@ const ContactForm = (): JSX.Element => {
         })
       })
       .catch((e) => {
-        const error = JSON.parse(e).data.error
         setShowLoading(false)
         Swal.fire({
           icon: 'error',
-          title: `<div class="text-2xl">${error}</div>`,
+          title: `<div class="text-2xl">${e.response.data.message}</div>`,
           showConfirmButton: false,
           timer: 1500,
         })
