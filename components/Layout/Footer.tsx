@@ -94,8 +94,8 @@ const Footer = (): JSX.Element => {
           </div>
         </div>
         <div className="w-full h-4/6">
-          <div className="flex flex-row w-full text-white pl-10 pr-10">
-            <div className="mt-10 md:mt-10 xl:mt-12 sm:mb-5 md:mb-5 w-3/4 sm:w-1/2 grid grid-cols-2 gap-4 gap-x-8">
+          <div className="flex flex-row w-full text-white pl-10 pr-6">
+            <div className="lg:w-full mt-10 md:mt-10 xl:mt-12 sm:mb-5 md:mb-5 w-3/4 sm:w-1/2 grid grid-cols-2 gap-4 gap-x-8">
               <Link href="/">
                 <a className="hover:text-gray-light transition ease-in">Home</a>
               </Link>
