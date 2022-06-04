@@ -16,10 +16,6 @@ const LoginInfo = (props: LoginInfoProps): JSX.Element => {
   if (props.login) {
     return (
       <div className={outerContainerClass}>
-        <p className={paragraphClass}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam
-          vitae non elementum tincidunt.{' '}
-        </p>
         <NextImage
           classnames={imageClass}
           src={signupImage}
@@ -32,10 +28,6 @@ const LoginInfo = (props: LoginInfoProps): JSX.Element => {
   } else {
     return (
       <div className={outerContainerClass}>
-        <p className={paragraphClass}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam
-          vitae non elementum tincidunt.{' '}
-        </p>
         <NextImage
           classnames={imageClass}
           src={loginImage}
