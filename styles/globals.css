@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .colorIcon {
-  color: #F8F8FF;
+  color: #e6e6e6;
 }
 
 ::-webkit-scrollbar {
