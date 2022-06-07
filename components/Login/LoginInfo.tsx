@@ -9,11 +9,16 @@ interface LoginInfoProps {
 const LoginInfo = (props: LoginInfoProps): JSX.Element => {
   const outerContainerClass =
     'flex flex-col items-center justify-center lg:justify-center lg:w-6/12 lg:items-center'
+  const paragraphClass =
+    'text-center text-textBlackTertiary mb-6 lg:text-left lg:w-5/6 lg:text-sm lg:p-6'
   const imageClass = 'mb-6 lg:mb-0 w-3/4 lg:w-5/6'
 
   if (props.login) {
     return (
       <div className={outerContainerClass}>
+        <p className={paragraphClass}>
+          Here opens the gateway to the admin panel where you can control and co-ordinate the future to come.{' '}
+        </p>
         <NextImage
           classnames={imageClass}
           src={signupImage}
@@ -26,6 +31,9 @@ const LoginInfo = (props: LoginInfoProps): JSX.Element => {
   } else {
     return (
       <div className={outerContainerClass}>
+        <p className={paragraphClass}>
+          Here opens the gateway to the admin panel where you can control and co-ordinate the future to come.{' '}
+        </p>
         <NextImage
           classnames={imageClass}
           src={loginImage}
