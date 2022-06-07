@@ -29,31 +29,51 @@ const Footer = (): JSX.Element => {
           <div className="pl-10 pr-10 text-white mb-3 ">
             <h4 className="text-xl font-bold mb-3">Follow Us</h4>
             <div className="sm:mb-3 md:mb-3 flex flex-row">
-              <a href="https://www.facebook.com/sliitfoss" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.facebook.com/sliitfoss"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaFacebook
                   className="colorIcon mb-3 mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://www.instagram.com/sliitfoss/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/sliitfoss/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaInstagram
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://www.youtube.com/channel/UCPPO-QR0Dv13ewjhPsc_I3w" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.youtube.com/channel/UCPPO-QR0Dv13ewjhPsc_I3w"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaYoutube
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white"
                   size="22"
                 />
               </a>
-              <a href="https://www.linkedin.com/company/sliit-foss-community/mycompany/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/company/sliit-foss-community/mycompany/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaLinkedin
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
                 />
               </a>
-              <a href="https://twitter.com/fosssliit" target="_blank" rel="noreferrer">
+              <a
+                href="https://twitter.com/fosssliit"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaTwitter
                   className="colorIcon mb-3  mr-3 fill-current-color hover:text-white transition-all ease-out duration-200"
                   size="22"
@@ -74,22 +94,30 @@ const Footer = (): JSX.Element => {
           </div>
         </div>
         <div className="w-full h-4/6">
-          <div className="flex flex-row w-full text-white pl-10 pr-10">
-            <div className="mt-10 md:mt-10 xl:mt-12 sm:mb-5 md:mb-5 w-3/4 sm:w-1/2 grid grid-cols-2 gap-4 gap-x-8">
+          <div className="flex flex-row w-full text-white pl-10 pr-6">
+            <div className="lg:w-full mt-10 md:mt-10 xl:mt-12 sm:mb-5 md:mb-5 w-3/4 sm:w-1/2 grid grid-cols-2 gap-4 gap-x-8">
               <Link href="/">
                 <a className="hover:text-gray-light transition ease-in">Home</a>
               </Link>
               <Link href="/clubs">
-                <a className="hover:text-gray-light transition ease-in">Clubs</a>
+                <a className="hover:text-gray-light transition ease-in">
+                  Clubs
+                </a>
               </Link>
               <Link href="/">
-                <a className="hover:text-gray-light transition ease-in">About Us</a>
+                <a className="hover:text-gray-light transition ease-in">
+                  About Us
+                </a>
               </Link>
               <Link href="/contact">
-                <a className="hover:text-gray-light transition ease-in">Contact Us</a>
+                <a className="hover:text-gray-light transition ease-in">
+                  Contact Us
+                </a>
               </Link>
               <Link href="/events">
-                <a className="hover:text-gray-light transition ease-in">Events</a>
+                <a className="hover:text-gray-light transition ease-in">
+                  Events
+                </a>
               </Link>
             </div>
           </div>
@@ -109,9 +137,9 @@ const Footer = (): JSX.Element => {
           <div className="flex flex-row w-full text-white pl-10 pr-10">
             <div className="sm:mt-5 sm:mb-5 md:mt-5 md:mb-5 w-full">
               <p>
-                As a student run community we&#39;re always up to something!
-                One of the best ways to keep up with us is to follow us on
-                social media or even subscribe to alerts using your email below!
+                As a student run community we&#39;re always up to something! One
+                of the best ways to keep up with us is to follow us on social
+                media or even subscribe to alerts using your email below!
               </p>
               <div className="flex flex-row item-center mb-5">
                 <input

@@ -65,7 +65,7 @@ const ContactForm = (): JSX.Element => {
               <div className="lg:w-1/2 sm:w-full h-auto " data-aos="fade-right">
                 <div className="sm:w-full md:w-1/2 lg:w-1/2 text-gray-default font-semibold mb-8">
                   <h5>
-                    Fill up the form and our Team will get back to you within 24
+                    Fill up the form and our team will get back to you within 24
                     hours.
                   </h5>
                 </div>

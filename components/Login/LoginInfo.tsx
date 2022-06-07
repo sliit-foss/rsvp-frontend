@@ -17,8 +17,7 @@ const LoginInfo = (props: LoginInfoProps): JSX.Element => {
     return (
       <div className={outerContainerClass}>
         <p className={paragraphClass}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam
-          vitae non elementum tincidunt.{' '}
+          Here opens the gateway to the admin panel where you can control and co-ordinate the future to come.{' '}
         </p>
         <NextImage
           classnames={imageClass}
@@ -33,8 +32,7 @@ const LoginInfo = (props: LoginInfoProps): JSX.Element => {
     return (
       <div className={outerContainerClass}>
         <p className={paragraphClass}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi diam
-          vitae non elementum tincidunt.{' '}
+          Here opens the gateway to the admin panel where you can control and co-ordinate the future to come.{' '}
         </p>
         <NextImage
           classnames={imageClass}

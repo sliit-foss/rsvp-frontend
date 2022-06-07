@@ -36,7 +36,7 @@ module.exports = {
           dark: '#363636',
           login: '#9E9E9E',
         },
-        colorIcon: '#BABABA',
+        colorIcon: '#F8F8FF',
       },
       boxShadow: {
         ds1: '10px 4px 20px rgba(0, 0, 0, 0.25)',

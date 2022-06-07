@@ -105,7 +105,7 @@ const Navbar = (): JSX.Element => {
             >
               <a>
                 <li className="hidden lg:block font-medium text-lg bg-gradientBlue hover:bg-gradientPurple text-white py-1.5 px-6 shadow hover:shadow-md transition ease-in rounded-lg cursor-pointer">
-                  {loginStatus ? 'Sign Out' : 'Sign In'}
+                  {loginStatus ? 'Log Out' : 'Log In'}
                 </li>
               </a>
             </button>
