@@ -5,7 +5,7 @@ import { AiTwotoneEdit } from 'react-icons/ai'
 import Button from '../../../components/Common/Button'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
-import { useGetEvents } from '../../../queries/useGetEvent'
+import { useGetAdminEventList } from '../../../queries/useGetEvent'
 import { EventEndpoints } from '../../../pages/api/event'
 import Swal from 'sweetalert2'
 
@@ -19,7 +19,7 @@ const AdminEvents = ({
   setSelectedEventId,
 }: props): JSX.Element => {
   const router = useRouter()
-  const { data: eventList = [], isSuccess } = useGetEvents()
+  const { data: eventList = [], isSuccess } = useGetAdminEventList()
   const [showLoading, setShowLoading] = useState(false)
 
   let loggedInUserClub: string
@@ -78,16 +78,12 @@ const AdminEvents = ({
       <section className="p-4 sm:p-5 md:h-full min-h-84vh">
         {isSuccess && eventList ? (
           <>
-            <div
-              className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0  pointer-events-none"
-            >
+            <div className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0  pointer-events-none">
               <div className="text-2xl text-white font-semibold text-left ">
                 Events
               </div>
             </div>
-            <div
-              className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0"
-            >
+            <div className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0">
               <Button
                 value="Add Event"
                 onClick={() => {
@@ -96,9 +92,7 @@ const AdminEvents = ({
                 }}
               />
             </div>
-            <div
-              className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-            >
+            <div className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3">
               <h3 className="lg:col-span-2">Event Name</h3>
               <h3 className="lg:col-span-2">Status</h3>
               <h3 className="lg:col-span-2">Created By</h3>
@@ -205,9 +199,7 @@ const AdminEvents = ({
                 ))}
               </div>
             ) : (
-              <div
-                className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800"
-              >
+              <div className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800">
                 There are no events at the moment.
               </div>
             )}

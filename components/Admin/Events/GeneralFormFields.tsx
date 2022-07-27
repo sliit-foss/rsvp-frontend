@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react'
 import { Dispatch, SetStateAction } from 'react'
 import { MdAddAPhoto } from 'react-icons/md'
+import Multiselect from 'multiselect-react-dropdown'
 
 interface props {
   generalFormData: any
   setGeneralFormData: Dispatch<SetStateAction<any>>
   handleSubmit: any
+  userRole: any
+  attendeesCount: any
 }
 
 const GeneralFormFields = ({
   generalFormData,
   setGeneralFormData,
   handleSubmit,
+  userRole,
+  attendeesCount,
 }: props): JSX.Element => {
   const [tagVisibility, setTagVisibility] = useState(true)
+  const [disabled, setDisabled] = useState(true)
+  const [statusShow, setStatusShow] = useState(true)
 
   useEffect(() => {
     const tagInput = document.getElementById('tagInput') as HTMLInputElement
@@ -23,9 +30,25 @@ const GeneralFormFields = ({
     tagInput.addEventListener('focusout', () => {
       setTagVisibility(true)
     })
+    if (
+      (generalFormData.status == 'Pending' || generalFormData.status == '') &&
+      userRole != 'Admin'
+    ) {
+      setDisabled(true)
+      setStatusShow(true)
+    } else {
+      setDisabled(false)
+      setStatusShow(false)
+    }
+    if (
+      (generalFormData.status == '' && userRole == 'Admin') ||
+      (attendeesCount == 0 && userRole == 'Admin')
+    ) {
+      setStatusShow(true)
+    }
   })
 
-  const focusTagInput = () =>{
+  const focusTagInput = () => {
     const tagInput = document.getElementById('tagInput') as HTMLInputElement
     tagInput.focus()
   }
@@ -37,9 +60,13 @@ const GeneralFormFields = ({
         e.target.name == 'startTime' || e.target.name == 'endTime'
           ? Date.parse(e.target.value)
           : e.target.name == 'capacity'
-          ? (e.target.value? Number(e.target.value) : 0)
+          ? e.target.value
+            ? Number(e.target.value)
+            : 0
           : e.target.name == 'tags'
-          ? ( e.target.value === '' ? [] : e.target.value.split(',') )
+          ? e.target.value === ''
+            ? []
+            : e.target.value.split(',')
           : e.target.value,
     })
   }
@@ -51,6 +78,18 @@ const GeneralFormFields = ({
         [e.target.name]: e.target.value,
       })
     }
+  const changeFaculty = (value: any) => {
+    setGeneralFormData({
+      ...generalFormData,
+      faculty: value,
+    })
+  }
+  const removeFaculty = (value: any) => {
+    setGeneralFormData({
+      ...generalFormData,
+      faculty: value,
+    })
+  }
 
   const encodeImage = (fileInput: any) => {
     if (fileInput.target.files && fileInput.target.files[0]) {
@@ -197,20 +236,27 @@ const GeneralFormFields = ({
         required
       />
       <div className="col-span-2 md:col-span-1 relative">
-        <div className={`absolute top-2 ${tagVisibility? 'flex flex-row':'hidden'} justify-start w-full pl-2 overflow-x-scroll hide-input-scroll`}  onClick={focusTagInput}>
+        <div
+          className={`absolute top-2 ${
+            tagVisibility ? 'flex flex-row' : 'hidden'
+          } justify-start w-full pl-2 overflow-x-scroll hide-input-scroll`}
+          onClick={focusTagInput}
+        >
           {generalFormData.tags.map((tag: string, index: number) => (
             <div key={index}>
               <div
                 className={`py-0.5 px-4 mb-4 mr-2 rounded-md shadow-md text-white text-sm filter hover:brightness-110 transition ease-in duration-150 cursor-default bg-gradientBlue`}
               >
-                {tag.includes('#') ? tag :`#${tag}`.replaceAll(' ', '')}
+                {tag.includes('#') ? tag : `#${tag}`.replaceAll(' ', '')}
               </div>
             </div>
           ))}
         </div>
         <input
           id="tagInput"
-          className={`rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full ${tagVisibility ? 'text-white':''}`}
+          className={`rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full ${
+            tagVisibility ? 'text-white' : ''
+          }`}
           placeholder="Tags"
           value={generalFormData.tags}
           onChange={handleInputChange}
@@ -221,7 +267,9 @@ const GeneralFormFields = ({
       <input
         className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Event Capacity"
-        value={generalFormData.capacity !== 0 ? generalFormData.capacity : undefined }
+        value={
+          generalFormData.capacity !== 0 ? generalFormData.capacity : undefined
+        }
         onChange={handleInputChange}
         name="capacity"
         type="number"
@@ -231,18 +279,46 @@ const GeneralFormFields = ({
       <select
         className="col-span-1 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         name="status"
-        value={generalFormData.status}
+        value={disabled ? 'Pending' : generalFormData.status}
         onChange={handleSelectChange()}
+        disabled={disabled}
       >
         <option value="" disabled selected>
           Event Status
         </option>
+        {statusShow ? <option value="Pending">Pending</option> : null}
         <option value="Happening Now">Happening Now</option>
         <option value="Upcoming">Upcoming</option>
         <option value="Closed">Closed</option>
         <option value="Cancelled">Cancelled</option>
         <option value="Postponed">Postponed</option>
       </select>
+      <div className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full">
+        <Multiselect
+          isObject={false}
+          onSelect={changeFaculty} // Function will trigger on select event
+          onRemove={removeFaculty}
+          selectedValues={
+            generalFormData.faculty !== 0 ? generalFormData.faculty : undefined
+          }
+          options={[
+            'FOSS',
+            'FCSC',
+            'SESC',
+            'MS Club',
+            'Media Unit',
+            'SLIIT Cyber Security Community',
+          ]}
+          placeholder="Faculty"
+          style={{
+            searchBox: {
+              border: 'none',
+              width: '100%',
+              padding: '0 5px',
+            },
+          }}
+        />
+      </div>
       <input
         className="col-span-2 rounded-md shadow-ds2 border-0 placeholder-gray-400 w-full"
         placeholder="Host"

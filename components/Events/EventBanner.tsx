@@ -24,7 +24,7 @@ export default function EventBanner({
 }: BannerProps): JSX.Element {
   const router = useRouter()
 
-  tags = tags.slice(0, 2)
+  tags = tags?.slice(0, 2)
 
   return (
     <Container>
@@ -41,12 +41,12 @@ export default function EventBanner({
           </h1>
           <div className="inline-flex items-center space-x-2">
             <p className="font-medium">{category}</p>
-            {tags.map((tag, index) => (
+            {tags?.map((tag, index) => (
               <div
                 className="text-gray-default text-xs sm:text-base bg-gray-light py-1 px-3 rounded-2xl shadow-md cursor-default filter hover:brightness-105 transition ease-in duration-200"
                 key={index}
               >
-                {tag.includes('#') ? tag :`#${tag}`}
+                {tag.includes('#') ? tag : `#${tag}`}
               </div>
             ))}
           </div>

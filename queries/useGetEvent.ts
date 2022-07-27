@@ -21,3 +21,7 @@ const LATEST_EVENTS = 'LATEST_EVENTS'
 export function useGetLatestEvents(): UseQueryResult<EventData[], boolean> {
   return useQuery(LATEST_EVENTS, EventEndpoints.getLatestEvents)
 }
+
+export function useGetAdminEventList(): UseQueryResult<EventData[], boolean> {
+  return useQuery(LATEST_EVENTS, EventEndpoints.getAdminEventList)
+}
