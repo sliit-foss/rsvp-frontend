@@ -36,7 +36,6 @@ const AdminManageEvent = ({
 }: props): JSX.Element => {
   const { data: event } = useGetEvent(selectedEventId)
   const { data: attendees } = useGetAttendees(selectedEventId)
-  const { data: userData, isSuccess } = useGetUser()
   const [speakers, setSpeakers] = useState<Array<any>>([])
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1)
   const [modalObjective, setModalObjective] = useState('Edit')
@@ -58,6 +57,7 @@ const AdminManageEvent = ({
     faculty: [] as Array<string>,
   })
 
+  const { data: userData, isSuccess } = useGetUser()
   useEffect(() => {
     setGeneralFormData({
       name: event?.name || '',
@@ -95,27 +95,6 @@ const AdminManageEvent = ({
       Swal.fire({
         icon: 'warning',
         title: `<div class="text-2xl">Event end time cannot be less than the start time</div>`,
-        showConfirmButton: false,
-        timer: 1500,
-      })
-      return
-    }
-
-    if (eventData.faculty?.length == 0) {
-      setShowLoading(false)
-      Swal.fire({
-        icon: 'warning',
-        title: `<div class="text-2xl">Faculty is required</div>`,
-        showConfirmButton: false,
-        timer: 1500,
-      })
-      return
-    }
-    if (!eventData.faculty?.includes(userData ? userData.faculty : '')) {
-      setShowLoading(false)
-      Swal.fire({
-        icon: 'warning',
-        title: `<div class="text-2xl">Publisher's faculty is mandatory</div>`,
         showConfirmButton: false,
         timer: 1500,
       })
