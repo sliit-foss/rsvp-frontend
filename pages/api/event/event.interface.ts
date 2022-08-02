@@ -23,7 +23,6 @@ export interface EventData {
   joinLink: string
   speakers: SpeakerData[]
   attendees: AttendeeData[]
-  createdBy: string
 }
 
 interface SpeakerData {

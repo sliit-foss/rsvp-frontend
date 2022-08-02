@@ -16,11 +16,6 @@ export async function getEvents(): Promise<EventData[] | boolean> {
   return response.data.data as EventData[]
 }
 
-export async function getAdminEventList(): Promise<EventData[] | boolean> {
-  const response = await apiInstance.get('/events/admineventlist/all')
-  return response.data.data as EventData[]
-}
-
 export async function getEvent({queryKey}: any): Promise<EventData | boolean> {
   const [_key, { eventId }] = queryKey
   console.log(_key)

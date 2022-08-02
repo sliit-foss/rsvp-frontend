@@ -5,7 +5,7 @@ import { AiTwotoneEdit } from 'react-icons/ai'
 import Button from '../../../components/Common/Button'
 import LoadingOverlay from '../../../components/Common/LoadingOverlay'
 import LoadingIndicator from '../../../components/Admin/Layout/LoadingIndicator'
-import { useGetAdminEventList } from '../../../queries/useGetEvent'
+import { useGetEvents } from '../../../queries/useGetEvent'
 import { EventEndpoints } from '../../../pages/api/event'
 import Swal from 'sweetalert2'
 
@@ -19,7 +19,7 @@ const AdminEvents = ({
   setSelectedEventId,
 }: props): JSX.Element => {
   const router = useRouter()
-  const { data: eventList = [], isSuccess } = useGetAdminEventList()
+  const { data: eventList = [], isSuccess } = useGetEvents()
   const [showLoading, setShowLoading] = useState(false)
 
   let loggedInUserClub: string
@@ -103,7 +103,7 @@ const AdminEvents = ({
             </div>
             {eventList.length != 0 ? (
               <div className="flex flex-col space-y-2 pb-4 md:max-h-65vh md:overflow-y-scroll scrollbar-hide">
-                {eventList.map(({ _id, name, status, createdBy }, i) => (
+                {eventList.map(({ _id, name, status, faculty }, i) => (
                   <div
                     key={i}
                     className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center eventItem"
@@ -125,7 +125,8 @@ const AdminEvents = ({
                       {status}
                     </div>
                     <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
-                      {createdBy}
+                      {/* {faculty.map((x)=>)} */}
+                      {faculty.map((obj, i) => obj + ' | ')}
                     </p>
                     <div className="col-span-2 mb-2 lg:mb-0">
                       <Button
@@ -146,7 +147,7 @@ const AdminEvents = ({
                         width="w-3/4"
                         color={
                           loggedInUserRole !== 'Admin' &&
-                          loggedInUserClub !== createdBy
+                          faculty.includes(loggedInUserRole)
                             ? 'bg-gray-500 cursor-default pointer-events-none'
                             : undefined
                         }
