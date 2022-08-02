@@ -124,9 +124,13 @@ const AdminEvents = ({
                     >
                       {status}
                     </div>
-                    <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
+                    <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0 flex flex-wrap justify-strat">
                       {/* {faculty.map((x)=>)} */}
-                      {faculty.map((obj, i) => obj + ' | ')}
+                      {faculty.map((obj, i) => (
+                        <div className="m-1 px-4 lg:rounded-3xl font-semibold bg-purple-light  text-white ">
+                          {obj}
+                        </div>
+                      ))}
                     </p>
                     <div className="col-span-2 mb-2 lg:mb-0">
                       <Button
@@ -147,7 +151,7 @@ const AdminEvents = ({
                         width="w-3/4"
                         color={
                           loggedInUserRole !== 'Admin' &&
-                          faculty.includes(loggedInUserRole)
+                          faculty.includes(loggedInUserClub)
                             ? 'bg-gray-500 cursor-default pointer-events-none'
                             : undefined
                         }
