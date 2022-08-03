@@ -316,6 +316,9 @@ const GeneralFormFields = ({
               width: '100%',
               padding: '0 5px',
             },
+            chip: {
+              backgroundColor: '#21b3d0',
+            },
           }}
         />
       </div>
