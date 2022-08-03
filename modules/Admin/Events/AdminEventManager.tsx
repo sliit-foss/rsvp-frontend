@@ -111,7 +111,11 @@ const AdminManageEvent = ({
       })
       return
     }
-    if (!eventData.faculty?.includes(userData ? userData.faculty : '')) {
+
+    if (
+      !eventData.faculty?.includes(userData ? userData.faculty : '') &&
+      userData?.role != 'Admin'
+    ) {
       setShowLoading(false)
       Swal.fire({
         icon: 'warning',
