@@ -151,7 +151,7 @@ const AdminEvents = ({
                         width="w-3/4"
                         color={
                           loggedInUserRole !== 'Admin' &&
-                          faculty?.includes(loggedInUserClub)
+                          !faculty?.includes(loggedInUserClub)
                             ? 'bg-gray-500 cursor-default pointer-events-none'
                             : undefined
                         }
