@@ -4,6 +4,8 @@ import SpeakerFormFields from '../../../components/Admin/Events/SpeakerFormField
 import GeneralFormFields from '../../../components/Admin/Events/GeneralFormFields'
 import { EventEndpoints } from '../../../pages/api/event'
 import { useGetEvent } from '../../../queries/useGetEvent'
+import { useGetUser } from '../../../queries/useGetUser'
+import { useGetAttendees } from '../../../queries/useGetAttendee'
 import Swal from 'sweetalert2'
 
 interface EventDataInterface {
@@ -16,10 +18,11 @@ interface EventDataInterface {
   host?: string
   joinLink?: string
   startTime?: number
-  endTime?: number 
+  endTime?: number
   capacity?: number
   speakers?: Array<any>
   tags?: Array<string>
+  faculty?: Array<string>
 }
 
 interface props {
@@ -32,6 +35,8 @@ const AdminManageEvent = ({
   selectedEventId,
 }: props): JSX.Element => {
   const { data: event } = useGetEvent(selectedEventId)
+  const { data: attendees } = useGetAttendees(selectedEventId)
+  const { data: userData, isSuccess } = useGetUser()
   const [speakers, setSpeakers] = useState<Array<any>>([])
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1)
   const [modalObjective, setModalObjective] = useState('Edit')
@@ -50,6 +55,7 @@ const AdminManageEvent = ({
     endTime: Date.now(),
     capacity: 0,
     tags: [] as Array<string>,
+    faculty: [] as Array<string>,
   })
 
   useEffect(() => {
@@ -66,6 +72,7 @@ const AdminManageEvent = ({
       endTime: event?.endTime || Date.now(),
       capacity: event?.capacity || 0,
       tags: event?.tags || [],
+      faculty: event?.faculty || [],
     })
     setSpeakers(event?.speakers || [])
   }, [event])
@@ -88,6 +95,31 @@ const AdminManageEvent = ({
       Swal.fire({
         icon: 'warning',
         title: `<div class="text-2xl">Event end time cannot be less than the start time</div>`,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      return
+    }
+
+    if (eventData.faculty?.length == 0) {
+      setShowLoading(false)
+      Swal.fire({
+        icon: 'warning',
+        title: `<div class="text-2xl">Faculty is required</div>`,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      return
+    }
+
+    if (
+      !eventData.faculty?.includes(userData ? userData.faculty : '') &&
+      userData?.role != 'Admin'
+    ) {
+      setShowLoading(false)
+      Swal.fire({
+        icon: 'warning',
+        title: `<div class="text-2xl">Publisher's faculty is mandatory</div>`,
         showConfirmButton: false,
         timer: 1500,
       })
@@ -165,6 +197,7 @@ const AdminManageEvent = ({
       endTime: Date.now(),
       capacity: 0,
       tags: [],
+      faculty: [],
     })
     setSpeakers([])
   }
@@ -207,6 +240,11 @@ const AdminManageEvent = ({
     if (JSON.stringify(event?.tags) == JSON.stringify(eventDataCopy.tags)) {
       delete eventDataCopy.tags
     }
+    if (
+      JSON.stringify(event?.faculty) == JSON.stringify(eventDataCopy.faculty)
+    ) {
+      delete eventDataCopy.faculty
+    }
     return eventDataCopy
   }
 
@@ -226,27 +264,23 @@ const AdminManageEvent = ({
           className="flex flex-col space-y-2 md:max-h-84vh-50 pb-4 md:overflow-y-scroll scrollbar-hide"
           id="mainForm"
         >
-          <div
-            className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-          >
+          <div className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3">
             General Details
           </div>
           <GeneralFormFields
             generalFormData={generalFormData}
             setGeneralFormData={setGeneralFormData}
             handleSubmit={handleSubmit}
+            userRole={userData?.role}
+            attendeesCount={attendees?.length}
           />
           <div className="h-2"></div>
-          <div
-            className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-          >
+          <div className="w-full bg-gradient-to-l from-purple-light to-purple-dark font-medium text-xl text-white p-4 px-8 rounded-t-xl shadow-lg mb-3">
             Speakers
           </div>
           {speakers.map((speaker, index) => {
             return (
-              <div
-                key={index}
-              >
+              <div key={index}>
                 <SpeakerFormFields
                   index={index}
                   disabled={true}
@@ -260,9 +294,7 @@ const AdminManageEvent = ({
               </div>
             )
           })}
-          <div
-            className="flex justify-center md:justify-end items-start pt-5 my-5"
-          >
+          <div className="flex justify-center md:justify-end items-start pt-5 my-5">
             <button
               type="button"
               className="w-full md:w-5/12 xl:w-1/4 py-2 mx-8 mb-2 rounded-md bg-gradientBlue hover:bg-gradientPurple text-white transition ease-in flex items-center justify-center"
@@ -274,9 +306,7 @@ const AdminManageEvent = ({
               Add New Speaker
             </button>
           </div>
-          <div
-            className="flex justify-center md:justify-end items-start my-5"
-          >
+          <div className="flex justify-center md:justify-end items-start my-5">
             <button
               type="submit"
               className="w-full md:w-5/12 xl:w-1/4 py-2 mx-8 rounded-md bg-gradientBlue hover:bg-gradientPurple text-white transition ease-in flex items-center justify-center"

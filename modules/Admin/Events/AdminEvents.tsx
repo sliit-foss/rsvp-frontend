@@ -78,16 +78,12 @@ const AdminEvents = ({
       <section className="p-4 sm:p-5 md:h-full min-h-84vh">
         {isSuccess && eventList ? (
           <>
-            <div
-              className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0  pointer-events-none"
-            >
+            <div className="w-auto px-6 mt-4 mb-10 py-2 rounded-lg bg-purple-dark lg:opacity-0 cursor-default lg:h-0 lg:m-0 lg:p-0  pointer-events-none">
               <div className="text-2xl text-white font-semibold text-left ">
                 Events
               </div>
             </div>
-            <div
-              className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0"
-            >
+            <div className="inline-flex items-center justify-end w-full mb-8 pr-6 lg:pr-0">
               <Button
                 value="Add Event"
                 onClick={() => {
@@ -96,9 +92,7 @@ const AdminEvents = ({
                 }}
               />
             </div>
-            <div
-              className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3"
-            >
+            <div className="hidden lg:grid lg:grid-rows-1 lg:grid-cols-12 lg:gap-4 bg-gradient-to-l from-purple-light to-purple-dark font-medium text-lg text-white p-4 px-8 rounded-t-xl shadow-lg mb-3">
               <h3 className="lg:col-span-2">Event Name</h3>
               <h3 className="lg:col-span-2">Status</h3>
               <h3 className="lg:col-span-2">Created By</h3>
@@ -109,7 +103,7 @@ const AdminEvents = ({
             </div>
             {eventList.length != 0 ? (
               <div className="flex flex-col space-y-2 pb-4 md:max-h-65vh md:overflow-y-scroll scrollbar-hide">
-                {eventList.map(({ _id, name, status, createdBy }, i) => (
+                {eventList.map(({ _id, name, status, faculty }, i) => (
                   <div
                     key={i}
                     className="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 rounded-sm shadow-lg p-4 px-6 lg:px-8 justify-center items-center eventItem"
@@ -130,8 +124,13 @@ const AdminEvents = ({
                     >
                       {status}
                     </div>
-                    <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0">
-                      {createdBy}
+                    <p className="col-span-1 lg:col-span-2 font-medium text-md lg:text-base text-gray-700 mb-2 lg:mb-0 flex flex-wrap justify-strat">
+                      {/* {faculty.map((x)=>)} */}
+                      {faculty?.map((obj) => (
+                        <div className="m-1 px-4 lg:rounded-3xl font-semibold bg-purple-light  text-white  font-medium text-md">
+                          {obj}
+                        </div>
+                      ))}
                     </p>
                     <div className="col-span-2 mb-2 lg:mb-0">
                       <Button
@@ -152,7 +151,7 @@ const AdminEvents = ({
                         width="w-3/4"
                         color={
                           loggedInUserRole !== 'Admin' &&
-                          loggedInUserClub !== createdBy
+                          !faculty?.includes(loggedInUserClub)
                             ? 'bg-gray-500 cursor-default pointer-events-none'
                             : undefined
                         }
@@ -205,9 +204,7 @@ const AdminEvents = ({
                 ))}
               </div>
             ) : (
-              <div
-                className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800"
-              >
+              <div className="font-inter font-semibold text-xl lg:text-2xl text-center mt-25vh lg:mt-30vh mb-20 px-8 text-gray-800">
                 There are no events at the moment.
               </div>
             )}

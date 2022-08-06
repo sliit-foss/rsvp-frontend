@@ -16,13 +16,13 @@ export interface EventData {
   startTime: number
   endTime: number
   tags: Array<string>
+  faculty: Array<string>
   capacity: number
   attendeeCount: number
   category: string
   joinLink: string
   speakers: SpeakerData[]
   attendees: AttendeeData[]
-  createdBy: string
 }
 
 interface SpeakerData {
