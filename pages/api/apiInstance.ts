@@ -6,7 +6,7 @@ const apiInstance = axios.create({
 
 apiInstance.interceptors.request.use(
   async function (config) {
-    config.baseURL = 'https://api-rsvp.cyclic.cloud'
+    config.baseURL = 'https://easy-puce-angler-cuff.cyclic.cloud'
     config.headers = {
       Authorization: localStorage.getItem('Token'),
     }
