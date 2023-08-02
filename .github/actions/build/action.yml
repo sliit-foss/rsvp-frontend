@@ -1,0 +1,17 @@
+name: build
+description: Base build action for the project
+runs:
+  using: composite
+  steps:
+    - name: Install Node.js 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Install dependencies
+      run: yarn
+      shell: bash
+
+    - name: Build changes
+      run: yarn build
+      shell: bash

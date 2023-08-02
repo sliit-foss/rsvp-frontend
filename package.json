@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "export": "next export",
-    "build:deploy": "next build && next export"
+    "export": "next export -o dist/",
+    "build:deploy": "next build && next export -o dist/"
   },
   "dependencies": {
     "@fontsource/inter": "^4.4.5",

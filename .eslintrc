@@ -27,6 +27,8 @@
     "no-unused-expressions": "error",
     "semi": ["error", "never"],
     "semi-style": ["error", "last"],
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
